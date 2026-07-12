@@ -343,6 +343,54 @@
   .mtext .mt{font-size:.92rem;color:var(--text);font-weight:600}
   .mtext .md{font-size:.78rem;color:var(--text2);margin-top:2px}
   input:checked ~ .mtext .mt{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--summit2)}
+
+  /* ---------- library / books (per phase) ---------- */
+  details.library{background:var(--ink2);border:1px solid var(--line);border-radius:12px;margin:14px 0;overflow:hidden}
+  details.library>summary{list-style:none;cursor:pointer;padding:12px 16px;display:flex;align-items:center;gap:11px}
+  details.library>summary::-webkit-details-marker{display:none}
+  details.library[open] .wchev{transform:rotate(90deg)}
+  .libbody{padding:6px 16px 16px}
+  .liblegend{font-size:.74rem;color:var(--text2);line-height:2;padding:9px 11px;background:var(--surface2);
+    border:1px solid var(--line-soft);border-radius:9px;margin-bottom:2px}
+  .liblegend b{color:var(--text)}
+  .libgroup{margin-top:18px}
+  .libsubj{font-family:var(--font-display);font-size:.98rem;font-weight:600;margin:0 0 4px;
+    display:flex;align-items:baseline;gap:8px;color:var(--text)}
+  .libsubjn{font-family:var(--font-mono);font-size:.7rem;color:var(--muted);font-weight:400}
+  ul.booklist{margin:0;padding:0;list-style:none}
+  label.bookrow{display:flex;gap:11px;padding:9px 6px;border-top:1px solid var(--line-soft);cursor:pointer;
+    border-radius:8px;transition:background .12s;align-items:flex-start}
+  .booklist li:first-child label.bookrow{border-top:0}
+  label.bookrow:hover{background:var(--line-soft)}
+  label.bookrow input{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
+  .bbox{width:18px;height:18px;border-radius:6px;flex:0 0 auto;margin-top:2px;position:relative;
+    border:2px solid var(--line);background:transparent;transition:.18s}
+  label.bookrow:hover .bbox{border-color:var(--summit)}
+  label.bookrow input:checked + .bbox{background:var(--summit);border-color:var(--summit);
+    box-shadow:0 0 10px -1px var(--summit),inset 0 1px 0 rgba(255,255,255,.35)}
+  @media (prefers-reduced-motion:no-preference){
+    label.bookrow input:checked + .bbox{animation:stamp .38s cubic-bezier(.34,1.6,.4,1)}
+  }
+  label.bookrow input:checked + .bbox::after{content:"✓";position:absolute;inset:-1px;display:grid;place-items:center;
+    color:#0a0f0c;font-weight:900;font-size:12px}
+  .brank{flex:0 0 auto;width:20px;text-align:center;font-family:var(--font-mono);font-size:.78rem;font-weight:700;
+    color:var(--summit);padding-top:2px}
+  .binfo{flex:1 1 auto;display:flex;flex-direction:column;gap:2px;min-width:0}
+  .btitle{font-size:.9rem;color:var(--text);font-weight:600;line-height:1.4}
+  .bauthor{font-size:.76rem;color:var(--text2)}
+  .bnote{font-size:.76rem;color:var(--muted);line-height:1.45;margin-top:1px}
+  label.bookrow input:checked ~ .binfo{opacity:.55}
+  label.bookrow input:checked ~ .binfo .btitle{text-decoration:line-through;text-decoration-color:var(--summit2)}
+  label.bookrow input:checked ~ .brank{color:var(--muted)}
+  label.bookrow.skip .btitle{color:var(--text2);font-weight:500}
+  label.bookrow.skip .brank{opacity:.5}
+  .btag{display:inline-block;font-family:var(--font-display);font-size:.58rem;font-weight:600;letter-spacing:.05em;
+    text-transform:uppercase;padding:2px 7px;border-radius:999px;vertical-align:middle;white-space:nowrap}
+  .btag.g-core{background:var(--summit);color:#08130a}
+  .btag.g-neutral{background:var(--line-soft);color:var(--text2)}
+  .btag.g-cert{background:#7aa6ff;color:#081020}
+  .btag.g-later{background:var(--lvl-i);color:#170f02}
+  .btag.g-skip{background:transparent;border:1px solid var(--lvl-a);color:var(--lvl-a)}
 </style>
 
 <div class="skyfx" id="sky"></div>
@@ -474,6 +522,51 @@ var PHASES=[
  {id:"f1", n:"Fundamentos + Java", weeks:"Semanas 1–13", period:"Jun–Set/2026", kicker:"Acampamento-base",
   foco:"Java (básico → avançado)", paralelo:"Linux · Redes · Git",
   proj:"App Java de console — POO, Collections, Streams, exceptions, testes JUnit, build Maven/Gradle, rodando em Linux, versionada com GitFlow, CI no GitHub Actions.",
+  books:[
+   {subj:"Java", items:[
+    ["Desbravando Java e orientação a objetos","Rodrigo Turini","nucleo","Melhor início: Java + OO sem dor. Casa com as semanas 1–5."],
+    ["Java, como programar (10ª ed.)","Paul Deitel & Harvey Deitel","nucleo","Livro-texto completo e rigoroso, do básico ao avançado. A espinha dorsal."],
+    ["Java 8 Prático: lambdas, streams e novos recursos","Paulo Silveira & Rodrigo Turini","nucleo","Java moderno; bate direto com a semana de funcional/Streams. Essencial."],
+    ["Explorando APIs e bibliotecas Java","Rodrigo Turini","nucleo","JDBC, I/O e Threads — cobre as semanas de I/O e concorrência."],
+    ["Estruturas de dados e algoritmos em Java (4ª ed.)","Michael T. Goodrich & Roberto Tamassia","nucleo","Rigor de ED&A + Big-O; casa com a semana de estruturas de dados."],
+    ["Algoritmos em Java: busca, ordenação e análise","Guilherme Silveira","nucleo","Complemento prático e mais leve do anterior."],
+    ["Design Patterns com Java","Eduardo Guerra","nucleo","Padrões GoF; fecha a Fase 1 (SOLID + patterns)."],
+    ["Reflexão e anotações: componentes reutilizáveis em Java","Eduardo Guerra","nucleo","Reflection e annotations — tema avançado. Por último no núcleo."],
+    ["Java guia do programador (atualizado p/ Java 16)","Peter Jandl Junior","ref","Referência nacional moderna e abrangente."],
+    ["Programação com Java: uma introdução abrangente","Herbert Schildt & Dale Skrien","ref","Introdução sólida; sobrepõe o Deitel — escolha um."],
+    ["Java com orientação a objetos","Alex Coelho","ref","Introdução mais simples; redundante com opções melhores."],
+    ["Java SE 8 Programmer I (OCA)","Guilherme Silveira & Mario Amaral","cert","Revisão dos fundamentos guiada pela certificação. Use a versão 8."],
+    ["Java SE 7 Programmer I (OCA)","Guilherme Silveira & Mario Amaral","cert","Mesmo conteúdo em Java 7; redundante. Pule se já tem o de 8."],
+    ["JPA Eficaz","Hebert Coelho","depois","Fase 2 — a Spring Data JPA usa JPA por baixo."],
+    ["Selenium WebDriver: testes automatizados com Java","Rafael Peixoto","depois","Fase 6 — testes E2E do frontend."],
+    ["MundoJ — Segurança com Java","Revista MundoJ","consulta","Revista; consulta pontual sobre segurança."],
+    ["JavaFX: interfaces para desktop","Bruno Oliveira","fora","GUI desktop; a trilha vai de console → web."],
+    ["CDI: dependências e contextos","Gillard Cordeiro","fora","DI do Java EE; o Spring tem a própria."],
+    ["Java EE: aproveite toda a plataforma","Alberto Souza","fora","Java EE ≠ caminho Spring da trilha."],
+    ["Java EE 7 com JSF, PrimeFaces e CDI","Thiago Faria","fora","JSF / Java EE legado."],
+    ["Aplicações Java para web com JSF e JPA","Gillard Cordeiro","fora","JSF legado."],
+    ["JSF Eficaz","Hebert Coelho","fora","JSF legado."],
+    ["VRaptor: desenvolvimento ágil para web","Lucas Cavalcanti","fora","Framework descontinuado. Último de todos."]
+   ]},
+   {subj:"Linux", items:[
+    ["Como o Linux funciona","Brian Ward","principal","O melhor: explica como o sistema funciona por baixo (boot, processos, systemd). Leia logo após pegar o básico do terminal."],
+    ["Começando com Linux: comandos, serviços e administração","Daniel Romero","principal","Melhor porta de entrada. Comece por ele."],
+    ["Certificação Linux: guia prático LPIC-1 101","Juliano Ramos","cert","Estruturado pela prova; força cobertura completa dos fundamentos."],
+    ["Linux, a Bíblia","Christopher Negus & Christine Bresnahan","ref","Referência enorme (usuário → admin). Consulta ao longo da fase."],
+    ["Guia prático do servidor Linux","Juliano Ramos","leitura","Admin de servidor para iniciante. Apoio."],
+    ["Linux: Redes e Servidores, guia prático (2ª ed.)","Carlos E. Morimoto","leitura","Clássico BR, mas a 2ª ed. está datada. Apoio, não base."],
+    ["BackTrack Linux: auditoria e teste de invasão","Silvio Giavaroto & Gerson Santos","fora","Pentest e desatualizado (BackTrack → Kali). Só muito depois, se for para segurança."]
+   ]},
+   {subj:"Redes", items:[
+    ["Redes de computadores e a Internet: abordagem top-down","Kurose & Ross","principal","Padrão-ouro para quem programa; visão top-down (HTTP, DNS, sockets). Livro-âncora."],
+    ["Comunicação de dados e redes de computadores (4ª ed.)","Behrouz A. Forouzan","principal","O mais didático; bottom-up, segue a ordem das suas semanas. Companheiro do Kurose."],
+    ["Redes de computadores (6ª ed.)","Tanenbaum, Feamster & Wetherall","ref","A referência mais profunda; use para aprofundar. Denso — não é o primeiro."],
+    ["Redes de computadores e internet","Douglas E. Comer","leitura","Sólido, autor clássico de TCP/IP. Reforço."],
+    ["Redes de computadores: teoria e prática","Douglas Rocha Mendes","leitura","Introdução prática nacional, mais leve. Aquecimento."],
+    ["Redes de computadores 2: transporte e rede (IFRS)","André Peres, César Augusto & Marcelo Augusto","leitura","Gratuito; cobre só transporte e rede. Complementar pontual."],
+    ["Sistemas modernos de comunicações Wireless","Simon Haykin & Michael Moher","fora","Telecom/RF (processamento de sinais), não protocolos. Domínio errado."]
+   ]}
+  ],
   ws:1,
   wk:[
    [["Java","Instalação do JDK; JVM × JRE × JDK; javac/java; classpath; IDE (IntelliJ); estrutura de projeto; primeiro programa; System.out. Tipos primitivos; variáveis; var; literais; operadores (aritméticos/relacionais/lógicos/bitwise); casting e coerção."],
@@ -1460,6 +1553,29 @@ function updateWeekly(pid){
   sub.innerHTML='Semanas '+ph.ws+'–'+(ph.ws+ph.wk.length-1)+' · <b>'+done+'</b>/'+ph.wk.length+' concluídas';
 }
 
+// biblioteca de livros (checklist separado, por fase)
+var BK_KEY='trilha_livros_v1';
+var bookDone=new Set();
+try{bookDone=new Set(JSON.parse(localStorage.getItem(BK_KEY)||'[]'));}catch(e){}
+function bookSave(){try{localStorage.setItem(BK_KEY,JSON.stringify([...bookDone]));}catch(e){}}
+var BOOKTAGS={
+ nucleo:{l:'Núcleo',c:'g-core'},
+ principal:{l:'Principal',c:'g-core'},
+ leitura:{l:'Leitura',c:'g-neutral'},
+ ref:{l:'Referência',c:'g-neutral'},
+ consulta:{l:'Consulta',c:'g-neutral'},
+ cert:{l:'Certificação',c:'g-cert'},
+ depois:{l:'Fase posterior',c:'g-later'},
+ fora:{l:'Fora da trilha',c:'g-skip'}
+};
+function updateLibrary(pid){
+  var sub=document.getElementById('lsub-'+pid);if(!sub)return;
+  var ph=PHASES.find(function(p){return p.id===pid;});if(!ph||!ph.books)return;
+  var tot=0,done=0;
+  ph.books.forEach(function(g){g.items.forEach(function(bk,bi){tot++;if(bookDone.has(pid+'|'+g.subj+'|'+bi))done++;});});
+  sub.innerHTML='<b>'+done+'</b>/'+tot+' lidos';
+}
+
 // marcos do portfólio (checklist separado)
 var MS_KEY='trilha_marcos_v1';
 var msChecked=new Set();
@@ -1592,6 +1708,44 @@ PHASES.forEach(function(ph,pi){
   });
   psec.appendChild(wkd);
 
+  if(ph.books&&ph.books.length){
+    var libd=document.createElement('details');libd.className='library';
+    var ptotBooks=0;ph.books.forEach(function(g){ptotBooks+=g.items.length;});
+    var groupsHTML=ph.books.map(function(g){
+      var itemsHTML=g.items.map(function(bk,bi){
+        var id=ph.id+'|'+g.subj+'|'+bi;
+        var on=bookDone.has(id)?' checked':'';
+        var tag=BOOKTAGS[bk[2]]||{l:bk[2],c:'g-neutral'};
+        return '<li><label class="bookrow'+(bk[2]==='fora'?' skip':'')+'">'+
+          '<input type="checkbox" data-book="'+id+'"'+on+'><span class="bbox"></span>'+
+          '<span class="brank">'+(bi+1)+'</span><span class="binfo">'+
+          '<span class="btitle">'+esc(bk[0])+' <span class="btag '+tag.c+'">'+esc(tag.l)+'</span></span>'+
+          '<span class="bauthor">'+esc(bk[1])+'</span>'+
+          (bk[3]?'<span class="bnote">'+esc(bk[3])+'</span>':'')+
+          '</span></label></li>';
+      }).join('');
+      return '<div class="libgroup"><h4 class="libsubj">'+esc(g.subj)+
+        ' <span class="libsubjn">'+g.items.length+' livros</span></h4>'+
+        '<ul class="booklist">'+itemsHTML+'</ul></div>';
+    }).join('');
+    var legend='<div class="liblegend"><b>Ordem = melhor encaixe na trilha</b> (nº 1 primeiro). '+
+      '<span class="btag g-core">Núcleo</span> faça agora · '+
+      '<span class="btag g-cert">Certificação</span> · '+
+      '<span class="btag g-neutral">Referência / consulta</span> · '+
+      '<span class="btag g-later">Fase posterior</span> · '+
+      '<span class="btag g-skip">Fora da trilha</span> pode pular.</div>';
+    libd.innerHTML='<summary><span class="wchev">▶</span>'+
+      '<span class="wsummary-title">📚 Biblioteca — ranqueada por qualidade + encaixe</span>'+
+      '<span class="wsummary-sub" id="lsub-'+ph.id+'">'+ptotBooks+' livros</span></summary>'+
+      '<div class="libbody">'+legend+groupsHTML+'</div>';
+    libd.addEventListener('change',function(e){
+      var inp=e.target;if(inp.type!=='checkbox'||inp.dataset.book===undefined)return;
+      if(inp.checked)bookDone.add(inp.dataset.book);else bookDone.delete(inp.dataset.book);
+      bookSave();updateLibrary(ph.id);
+    });
+    psec.appendChild(libd);
+  }
+
   ph.t.forEach(function(tech){
     var col=ACCENTS[tci++%ACCENTS.length];
     var d=document.createElement('details');d.className='tech';d.style.setProperty('--c',col);d.dataset.slug=tech.s;d.dataset.pid=ph.id;
@@ -1639,11 +1793,12 @@ function updateGlobal(){
 
 function refreshAll(){
   Object.keys(TOT).forEach(updateTech);
-  PHASES.forEach(function(ph){updatePhase(ph.id);updateWeekly(ph.id);});
+  PHASES.forEach(function(ph){updatePhase(ph.id);updateWeekly(ph.id);updateLibrary(ph.id);});
   updateGlobal();
 }
 
 requestAnimationFrame(refreshAll);
+setTimeout(refreshAll,80); // fallback: rAF fica pausado em aba oculta; garante a pintura do progresso salvo
 
 // checkbox toggle (delegation, no re-render)
 list.addEventListener('change',function(e){
@@ -1697,12 +1852,13 @@ function applyFilter(){
 q.addEventListener('input',applyFilter);
 document.getElementById('clr').addEventListener('click',function(){q.value='';applyFilter();q.focus();});
 document.querySelectorAll('.chip').forEach(function(ch){ch.addEventListener('click',function(){var k=ch.getAttribute('data-lvl');active[k]=!active[k];ch.setAttribute('aria-pressed',active[k]?'true':'false');applyFilter();});});
-document.getElementById('exp').addEventListener('click',function(){list.querySelectorAll('details.tech, details.weekly').forEach(function(d){if(d.style.display!=='none')d.open=true;});});
-document.getElementById('col').addEventListener('click',function(){list.querySelectorAll('details.tech, details.weekly').forEach(function(d){d.open=false;});});
+document.getElementById('exp').addEventListener('click',function(){list.querySelectorAll('details.tech, details.weekly, details.library').forEach(function(d){if(d.style.display!=='none')d.open=true;});});
+document.getElementById('col').addEventListener('click',function(){list.querySelectorAll('details.tech, details.weekly, details.library').forEach(function(d){d.open=false;});});
 document.getElementById('reset').addEventListener('click',function(){
-  if(!confirm('Zerar TODO o progresso marcado (conceitos, semanas e marcos)? Não dá pra desfazer.'))return;
+  if(!confirm('Zerar TODO o progresso marcado (conceitos, semanas, livros e marcos)? Não dá pra desfazer.'))return;
   checked.clear();save();
   weekDone.clear();weekSave();
+  bookDone.clear();bookSave();
   msChecked.clear();msSave();
   list.querySelectorAll('input[type=checkbox]').forEach(function(i){i.checked=false;});
   mlist.querySelectorAll('input[type=checkbox]').forEach(function(i){i.checked=false;});
