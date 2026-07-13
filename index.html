@@ -524,29 +524,45 @@ var PHASES=[
   proj:"App Java de console — POO, Collections, Streams, exceptions, testes JUnit, build Maven/Gradle, rodando em Linux, versionada com GitFlow, CI no GitHub Actions.",
   books:[
    {subj:"Java", items:[
-    ["Desbravando Java e orientação a objetos","Rodrigo Turini","nucleo","Melhor início: Java + OO sem dor. Casa com as semanas 1–5."],
-    ["Java, como programar (10ª ed.)","Paul Deitel & Harvey Deitel","nucleo","Livro-texto completo e rigoroso, do básico ao avançado. A espinha dorsal."],
-    ["Java 8 Prático: lambdas, streams e novos recursos","Paulo Silveira & Rodrigo Turini","nucleo","Java moderno; bate direto com a semana de funcional/Streams. Essencial."],
-    ["Explorando APIs e bibliotecas Java","Rodrigo Turini","nucleo","JDBC, I/O e Threads — cobre as semanas de I/O e concorrência."],
-    ["Estruturas de dados e algoritmos em Java (4ª ed.)","Michael T. Goodrich & Roberto Tamassia","nucleo","Rigor de ED&A + Big-O; casa com a semana de estruturas de dados."],
-    ["Algoritmos em Java: busca, ordenação e análise","Guilherme Silveira","nucleo","Complemento prático e mais leve do anterior."],
-    ["Design Patterns com Java","Eduardo Guerra","nucleo","Padrões GoF; fecha a Fase 1 (SOLID + patterns)."],
-    ["Reflexão e anotações: componentes reutilizáveis em Java","Eduardo Guerra","nucleo","Reflection e annotations — tema avançado. Por último no núcleo."],
-    ["Java guia do programador (atualizado p/ Java 16)","Peter Jandl Junior","ref","Referência nacional moderna e abrangente."],
-    ["Programação com Java: uma introdução abrangente","Herbert Schildt & Dale Skrien","ref","Introdução sólida; sobrepõe o Deitel — escolha um."],
-    ["Java com orientação a objetos","Alex Coelho","ref","Introdução mais simples; redundante com opções melhores."],
-    ["Java SE 8 Programmer I (OCA)","Guilherme Silveira & Mario Amaral","cert","Revisão dos fundamentos guiada pela certificação. Use a versão 8."],
-    ["Java SE 7 Programmer I (OCA)","Guilherme Silveira & Mario Amaral","cert","Mesmo conteúdo em Java 7; redundante. Pule se já tem o de 8."],
-    ["JPA Eficaz","Hebert Coelho","depois","Fase 2 — a Spring Data JPA usa JPA por baixo."],
-    ["Selenium WebDriver: testes automatizados com Java","Rafael Peixoto","depois","Fase 6 — testes E2E do frontend."],
-    ["MundoJ — Segurança com Java","Revista MundoJ","consulta","Revista; consulta pontual sobre segurança."],
-    ["JavaFX: interfaces para desktop","Bruno Oliveira","fora","GUI desktop; a trilha vai de console → web."],
-    ["CDI: dependências e contextos","Gillard Cordeiro","fora","DI do Java EE; o Spring tem a própria."],
-    ["Java EE: aproveite toda a plataforma","Alberto Souza","fora","Java EE ≠ caminho Spring da trilha."],
-    ["Java EE 7 com JSF, PrimeFaces e CDI","Thiago Faria","fora","JSF / Java EE legado."],
-    ["Aplicações Java para web com JSF e JPA","Gillard Cordeiro","fora","JSF legado."],
-    ["JSF Eficaz","Hebert Coelho","fora","JSF legado."],
-    ["VRaptor: desenvolvimento ágil para web","Lucas Cavalcanti","fora","Framework descontinuado. Último de todos."]
+    ["Desbravando Java e Orientação a Objetos","Rodrigo Turini · Casa do Código","nucleo","Melhor início: Java + OO sem dor. Casa com as semanas 1–5."],
+    ["Java: Guia do Programador (4ª ed., 2021)","Peter Jandl Junior · Novatec","nucleo","Referência nacional moderna e abrangente, atualizada. Ótima espinha dorsal."],
+    ["Java 8 Prático: lambdas, streams e os novos recursos","Paulo Silveira & Rodrigo Turini · Casa do Código","nucleo","Funcional/Streams — bate direto com essa semana. Essencial."],
+    ["Java 8 to 21","Shai Almog · BPB (2023)","nucleo","Recursos modernos até o Java 21 (records, sealed, virtual threads). Mantém você atual."],
+    ["Explorando APIs e bibliotecas Java: JDBC, IO, Threads, JavaFX","Rodrigo Turini · Casa do Código","nucleo","I/O, Threads e JDBC — cobre as semanas de I/O e concorrência."],
+    ["Programação com Java: uma introdução abrangente","Herbert Schildt & Dale Skrien · AMGH (2013)","ref","Introdução sólida e completa; alternativa de leitura de base."],
+    ["Java com Orientação a Objetos","Alex Coelho · Ciência Moderna (2012)","ref","Introdução mais simples; redundante com opções melhores."],
+    ["Curso de Java Básico","Fábio Mengue · Unicamp (2002)","ref","Apostila introdutória gratuita, porém bem antiga."],
+    ["Java Reflection in Action","Ira R. & Nate Forman · Manning (2005)","ref","Reflection a fundo — tema avançado. Conteúdo datado, mas o conceito vale."],
+    ["Java SE 8 Programmer I (OCA)","Guilherme Silveira & Mário Amaral · Casa do Código","cert","Revisão dos fundamentos guiada pela certificação. Use a versão 8."],
+    ["Java SE 7 Programmer I (OCA)","Guilherme Silveira & Mário Amaral · Casa do Código","cert","Versão Java 7; redundante — prefira a de 8."],
+    ["MundoJ — Segurança com Java","Eduardo Guerra e outros · MundoJ","consulta","Coletânea de artigos; consulta pontual sobre segurança."],
+    ["Selenium WebDriver: testes automatizados com Java","Rafael Peixoto · Casa do Código","depois","Fase 6 — testes E2E do frontend."],
+    ["Java for Web Development (Servlets, JSP, MVC)","Sarika Agarwal & Vivek Gupta · BPB (2022)","fora","Java web com Servlets/JSP; a trilha usa Spring."],
+    ["Java EE: aproveite toda a plataforma","Alberto Souza · Casa do Código","fora","Java EE ≠ caminho Spring da trilha."],
+    ["Java EE 7 com JSF, PrimeFaces e CDI (2ª ed.)","Thiago Faria · AlgaWorks (2015)","fora","JSF / Java EE legado."],
+    ["Aplicações Java para Web com JSF e JPA","Gilliard Cordeiro · Casa do Código","fora","JSF legado."],
+    ["JSF Eficaz","Hébert Coelho · Casa do Código","fora","JSF legado."],
+    ["CDI: integre dependências e contextos do seu código Java","Gilliard Cordeiro · Casa do Código","fora","DI do Java EE; o Spring tem a própria."],
+    ["VRaptor: desenvolvimento ágil para web com Java","Lucas Cavalcanti · Casa do Código","fora","Framework descontinuado. Último de todos."],
+    ["JavaFX: interfaces com qualidade para desktop","Bruno Oliveira · Casa do Código","fora","GUI desktop; a trilha vai de console → web."]
+   ]},
+   {subj:"Algoritmos & Estruturas de Dados", items:[
+    ["Entendendo Algoritmos (Grokking Algorithms)","Aditya Y. Bhargava (2017)","nucleo","O melhor ponto de partida: ilustrado e intuitivo. Leia primeiro."],
+    ["Estruturas de Dados e Algoritmos em Java (4ª ed.)","Michael T. Goodrich & Roberto Tamassia · Bookman (2007)","nucleo","DS&A em Java, rigoroso; casa com a semana de estruturas de dados + Big-O."],
+    ["Lógica de Programação e Estruturas de Dados com Aplicações em Java","Sandra Puga & Gerson Rissetti (2004)","leitura","Lógica + estruturas com exemplos em Java. Bom reforço inicial."],
+    ["Algoritmos: Teoria e Prática (CLRS)","Cormen, Leiserson, Rivest & Stein","ref","A referência definitiva (bíblia de algoritmos). Densa — consulta/aprofundamento. Você tem a 2ª e a 3ª ed."],
+    ["Algoritmos","Dasgupta, Papadimitriou & Vazirani (2009)","ref","Texto de algoritmos elegante e conciso. Ótimo complemento ao CLRS."],
+    ["Lógica de Programação: a construção de algoritmos e estruturas de dados (3ª ed.)","Forbellone & Eberspächer (2005)","leitura","Clássico brasileiro de lógica de programação."],
+    ["Lógica de Programação: crie seus primeiros programas","Paulo Silveira & Adriano Almeida (2013)","leitura","Introdução leve e prática à lógica."],
+    ["Estruturas de Dados e Algoritmos com JavaScript (2ª ed.)","Loiane Groner (2019)","leitura","Bom material de DS&A — em JavaScript (útil também na Fase 6)."],
+    ["Lógica de Programação e Algoritmos com JavaScript (2ª ed.)","Edécio Fernando Iepsen (2022)","leitura","Lógica com JavaScript."],
+    ["Algoritmos e Estrutura de Dados","Kleber Ricardi Rovai (2018)","leitura","Material introdutório de DS&A."],
+    ["Algoritmos: Lógica para Desenvolvimento de Programação (28ª ed.)","Manzano & Oliveira (2016)","leitura","Clássico introdutório de lógica; dezenas de edições."],
+    ["Algoritmos e Programação com Exemplos em Pascal e C","Edelweiss & Livi (2014)","fora","Lógica com Pascal/C — conceitos válidos, linguagens fora da trilha."],
+    ["Algoritmo e Programação (coletânea Sagah)","Izabelly Morais e outros (2018)","fora","Material introdutório genérico."],
+    ["Algoritmos e Cálculo Numérico (coletânea Sagah)","Fabio Santiago e outros (2021)","fora","Foco em cálculo numérico; tangencial."],
+    ["Delphi e Lógica de Programação para Iniciantes","Diego Garcia","fora","Lógica com Delphi — fora da trilha."],
+    ["Scratch: um jeito divertido de aprender programação","Helton Varela","fora","Introdução lúdica à lógica (Scratch); nível bem inicial."]
    ]},
    {subj:"Linux", items:[
     ["Como o Linux funciona","Brian Ward","principal","O melhor: explica como o sistema funciona por baixo (boot, processos, systemd). Leia logo após pegar o básico do terminal."],
@@ -825,6 +841,26 @@ var PHASES=[
  {id:"f2", n:"Spring", weeks:"Semanas 14–21", period:"Set–Nov/2026",
   foco:"Spring Boot · Data · Security", paralelo:"Postgres → SQL Server",
   proj:"API REST em Spring Boot — Spring Data JPA (Postgres) + Spring Security (JWT + roles), validação, tratamento de erros, testes com Testcontainers, empacotada como JAR executável.",
+  books:[
+   {subj:"Persistência (JPA / Spring Data)", items:[
+    ["Java Persistence with Spring Data and Hibernate","Cătălin Tudose · Manning (2022)","nucleo","Persistência com Spring Data + Hibernate — exatamente o coração da Fase 2. Núcleo."],
+    ["JPA Eficaz: as melhores práticas de persistência em Java","Hébert Coelho · Casa do Código","nucleo","Boas práticas de JPA; a Spring Data JPA usa JPA por baixo."]
+   ]},
+   {subj:"APIs REST", items:[
+    ["APIs REST: seus serviços prontos para o mundo real","Alexandre Saudate · Casa do Código","leitura","Design de APIs REST — casa com os REST controllers do Spring."],
+    ["REST: construa APIs inteligentes de maneira simples","Alexandre Saudate · Casa do Código","leitura","Fundamentos de REST antes de subir para o avançado."]
+   ]},
+   {subj:"SQL & Bancos relacionais", items:[
+    ["Projeto de Banco de Dados (6ª ed.)","Carlos A. Heuser · Bookman","nucleo","Modelagem ER e projeto de BD — base da semana de modelagem/normalização."],
+    ["Learning PostgreSQL 11 (3ª ed.)","Juba & Volkov · Packt (2019)","nucleo","Postgres do zero — o SGBD relacional da trilha."],
+    ["Banco de Dados: Projeto e Implementação (3ª ed.)","Felipe N. R. Machado · Érica (2014)","leitura","Projeto e implementação de BD; complementar ao Heuser."],
+    ["MySQL: comece com o principal banco open source","Vinicius Carvalho · Casa do Código","leitura","SQL prático em MySQL; conceitos transferem para Postgres."],
+    ["SQL: uma abordagem para bancos de dados Oracle","Eduardo Gonçalves · Casa do Código","leitura","SQL com foco em Oracle; a sintaxe SQL transfere bem."],
+    ["Microsoft SQL Server 2012 — Passo a Passo","Patrick LeBlanc · Bookman","leitura","T-SQL/SQL Server — casa com a parte de SQL Server da fase."],
+    ["Mastering PostgreSQL 11 (2ª ed.)","Hans-Jürgen Schönig · Packt (2018)","ref","Postgres avançado; consulta para tuning e recursos internos."],
+    ["Apostila de SQLite — Nível Básico","Adriano Tech","fora","SQLite básico; útil pontualmente, fora do foco Postgres/SQL Server."]
+   ]}
+  ],
   ws:14,
   wk:[
    [["Spring","Java moderno (refresh rápido: records, sealed, pattern matching, virtual threads); Spring: IoC, DI, ApplicationContext, beans, escopos, ciclo de vida."],
@@ -1001,6 +1037,12 @@ var PHASES=[
  {id:"f4", n:"Python web", weeks:"Semanas 33–41", period:"Fev–Abr/2027",
   foco:"Flask → Django", paralelo:"MongoDB",
   proj:"API REST completa (Django + DRF ou Flask) com autenticação segura, persistência híbrida (Postgres + MongoDB), validação, testes, dockerizada.",
+  books:[
+   {subj:"MongoDB & NoSQL", items:[
+    ["MongoDB: construa novas aplicações com novas tecnologias","Fernando Boaglio · Casa do Código","nucleo","MongoDB na prática — casa direto com a persistência NoSQL da Fase 4."],
+    ["NoSQL: como armazenar os dados de uma aplicação moderna","David Paniz · Casa do Código (2016)","leitura","Panorama de NoSQL e quando escolher cada modelo (vs. o SQL da Fase 2)."]
+   ]}
+  ],
   ws:33,
   wk:[
    [["Flask","Instalação, app mínima, rotas, métodos HTTP, request/response, query/form params, jsonify, debug mode, estrutura."],
@@ -1098,6 +1140,12 @@ var PHASES=[
  {id:"f5", n:"Data & IA", weeks:"Semanas 42–55", period:"Abr–Jul/2027",
   foco:"numpy → pandas → visualização → scikit-learn → IA Generativa", paralelo:"BigQuery + GCP (dados)",
   proj:"Pipeline de dados + ML — análise exploratória (pandas), visualizações (matplotlib/seaborn/plotly), modelo treinado (sklearn) + app de IA generativa (RAG com LangChain), com dados no BigQuery, servido como API e dockerizado.",
+  books:[
+   {subj:"Dados & Analytics", items:[
+    ["SQL para Análise de Dados","Cathy Tanimura · Novatec (2022)","nucleo","SQL analítico (janelas, agregações) para dados — casa com BigQuery/analytics da fase."],
+    ["Big Data: técnicas e tecnologias para extração de valor dos dados","Rosangela Marquesone","leitura","Panorama de Big Data; dá contexto à trilha de dados/engenharia."]
+   ]}
+  ],
   ws:42,
   wk:[
    [["numpy","ndarray, criação, dtypes, shape, indexing/slicing, broadcasting, operações vetorizadas, axis."],
@@ -1267,6 +1315,37 @@ var PHASES=[
  {id:"f6", n:"Frontend", weeks:"Semanas 56–67", period:"Jul–Out/2027",
   foco:"JavaScript → TypeScript → Angular", paralelo:"Ferramentas · Testes E2E · CI/CD · Deploy",
   proj:"SPA Angular + TypeScript consumindo a API — auth via cookies HttpOnly + interceptors, guards, reactive forms, RxJS; testes E2E (Cypress/Playwright); build dockerizado com pipeline CI/CD de deploy.",
+  books:[
+   {subj:"HTML", items:[
+    ["Fundamentos de HTML5 e CSS3","Maurício Samy Silva · Novatec (2015)","nucleo","Base sólida de HTML5 + CSS3. Comece por aqui."],
+    ["HTML5 e CSS3: com farinha e pimenta","Diego Eis & Elcio Ferreira · Tableless (2012)","leitura","Introdução prática e muito didática."],
+    ["HTML5 e CSS3: domine a web do futuro","Lucas Mazza · Casa do Código (2012)","leitura","Bom complemento sobre HTML5/CSS3."],
+    ["Use a Cabeça! HTML com CSS & XHTML","Freeman & Freeman · O'Reilly/Alta Books","leitura","Didático e visual; a parte de XHTML está datada."],
+    ["HTML5 (curso W3C Escritório Brasil)","Elcio Ferreira & Diego Eis","leitura","Material do W3C; conciso e confiável."],
+    ["Desenvolva jogos com HTML5 Canvas e JavaScript","Éderson Cássio · Casa do Código (2013)","leitura","Canvas + JS aplicado a jogos; prática divertida."],
+    ["Jogos em HTML5: explore o mobile e física","Éderson Cássio · Casa do Código (2014)","leitura","Continuação com jogos mobile."],
+    ["Guia Completo para Iniciantes — HTML a partir do Zero","Alfredo Limongi","fora","Introdução muito básica."],
+    ["HTML5 (slides de layout — IFRN)","José Antônio da Cunha","fora","Slides avulsos; material de apoio."],
+    ["HTML — Hyper Text Mark-up Language (apostila)","Prof. Jairo · UNINOVE (2002)","fora","Apostila antiga (anterior ao HTML5)."]
+   ]},
+   {subj:"CSS", items:[
+    ["CSS Eficiente: técnicas e ferramentas que fazem a diferença","Tárcio Zemel · Casa do Código","nucleo","Boas práticas de CSS que realmente fazem diferença no dia a dia."],
+    ["Sass: aprendendo pré-processadores CSS","Natan Souza · Casa do Código","leitura","Sass do zero — produtividade e organização em CSS."],
+    ["Turbine seu CSS: folhas de estilo inteligentes com Sass","Rosicléia Frasson · Casa do Código","leitura","Mais Sass; complementar ao anterior."]
+   ]},
+   {subj:"JavaScript", items:[
+    ["JavaScript: O Guia Definitivo (6ª ed.)","David Flanagan · Bookman/O'Reilly","nucleo","A referência completa de JS. Núcleo (mesmo pré-ES6, os fundamentos valem)."],
+    ["ECMAScript 6: entre de cabeça no futuro do JavaScript","Diego Martins de Pinho · Casa do Código","nucleo","JS moderno (ES6+) — essencial para o front atual."],
+    ["200 Exercícios de JavaScript","Matheus Battisti","leitura","Prática deliberada — ótimo para fixar."],
+    ["JavaScript: Guia do Programador","Maurício Samy Silva · Novatec (2010)","leitura","Guia nacional abrangente; alguns trechos datados."],
+    ["50 Dicas de Refatoração de Códigos JavaScript","Daniel Tapias Morales · Serliv","leitura","Dicas rápidas e diretas de refatoração."],
+    ["JavaScript de Alto Desempenho","Nicholas C. Zakas · Novatec (2010)","ref","Performance de JS; consulta mais avançada."],
+    ["ECMAScript 2020 — Language Specification (ECMA-262)","Ecma International","consulta","A especificação oficial da linguagem; referência, não leitura corrida."],
+    ["JavaScript Cheat Sheet","WebsiteSetup","consulta","Folha de referência rápida."],
+    ["Dominando JavaScript com jQuery","Plínio Balduino · Casa do Código","fora","jQuery é legado; útil só para manter código antigo."],
+    ["jQuery Mobile: interfaces para múltiplos dispositivos","Daniel Schmitz · Casa do Código","fora","jQuery Mobile descontinuado."]
+   ]}
+  ],
   ws:56,
   wk:[
    [["JavaScript","História, engines, tag de script, console; variáveis (var/let/const); tipos primitivos; coerção; operadores; template literals."],
@@ -1509,6 +1588,24 @@ var MILESTONES=[
  {id:"f5",t:"Pipeline de dados + ML + IA generativa",d:"análise (pandas), modelo (sklearn), RAG (LangChain), dados no BigQuery"},
  {id:"f6",t:"SPA Angular",t2:"+ TypeScript",d:"auth, guards, RxJS, testes E2E e pipeline CI/CD de deploy"},
  {id:"f7",t:"Deploy full-stack na nuvem",d:"Terraform + Kubernetes + CI/CD + observabilidade (Prometheus/Grafana ou CloudWatch)"}
+];
+
+// livros fora da trilha atual (linguagens/plataformas não cobertas pelo cronograma) — ranqueados dentro de cada tema
+var EXTRAS=[
+ {subj:"Go (Golang)", items:[
+  ["A Linguagem de Programação Go","Alan Donovan & Brian Kernighan · Novatec (2017)","principal","O livro definitivo de Go (por um dos autores do C). Se estudar Go um dia, comece por ele."],
+  ["Go Crazy: a fun projects-based approach","Nicolas Modrzyk · Apress (2023)","leitura","Go por projetos; mão na massa."],
+  ["Go Cookbook","Sau Sheong Chang · O'Reilly","consulta","Receitas de Go; material de consulta."]
+ ]},
+ {subj:"Node.js", items:[
+  ["Aprendendo Node","Shelley Powers · Novatec (2017)","principal","Introdução sólida ao Node."],
+  ["Construindo APIs REST com Node.js","Caio Ribeiro Pereira · Casa do Código","leitura","APIs REST em Node na prática."],
+  ["Beginning API Development with Node.js","Anthony Nandaa · Packt (2018)","leitura","Desenvolvimento de APIs em Node (inglês)."],
+  ["O canivete suíço do desenvolvedor Node","Caio Incau · Casa do Código (2016)","consulta","Mini-livro com dicas de Node."]
+ ]},
+ {subj:"Azure (cloud)", items:[
+  ["Azure: coloque suas plataformas e serviços no cloud","Thiago Custódio · Casa do Código","principal","Cloud com Azure; a trilha usa GCP/AWS, mas os conceitos transferem."]
+ ]}
 ];
 
 // progresso salvo (com migração automática de versões anteriores)
@@ -1771,6 +1868,43 @@ PHASES.forEach(function(ph,pi){
   list.appendChild(psec);
 });
 
+// seção Extras (livros fora da trilha) — renderizada após as fases, antes dos marcos
+(function(){
+  var sec=document.createElement('section');sec.className='milestones';sec.id='extrasBooks';
+  var ptot=0;EXTRAS.forEach(function(g){ptot+=g.items.length;});
+  var groupsHTML=EXTRAS.map(function(g){
+    var itemsHTML=g.items.map(function(bk,bi){
+      var id='extras|'+g.subj+'|'+bi;
+      var on=bookDone.has(id)?' checked':'';
+      var tag=BOOKTAGS[bk[2]]||{l:bk[2],c:'g-neutral'};
+      return '<li><label class="bookrow"><input type="checkbox" data-book="'+id+'"'+on+'>'+
+        '<span class="bbox"></span><span class="brank">'+(bi+1)+'</span><span class="binfo">'+
+        '<span class="btitle">'+esc(bk[0])+' <span class="btag '+tag.c+'">'+esc(tag.l)+'</span></span>'+
+        '<span class="bauthor">'+esc(bk[1])+'</span>'+
+        (bk[3]?'<span class="bnote">'+esc(bk[3])+'</span>':'')+'</span></label></li>';
+    }).join('');
+    return '<div class="libgroup"><h4 class="libsubj">'+esc(g.subj)+
+      ' <span class="libsubjn">'+g.items.length+' livros</span></h4><ul class="booklist">'+itemsHTML+'</ul></div>';
+  }).join('');
+  sec.innerHTML='<div class="mshead"><span class="mstitle">📦 Extras — fora da trilha atual</span>'+
+    '<span class="mscount" id="lsub-extras">'+ptot+' livros</span></div>'+
+    '<p class="gnote" style="margin:0 0 6px">Livros que você tem mas que não estão no cronograma (Go, Node.js, Azure). Ficam catalogados aqui, ranqueados dentro de cada tema, para quando fizerem sentido.</p>'+
+    '<div class="libbody" style="padding:0">'+groupsHTML+'</div>';
+  var ms=document.getElementById('milestones');
+  ms.parentNode.insertBefore(sec,ms);
+  sec.addEventListener('change',function(e){
+    var inp=e.target;if(inp.type!=='checkbox'||inp.dataset.book===undefined)return;
+    if(inp.checked)bookDone.add(inp.dataset.book);else bookDone.delete(inp.dataset.book);
+    bookSave();updateExtras();
+  });
+})();
+function updateExtras(){
+  var sub=document.getElementById('lsub-extras');if(!sub)return;
+  var tot=0,done=0;
+  EXTRAS.forEach(function(g){g.items.forEach(function(bk,bi){tot++;if(bookDone.has('extras|'+g.subj+'|'+bi))done++;});});
+  sub.innerHTML='<b>'+done+'</b>/'+tot+' lidos';
+}
+
 function countSlug(s){var c=0;checked.forEach(function(id){if(id.slice(0,id.indexOf('|'))===s)c++;});return c;}
 function updateTech(slug){var n=countSlug(slug),tot=TOT[slug]||1;
   var bar=document.getElementById('bar-'+slug);if(bar)bar.style.width=(100*n/tot)+'%';
@@ -1794,6 +1928,7 @@ function updateGlobal(){
 function refreshAll(){
   Object.keys(TOT).forEach(updateTech);
   PHASES.forEach(function(ph){updatePhase(ph.id);updateWeekly(ph.id);updateLibrary(ph.id);});
+  updateExtras();
   updateGlobal();
 }
 
@@ -1862,6 +1997,7 @@ document.getElementById('reset').addEventListener('click',function(){
   msChecked.clear();msSave();
   list.querySelectorAll('input[type=checkbox]').forEach(function(i){i.checked=false;});
   mlist.querySelectorAll('input[type=checkbox]').forEach(function(i){i.checked=false;});
+  var ex=document.getElementById('extrasBooks');if(ex)ex.querySelectorAll('input[type=checkbox]').forEach(function(i){i.checked=false;});
   refreshAll();updateMilestones();
 });
 })();
