@@ -549,8 +549,10 @@ var PHASES=[
    {subj:"Algoritmos & Estruturas de Dados", items:[
     ["Entendendo Algoritmos (Grokking Algorithms)","Aditya Y. Bhargava (2017)","nucleo","O melhor ponto de partida: ilustrado e intuitivo. Leia primeiro."],
     ["Estruturas de Dados e Algoritmos em Java (4ª ed.)","Michael T. Goodrich & Roberto Tamassia · Bookman (2007)","nucleo","DS&A em Java, rigoroso; casa com a semana de estruturas de dados + Big-O."],
+    ["Grokking Data Structures","Marcello La Rocca · Manning","nucleo","Estruturas de dados de forma visual e acessível."],
     ["Lógica de Programação e Estruturas de Dados com Aplicações em Java","Sandra Puga & Gerson Rissetti (2004)","leitura","Lógica + estruturas com exemplos em Java. Bom reforço inicial."],
     ["Algoritmos: Teoria e Prática (CLRS)","Cormen, Leiserson, Rivest & Stein","ref","A referência definitiva (bíblia de algoritmos). Densa — consulta/aprofundamento. Você tem a 2ª e a 3ª ed."],
+    ["Algorithms in C","Robert Sedgewick","ref","Clássico de algoritmos (exemplos em C); ótimo acervo de referência."],
     ["Algoritmos","Dasgupta, Papadimitriou & Vazirani (2009)","ref","Texto de algoritmos elegante e conciso. Ótimo complemento ao CLRS."],
     ["Lógica de Programação: a construção de algoritmos e estruturas de dados (3ª ed.)","Forbellone & Eberspächer (2005)","leitura","Clássico brasileiro de lógica de programação."],
     ["Lógica de Programação: crie seus primeiros programas","Paulo Silveira & Adriano Almeida (2013)","leitura","Introdução leve e prática à lógica."],
@@ -581,6 +583,36 @@ var PHASES=[
     ["Redes de computadores: teoria e prática","Douglas Rocha Mendes","leitura","Introdução prática nacional, mais leve. Aquecimento."],
     ["Redes de computadores 2: transporte e rede (IFRS)","André Peres, César Augusto & Marcelo Augusto","leitura","Gratuito; cobre só transporte e rede. Complementar pontual."],
     ["Sistemas modernos de comunicações Wireless","Simon Haykin & Michael Moher","fora","Telecom/RF (processamento de sinais), não protocolos. Domínio errado."]
+   ]},
+   {subj:"Git & GitHub", items:[
+    ["Controlando versões com Git e GitHub","Alexandre Aquiles · Casa do Código","nucleo","Git do básico ao fluxo com GitHub — casa com a trilha de Git da Fase 1."]
+   ]},
+   {subj:"Testes & TDD", items:[
+    ["TDD: Desenvolvimento Guiado por Testes","Kent Beck · Bookman (2010)","principal","O livro seminal de TDD. Base do pensamento de testes."],
+    ["TDD: Teste e Design no Mundo Real","Maurício Aniche · Casa do Código","nucleo","TDD na prática com Java — o mais aplicável aqui."],
+    ["Testes Automatizados de Software: um guia prático","Maurício Aniche · Casa do Código","nucleo","Panorama prático de testes automatizados."],
+    ["Teste e Análise de Software","Pezzè & Young · Bookman (2008)","ref","Texto acadêmico completo sobre teste e análise."],
+    ["Test-Driven Development com .NET","Maurício Aniche","leitura","Mesmo conteúdo de TDD com exemplos em .NET — conceitos transferem."]
+   ]},
+   {subj:"Arquitetura & Boas Práticas", items:[
+    ["Código Limpo (Clean Code)","Robert C. Martin","nucleo","Leitura obrigatória sobre escrever código legível e manutenível."],
+    ["Arquitetura Limpa (Clean Architecture)","Robert C. Martin","nucleo","Princípios de arquitetura e dependências — depois do Clean Code."],
+    ["Refatoração: aperfeiçoando o design (2ª ed.)","Martin Fowler","nucleo","O clássico de refatoração; casa com melhorar o código dos projetos."],
+    ["Orientação a Objetos e SOLID para Ninjas","Maurício Aniche","nucleo","SOLID e bom design OO em Java — direto ao ponto da Fase 1."],
+    ["Desbravando SOLID","Alexandre Aquiles · Casa do Código","nucleo","SOLID aplicado a Java moderno."],
+    ["Padrões de Projeto (GoF)","Gamma, Helm, Johnson & Vlissides","ref","O catálogo original dos design patterns. Referência definitiva."],
+    ["Padrões e Projeto Orientados a Objetos (2ª ed.)","Cay Horstmann","leitura","Design OO e padrões de forma didática."],
+    ["Refatoração para Padrões","Joshua Kerievsky","leitura","Ponte entre refatoração e padrões de projeto."],
+    ["Modern Software Engineering","Dave Farley","leitura","Engenharia de software moderna (coautor de Continuous Delivery)."],
+    ["Fundamentals of Software Architecture","Mark Richards & Neal Ford","ref","Arquitetura de software abrangente (você tem em EN e PT)."],
+    ["Introdução à Arquitetura e Design de Software","Caelum (Paulo Silveira e outros)","leitura","Fundamentos de arquitetura na plataforma Java."],
+    ["Engenharia de Software","Roger Pressman & Bruce Maxim","ref","Referência acadêmica clássica de engenharia de software."],
+    ["Caixa de Ferramentas da Arquitetura de Software","(vários)","leitura","Ferramentas e técnicas práticas de arquitetura."],
+    ["System Design Workbook (2026)","Matheus Scarpato Fidelis","leitura","Exercícios de system design — ótimo para projeto e entrevistas."],
+    ["Como ser um programador melhor","Pete Goodliffe","leitura","Boas práticas e postura profissional de quem programa."],
+    ["Guia do Mestre Programador","Carlos Bueno","leitura","Reflexões sobre a arte de programar."],
+    ["Orientação a Objetos: aprenda seus conceitos","Thiago Leite e Carvalho","leitura","Conceitos de OO de forma acessível."],
+    ["Aprenda POO em 21 Dias","Anthony Sintes","fora","Formato/edição datados; há opções melhores acima."]
    ]}
   ],
   ws:1,
@@ -842,13 +874,22 @@ var PHASES=[
   foco:"Spring Boot · Data · Security", paralelo:"Postgres → SQL Server",
   proj:"API REST em Spring Boot — Spring Data JPA (Postgres) + Spring Security (JWT + roles), validação, tratamento de erros, testes com Testcontainers, empacotada como JAR executável.",
   books:[
+   {subj:"Spring", items:[
+    ["Vire o jogo com Spring Framework","Henrique Lobo Weissmann · Casa do Código","nucleo","Spring a fundo por uma referência brasileira — ótimo para dominar o framework."],
+    ["Spring MVC: domine o principal framework web Java","Alberto Souza · Casa do Código","nucleo","Spring MVC/web — casa com os REST controllers da fase."],
+    ["Apache Kafka e Spring Boot","Eduardo F. Zambom Santana","depois","Mensageria assíncrona entre microsserviços (tema avançado)."],
+    ["Kafka e Schema Registry","Rodrigo Vieira Pinto","depois","Modelagem de eventos com Kafka (avançado)."],
+    ["Building Microservices","Sam Newman","depois","Referência de microsserviços — para depois de dominar o monólito Spring."]
+   ]},
    {subj:"Persistência (JPA / Spring Data)", items:[
     ["Java Persistence with Spring Data and Hibernate","Cătălin Tudose · Manning (2022)","nucleo","Persistência com Spring Data + Hibernate — exatamente o coração da Fase 2. Núcleo."],
     ["JPA Eficaz: as melhores práticas de persistência em Java","Hébert Coelho · Casa do Código","nucleo","Boas práticas de JPA; a Spring Data JPA usa JPA por baixo."]
    ]},
    {subj:"APIs REST", items:[
     ["APIs REST: seus serviços prontos para o mundo real","Alexandre Saudate · Casa do Código","leitura","Design de APIs REST — casa com os REST controllers do Spring."],
-    ["REST: construa APIs inteligentes de maneira simples","Alexandre Saudate · Casa do Código","leitura","Fundamentos de REST antes de subir para o avançado."]
+    ["REST: construa APIs inteligentes de maneira simples","Alexandre Saudate · Casa do Código","leitura","Fundamentos de REST antes de subir para o avançado."],
+    ["SOA aplicado: integrando com web services e além","Alexandre Saudate · Casa do Código","leitura","Integração via web services/SOA."],
+    ["Advanced API Security: OAuth 2.0 and Beyond","Prabath Siriwardena","ref","Segurança de APIs com OAuth 2.0 — casa com o Spring Security da fase."]
    ]},
    {subj:"SQL & Bancos relacionais", items:[
     ["Projeto de Banco de Dados (6ª ed.)","Carlos A. Heuser · Bookman","nucleo","Modelagem ER e projeto de BD — base da semana de modelagem/normalização."],
@@ -945,6 +986,34 @@ var PHASES=[
  {id:"f3", n:"Python core", weeks:"Semanas 22–32", period:"Nov/2026–Fev/2027",
   foco:"Python (básico → avançado)", paralelo:"Docker",
   proj:"App/serviço CLI em Python — POO, type hints, tratamento de erros, testes pytest, totalmente dockerizado (Dockerfile multi-stage + docker-compose).",
+  books:[
+   {subj:"Python", items:[
+    ["Curso Intensivo de Python (Python Crash Course)","Eric Matthes (2016)","nucleo","Melhor introdução baseada em projetos. Comece por aqui."],
+    ["Pense em Python (Think Python, 2ª ed.)","Allen B. Downey (2016)","nucleo","Introdução com pegada de ciência da computação; excelente base."],
+    ["Introdução à Programação com Python (2ª ed.)","Nilo Ney Coutinho Menezes (2014)","nucleo","O melhor intro nacional — lógica + Python do zero."],
+    ["Automatize Tarefas Maçantes com Python","Al Sweigart (2015)","nucleo","Python prático para automação — motivador e útil desde cedo."],
+    ["Fluent Python","Luciano Ramalho · O'Reilly (2015)","nucleo","Python avançado e idiomático. Leia depois de dominar o básico."],
+    ["Python para Desenvolvedores (2ª ed.)","Luiz Eduardo Borges (2010)","leitura","Clássico nacional; um pouco datado, mas sólido."],
+    ["Aprendendo Python (Learning Python)","Mark Lutz & David Ascher","ref","Referência abrangente da linguagem (edição mais antiga)."],
+    ["Python Essential Reference (4ª ed.)","David M. Beazley (2009)","ref","Referência de linguagem/biblioteca; consulta (datada)."],
+    ["Python e Orientação a Objetos (Caelum PY-14)","Caelum","leitura","Apostila institucional focada em OO com Python."],
+    ["Curso Python 3","Juracy Filho & Leonardo Leitão · Cod3r","leitura","Curso introdutório de Python 3."],
+    ["A Byte of Python","Swaroop C. H. (2008)","leitura","Introdução gratuita e enxuta."],
+    ["Python do Zero à Programação Orientada a Objetos","Fernando Feltrin (~2019)","leitura","Do zero até OO."],
+    ["Python: escreva seus primeiros programas","Felipe Cruz · Casa do Código","leitura","Primeiros passos em Python."],
+    ["Beginning Python: From Novice to Professional","Magnus Lie Hetland (2005)","leitura","Introdução ampla (edição antiga)."],
+    ["Beginning Programming with Python For Dummies (2ª ed.)","John Paul Mueller (2018)","leitura","Introdução para iniciantes."],
+    ["Python All-in-One For Dummies (2ª ed.)","John Shovic & Alan Simpson (2021)","leitura","Compilado abrangente para iniciantes."],
+    ["Python Made Easy","AZ Elite Publishing","leitura","Introdução direta."],
+    ["Python Notes for Professionals","GoalKicker (comunidade)","consulta","Compilado gratuito de exemplos; referência rápida."],
+    ["Python Parallel Programming Cookbook","Giancarlo Zaccone · Packt (2015)","ref","Concorrência/paralelismo em Python (avançado)."],
+    ["Kivy — Documentação (PT)","Comunidade Kivy","fora","GUI em Python; fora da trilha (a trilha é web/dados)."]
+   ]},
+   {subj:"Docker", items:[
+    ["Docker: Up & Running (3ª ed.)","Sean Kane & Karl Matthias · O'Reilly (2023)","nucleo","O guia definitivo e atual de Docker em produção."],
+    ["Containers com Docker: do desenvolvimento à produção","Daniel Romero · Casa do Código","nucleo","Docker na prática, do dev à produção (em português)."]
+   ]}
+  ],
   ws:22,
   wk:[
    [["Python","Instalação, interpretador, REPL, pip, VSCode; PEP 8; Zen of Python; tipos (int/float/complex/bool/str); variáveis; tipagem dinâmica; operadores; input/print; f-strings."],
@@ -1038,6 +1107,9 @@ var PHASES=[
   foco:"Flask → Django", paralelo:"MongoDB",
   proj:"API REST completa (Django + DRF ou Flask) com autenticação segura, persistência híbrida (Postgres + MongoDB), validação, testes, dockerizada.",
   books:[
+   {subj:"Django", items:[
+    ["Python e Django","Ramiro B. da Luz · RNP (2017)","leitura","Introdução ao desenvolvimento web com Django (em português)."]
+   ]},
    {subj:"MongoDB & NoSQL", items:[
     ["MongoDB: construa novas aplicações com novas tecnologias","Fernando Boaglio · Casa do Código","nucleo","MongoDB na prática — casa direto com a persistência NoSQL da Fase 4."],
     ["NoSQL: como armazenar os dados de uma aplicação moderna","David Paniz · Casa do Código (2016)","leitura","Panorama de NoSQL e quando escolher cada modelo (vs. o SQL da Fase 2)."]
@@ -1143,7 +1215,14 @@ var PHASES=[
   books:[
    {subj:"Dados & Analytics", items:[
     ["SQL para Análise de Dados","Cathy Tanimura · Novatec (2022)","nucleo","SQL analítico (janelas, agregações) para dados — casa com BigQuery/analytics da fase."],
-    ["Big Data: técnicas e tecnologias para extração de valor dos dados","Rosangela Marquesone","leitura","Panorama de Big Data; dá contexto à trilha de dados/engenharia."]
+    ["Big Data: técnicas e tecnologias para extração de valor dos dados","Rosangela Marquesone","leitura","Panorama de Big Data; dá contexto à trilha de dados/engenharia."],
+    ["Pandas Python: Data Wrangling para Ciência de Dados","Eduardo Corrêa Gonçalves · Casa do Código","nucleo","pandas na prática para ciência de dados — casa direto com a fase."],
+    ["Tratamento de Dados com Python + Pandas","Fernando Feltrin","leitura","Limpeza e transformação de dados com pandas."],
+    ["Python Data Analysis","Ivan Idris · Packt (2014)","leitura","Análise de dados com o ecossistema Python."],
+    ["Álgebra Linear com Python","Rafael F. V. C. Santos (2018)","leitura","Base matemática (álgebra linear) para ML, com Python."],
+    ["Python Deep Learning (2ª ed.)","Ivan Vasilev e outros · Packt (2019)","leitura","Deep learning em Python — além do sklearn da fase."],
+    ["Redes Neurais Artificiais: uma abordagem para sala de aula","Maria Inês V. Furtado (2019)","leitura","Fundamentos de redes neurais."],
+    ["Web Scraping with Python (2ª ed.)","Ryan Mitchell · O'Reilly (2018)","leitura","Coleta de dados na web com Python."]
    ]}
   ],
   ws:42,
@@ -1316,6 +1395,9 @@ var PHASES=[
   foco:"JavaScript → TypeScript → Angular", paralelo:"Ferramentas · Testes E2E · CI/CD · Deploy",
   proj:"SPA Angular + TypeScript consumindo a API — auth via cookies HttpOnly + interceptors, guards, reactive forms, RxJS; testes E2E (Cypress/Playwright); build dockerizado com pipeline CI/CD de deploy.",
   books:[
+   {subj:"Angular", items:[
+    ["Crie Aplicações com Angular","Thiago Guedes · Casa do Código","nucleo","Angular na prática — casa direto com a Fase 6."]
+   ]},
    {subj:"HTML", items:[
     ["Fundamentos de HTML5 e CSS3","Maurício Samy Silva · Novatec (2015)","nucleo","Base sólida de HTML5 + CSS3. Comece por aqui."],
     ["HTML5 e CSS3: com farinha e pimenta","Diego Eis & Elcio Ferreira · Tableless (2012)","leitura","Introdução prática e muito didática."],
@@ -1331,7 +1413,9 @@ var PHASES=[
    {subj:"CSS", items:[
     ["CSS Eficiente: técnicas e ferramentas que fazem a diferença","Tárcio Zemel · Casa do Código","nucleo","Boas práticas de CSS que realmente fazem diferença no dia a dia."],
     ["Sass: aprendendo pré-processadores CSS","Natan Souza · Casa do Código","leitura","Sass do zero — produtividade e organização em CSS."],
-    ["Turbine seu CSS: folhas de estilo inteligentes com Sass","Rosicléia Frasson · Casa do Código","leitura","Mais Sass; complementar ao anterior."]
+    ["Turbine seu CSS: folhas de estilo inteligentes com Sass","Rosicléia Frasson · Casa do Código","leitura","Mais Sass; complementar ao anterior."],
+    ["Bootstrap 4: a biblioteca front-end mais utilizada","Natan Souza · Casa do Código","leitura","Framework CSS para prototipar UI rapidamente."],
+    ["Web Design Responsivo","Tárcio Zemel · Casa do Código","leitura","Layouts adaptáveis a todos os dispositivos."]
    ]},
    {subj:"JavaScript", items:[
     ["JavaScript: O Guia Definitivo (6ª ed.)","David Flanagan · Bookman/O'Reilly","nucleo","A referência completa de JS. Núcleo (mesmo pré-ES6, os fundamentos valem)."],
@@ -1344,6 +1428,11 @@ var PHASES=[
     ["JavaScript Cheat Sheet","WebsiteSetup","consulta","Folha de referência rápida."],
     ["Dominando JavaScript com jQuery","Plínio Balduino · Casa do Código","fora","jQuery é legado; útil só para manter código antigo."],
     ["jQuery Mobile: interfaces para múltiplos dispositivos","Daniel Schmitz · Casa do Código","fora","jQuery Mobile descontinuado."]
+   ]},
+   {subj:"Frontend (geral)", items:[
+    ["Coletânea Front-End: uma antologia da comunidade","org. Sérgio Lopes · Casa do Código","leitura","Artigos variados da comunidade front-end brasileira."],
+    ["Progressive Web Apps com React","Guilherme Pontes · Casa do Código","leitura","PWA — conceito útil; usa React (a trilha é Angular)."],
+    ["Protractor: testes end-to-end automatizados","Walmyr Lima e Silva Filho","fora","E2E para Angular, mas o Protractor foi descontinuado (use Cypress/Playwright)."]
    ]}
   ],
   ws:56,
@@ -1467,6 +1556,21 @@ var PHASES=[
  {id:"f7", n:"DevOps & Cloud", weeks:"Semanas 68–78", period:"Out/2027–Jan/2028", kicker:"Cume",
   foco:"Docker/K8s avançado → GCP → AWS", paralelo:"Terraform (IaC) + Observabilidade",
   proj:"Deploy full-stack na nuvem — frontend Angular + API Spring/Django + Postgres + MongoDB, em Kubernetes (GKE ou EKS), provisionado com Terraform, CI/CD via GitHub Actions, monitorado com Prometheus/Grafana ou CloudWatch.",
+  books:[
+   {subj:"Kubernetes", items:[
+    ["Kubernetes Best Practices (2ª ed.)","Burns, Villalba, Strebel & Evenson","nucleo","Boas práticas de K8s em produção."],
+    ["Kubernetes Cookbook (2ª ed.)","Naik, Goasguen & Michaux","ref","Receitas práticas de Kubernetes."]
+   ]},
+   {subj:"AWS", items:[
+    ["Amazon AWS: descomplicando a computação na nuvem","Jonathan Lamim Antunes · Casa do Código","nucleo","AWS do zero, em português — casa com a fase."]
+   ]},
+   {subj:"DevOps & CI/CD", items:[
+    ["Manual de DevOps (The DevOps Handbook)","Gene Kim, Jez Humble, Patrick Debois & John Willis","nucleo","O manual de referência de DevOps."],
+    ["O Projeto Fênix (The Phoenix Project)","Gene Kim, Kevin Behr & George Spafford","leitura","Romance que ensina a cultura DevOps — leitura leve e valiosa."],
+    ["Caixa de Ferramentas DevOps","Gleicon Moraes","leitura","Ferramentas práticas de DevOps."],
+    ["Jenkins: automatize tudo sem complicações","Fernando Boaglio · Casa do Código","leitura","CI/CD com Jenkins."]
+   ]}
+  ],
   ws:68,
   wk:[
    [["Docker (avançado)","Consolidação: segurança (scan, rootless, distroless), registries privados, BuildKit, otimização final."],
@@ -1605,6 +1709,103 @@ var EXTRAS=[
  ]},
  {subj:"Azure (cloud)", items:[
   ["Azure: coloque suas plataformas e serviços no cloud","Thiago Custódio · Casa do Código","principal","Cloud com Azure; a trilha usa GCP/AWS, mas os conceitos transferem."]
+ ]},
+ {subj:".NET / C#", items:[
+  ["CLR via C# (4ª ed.)","Jeffrey Richter","principal","A referência definitiva do runtime .NET/C#."],
+  ["Princípios, Padrões e Práticas Ágeis em C#","Robert C. Martin & Micah Martin","principal","Uncle Bob: SOLID/ágil/patterns — conteúdo excelente, exemplos em C#."],
+  ["C#: The Complete Reference","Herbert Schildt","leitura","Referência abrangente da linguagem C#."],
+  ["C# How to Program","Paul & Harvey Deitel","leitura","Curso completo de C#."],
+  ["Programming C#","Jesse Liberty","leitura","Introdução a C#."],
+  ["Desenvolvimento web com ASP.NET MVC","Sanchez & Althmann","leitura","Web com ASP.NET MVC."],
+  ["ASP.NET MVC 5","Everton Coimbra de Araújo","leitura","Aplicações web ASP.NET MVC 5."],
+  ["Pragmatic Unit Testing in C#","Andy Hunt & Dave Thomas","leitura","Testes unitários (conceitos ótimos, em C#)."],
+  ["C# Language Specification (ECMA-334)","Ecma International","consulta","Especificação oficial da linguagem."],
+  ["Microsoft Visual C# 2005: Passo a Passo","John Sharp","fora","Edição bem antiga."]
+ ]},
+ {subj:"C / C++", items:[
+  ["C Programming: A Modern Approach (2ª ed.)","K. N. King","principal","O melhor livro de C moderno."],
+  ["Introdução à Programação em C","Maurício Aniche","leitura","Introdução didática a C."],
+  ["C: Como Programar (6ª ed.)","Paul & Harvey Deitel","leitura","Curso completo de C."],
+  ["C Completo e Total (3ª ed.)","Herbert Schildt","leitura","Referência clássica de C."],
+  ["Linguagem C: Completa e Descomplicada","André Backes","leitura","C de forma acessível (você tem 1ª e 2ª ed.)."],
+  ["Conceitos de Computação com o Essencial de C++","Cay Horstmann","leitura","Fundamentos de computação com C++."],
+  ["Introdução à POO com C++","Antonio Mendes da Silva Filho","leitura","POO usando C++."],
+  ["C++ XML","Fabio Arciniegas","fora","Nicho (XML em C++), datado."]
+ ]},
+ {subj:"Segurança & Pentest", items:[
+  ["Criptografia e Segurança de Redes","William Stallings","principal","Referência clássica de criptografia e segurança de redes."],
+  ["Advanced Penetration Testing","Wil Allsopp","leitura","Pentest avançado."],
+  ["SQL Injection Attacks and Defense","Justin Clarke","leitura","Ataques e defesas de SQL injection."],
+  ["Segurança em Aplicações Web","(vários)","leitura","Segurança no desenvolvimento web (útil para F2/F4/F6)."],
+  ["Black Hat Python","Justin Seitz","leitura","Scripting ofensivo em Python."],
+  ["Python Hacking Essentials / Teste de Invasão","Earnest Wish; Mohit","leitura","Python aplicado à segurança ofensiva."],
+  ["Pentest em Redes Sem Fio","Daniel Moreno","leitura","Pentest de redes wireless."],
+  ["Técnicas de Invasão","(vários)","leitura","Fundamentos ofensivos."],
+  ["Mobile App Reverse Engineering","Abhinav Mishra · Packt (2022)","leitura","Engenharia reversa de apps mobile."],
+  ["Desvendando a Computação Forense","Márcio Pereira","leitura","Introdução à forense computacional."],
+  ["Metasploit (tutorial)","Tutorialspoint","consulta","Guia introdutório do Metasploit."],
+  ["Manual de Proteção Contra Ransomware","(vários)","leitura","Defesa contra ransomware."],
+  ["Fundamentos de Segurança da Informação","(vários)","leitura","Base de segurança da informação."],
+  ["Segurança de Sistemas da Informação","(vários)","leitura","Segurança de sistemas."]
+ ]},
+ {subj:"Ciência da Computação (base teórica)", items:[
+  ["Organização Estruturada de Computadores (6ª ed.)","Andrew Tanenbaum & Todd Austin","principal","Como o computador funciona por dentro."],
+  ["Arquitetura e Organização de Computadores","William Stallings","principal","Referência de arquitetura de computadores."],
+  ["Compiladores: Princípios, Técnicas e Ferramentas","Aho, Lam, Sethi & Ullman","ref","O 'Dragon Book' — clássico de compiladores."],
+  ["Sistemas Operacionais","Córdova Jr., Ledur & Morais","leitura","Fundamentos de sistemas operacionais."],
+  ["Computer Graphics — C Version (2ª ed.)","Hearn & Baker","ref","Clássico de computação gráfica."],
+  ["The Art of Assembly Language","Randall Hyde","ref","Assembly x86 a fundo — baixo nível."],
+  ["Arquitetura e Organização de Computadores (8ª ed.)","(vários)","leitura","Outra referência de arquitetura."],
+  ["Ciência da Computação: principais e fundamentais","(vários)","leitura","Panorama de fundamentos de CC."],
+  ["Ciência da Computação e Tecnologias Digitais","Ernane (e outros)","leitura","Fundamentos e tecnologias digitais."],
+  ["Fundamentos Matemáticos","(vários)","leitura","Base matemática para computação."],
+  ["Escalonamento de Aplicações em Sistemas de Computação","(vários)","leitura","Escalonamento e desempenho."],
+  ["Engenharia de Sistemas Para Leigos","Cathleen Shamieh · IBM","leitura","Introdução leve a engenharia de sistemas."]
+ ]},
+ {subj:"Ágil & Processos", items:[
+  ["Métodos Ágeis para Desenvolvimento de Software","Prikladnicki, Willi & Milani","nucleo","Panorama dos métodos ágeis."],
+  ["Scrum: Gestão Ágil para Projetos de Sucesso","Rafael Sabbagh","leitura","Scrum na prática."],
+  ["Scrum 360","Jorge Audy","leitura","Guia completo e prático de agilidade."],
+  ["Agile: entregas frequentes e foco no valor","André Faria Gomes","leitura","Cultura ágil de entrega."],
+  ["Agilidade Lean","Vitor Pinho","leitura","Lean aplicado a times ágeis."]
+ ]},
+ {subj:"Ruby", items:[
+  ["Ruby on Rails: coloque sua aplicação nos trilhos","Vinícius B. Fuentes · Casa do Código","principal","Web com Rails."],
+  ["Introdução à Computação: da lógica aos jogos com Ruby","Guilherme Silveira · Casa do Código","leitura","Introdução à computação usando Ruby."],
+  ["RSpec: especificações executáveis em Ruby","Mauro George · Casa do Código","leitura","Testes/BDD em Ruby."],
+  ["Refatorando com padrões de projeto: um guia em Ruby","Marcos Brizeno","leitura","Refatoração e padrões em Ruby."]
+ ]},
+ {subj:"PHP", items:[
+  ["PHP e Laravel: crie aplicações como um artesão","Rodrigo Turini · Casa do Código","principal","Web moderno com PHP/Laravel."],
+  ["CodeIgniter: produtividade em PHP","Jonathan Lamim Antunes · Casa do Código","leitura","Framework PHP CodeIgniter."]
+ ]},
+ {subj:"Mobile & IoT", items:[
+  ["A Web Mobile","Sérgio Lopes · Casa do Código","principal","Web para muitos dispositivos — fundamentos de mobile web."],
+  ["iOS: programe para iPhone e iPad","Rafael Steil · Casa do Código","leitura","Desenvolvimento iOS."],
+  ["Swift: programe para iPhone e iPad","Guilherme Silveira & Joviane Jardim","leitura","iOS com Swift."],
+  ["Google Android: apps para celulares e tablets","João Bosco Monteiro","leitura","Android nativo."],
+  ["Jogos Android: um game do zero","Felipe Torres","leitura","Games em Android."],
+  ["Entrega contínua em Android","Roger Silva","leitura","CI/CD de apps Android."],
+  ["Aplicações mobile híbridas com Cordova e PhoneGap","Sérgio Lopes","leitura","Apps híbridos."],
+  ["Arduino Básico","Michael McRoberts · Novatec","leitura","Introdução ao Arduino."],
+  ["Arduino: guia para colocar suas ideias em prática","Fernando B. Frizzarin (2014)","leitura","Arduino na prática."],
+  ["Arduino Prático: 10 projetos","Fernando B. Frizzarin (2014)","leitura","Projetos com Arduino."],
+  ["Programação com Arduino: começando com Sketches (2ª ed.)","Simon Monk","leitura","Programação de Arduino."],
+  ["30 Projetos com Arduino (2ª ed.)","Simon Monk","leitura","Projetos variados de Arduino."],
+  ["Criando Aplicações para Windows Phone","Gabriel Schade Cardoso","fora","Windows Phone descontinuado."]
+ ]},
+ {subj:"Outras linguagens & plataformas", items:[
+  ["Programando em Lua","Roberto Ierusalimschy","principal","Pelo criador da Lua (linguagem brasileira)."],
+  ["Elixir: do zero à concorrência","Tiago Davi","leitura","Programação funcional/concorrente em Elixir."],
+  ["Haskell: introdução à programação funcional","Alexandre Garcia de Oliveira","leitura","Programação funcional pura em Haskell."],
+  ["ABAP: guia de sobrevivência","Mauricio Roberto Cruz","fora","Linguagem SAP (nicho corporativo)."],
+  ["Advanced Apple Debugging & Reverse Engineering","Derek Selander","fora","Depuração avançada no ecossistema Apple."],
+  ["Windows Server 2012 R2: estudo para MCSA","Eduardo R. S. Popovici","fora","Administração Windows Server (certificação antiga)."]
+ ]},
+ {subj:"Outros", items:[
+  ["ChatGPT para o dia a dia","Bruna F. Escudelario","leitura","Uso prático de IA generativa no dia a dia."],
+  ["Economia do acesso e modelos de negócios","Rodrigo Dantas","fora","Negócios/economia — leitura de contexto."],
+  ["Blockchain, Tokens e Criptomoedas: análise jurídica","Dayana de Carvalho Uhdre","fora","Aspecto jurídico de blockchain — fora do escopo técnico."]
  ]}
 ];
 
