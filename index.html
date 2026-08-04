@@ -517,7 +517,7 @@
           </table>
         </div>
         <p class="gnote"><b style="color:var(--text)">Por que esta ordem casa:</b> Java→Spring (dependência) · SQL com Spring Data · Docker aplicado ao Python · Mongo nas APIs web · BigQuery/GCP na trilha de dados · ferramentas/deploy com o Frontend · orquestração e nuvem por último, implantando tudo que foi construído.</p>
-        <p class="gnote"><b style="color:var(--text)">Trilha principal × PLUS:</b> as 7 fases acima são o escopo do cronograma — com semanas, projetos e prazo. Ao final da página fica o bloco <b style="color:var(--plus)">PLUS</b>: matérias avançadas de IA (Deep Learning, treinar a sua própria LLM, usar LLMs locais e agênticas, e sistemas multi-agente) que ficam <b>fora</b> do cronograma e não entram no progresso geral. Estude quando quiser, no seu ritmo.</p>
+        <p class="gnote"><b style="color:var(--text)">Trilha principal × trilhas paralelas:</b> as 7 fases acima são o escopo do cronograma — com semanas, projetos e prazo. Ao final da página ficam dois blocos fora dele, cada um com progresso próprio: <b style="color:#b48cff">PLUS</b> (Deep Learning, treinar a sua própria LLM, usar LLMs locais e agênticas, sistemas multi-agente) e <b style="color:#38bdf8">Mobile</b> (Kotlin/Android, Flutter e Swift/iOS de ponta a ponta, consumindo a mesma API do projeto web). Nenhum dos dois entra no progresso das 7 fases — estude quando quiser.</p>
       </div>
     </details>
 
@@ -2031,6 +2031,242 @@ var PLUS=[
        "Falhas típicas: loop infinito, drift de objetivo, over-engineering do sistema"]}}
 ];
 
+// TRILHA MOBILE — Kotlin/Android, Flutter e Swift/iOS; paralela às 7 fases
+var MOBILE=[
+   {tag:"Fundamentos", s:"mobile-fundamentos", n:"Fundamentos Mobile (transversal)", note:"Vale para qualquer stack — leia antes de escolher entre Kotlin, Flutter e Swift.", l:{
+    b:["Panorama: nativo (Kotlin/Swift) × cross-platform (Flutter, React Native, KMP)",
+       "Critérios de escolha: performance, acesso ao device, time, custo, prazo",
+       "Android × iOS: diferenças de plataforma, loja, ciclo de release",
+       "Design: Material Design (Android) × Human Interface Guidelines (iOS)",
+       "Ciclo de vida do app e das telas; foreground × background",
+       "Ferramentas: Android Studio, Xcode, VS Code; emulador × simulador",
+       "Rodar e depurar em dispositivo físico",
+       "UI declarativa × imperativa; componentes e widgets",
+       "Layout mobile: densidade de tela, safe area, orientação, tablets",
+       "Navegação: stack, tabs, drawer, modal; deep link (conceito)",
+       "Estado da UI: local × compartilhado — o cerne de qualquer app",
+       "Assets: ícones, splash screen, fontes, imagens em várias densidades",
+       "Permissões (câmera, localização, notificação) e pedido em runtime",
+       "Armazenamento no device: chave-valor, arquivos, banco local",
+       "Rede em mobile: HTTP, JSON, latência, conexão instável, timeout",
+       "Thread principal: por que nunca bloquear a UI",
+       "Acessibilidade mobile: leitor de tela, contraste, área mínima de toque"],
+    i:["Arquitetura mobile: MVVM, MVI, Clean Architecture",
+       "Camadas: UI → domínio → dados (repository, data source)",
+       "Injeção de dependência em apps mobile",
+       "Assíncrono: threads, coroutines/async, cancelamento, escopo",
+       "Listas performáticas: paginação, scroll infinito, lazy loading de imagem",
+       "Cache de dados e de imagens; invalidação",
+       "Offline-first: por que mobile exige e quais estratégias existem",
+       "Sincronização: fila de operações, retry, conflito, source of truth",
+       "Sessão persistente e token no device (armazenamento seguro)",
+       "Push notification: FCM/APNs, token do device, payload, deep link",
+       "Trabalho em background: jobs, sync periódico, limites de bateria do SO",
+       "Recursos do device: câmera, galeria, GPS, biometria, sensores, arquivos",
+       "Internacionalização (i18n) e formatação local de data/moeda",
+       "Tema claro/escuro, design tokens, design system mobile",
+       "Analytics e crash reporting: o que realmente medir",
+       "Pirâmide de testes em mobile: unitário, de UI, instrumentado, E2E",
+       "Performance: tempo de inicialização, jank/frames, tamanho do app"],
+    a:["Segurança mobile: OWASP MASVS, root/jailbreak, certificate pinning",
+       "Armazenamento seguro: Keystore (Android) × Keychain (iOS)",
+       "Nunca embutir segredo no app; obfuscação e anti-tamper",
+       "OAuth2/OIDC em mobile: PKCE, fluxo sem client secret",
+       "Deep links: App Links (Android) e Universal Links (iOS), verificação de domínio",
+       "Modularização por feature; build variants/flavors; feature flags",
+       "Publicação: assinatura, Play Console, App Store Connect, revisão",
+       "Versionamento, rollout gradual, rollback, atualização forçada",
+       "CI/CD mobile: build, teste e distribuição (Fastlane, GitHub Actions)",
+       "Beta: TestFlight, Play internal testing, Firebase App Distribution",
+       "Observabilidade: crash-free rate, ANR, métricas de produto",
+       "Otimização de tamanho: App Bundle, tree-shaking, recursos sob demanda",
+       "Estratégia multiplataforma: compartilhar domínio (KMP) entre iOS e Android",
+       "Wearables, tablets e foldables: adaptar a mesma base"]}},
+   {tag:"Kotlin & Android", s:"kotlin-android", n:"Kotlin & Android (Jetpack Compose)", note:"Frameworks: Jetpack Compose, Navigation, Room, Retrofit/Ktor, Hilt, WorkManager, DataStore, Coil, Paging 3, Firebase.", l:{
+    b:["Kotlin: setup, JVM, compilador, comparação com Java",
+       "Tipos, val × var, inferência; null safety (?, !!, ?:, ?.)",
+       "Strings e templates; when; for/while; ranges",
+       "Funções: parâmetros nomeados e default, expressão única, funções de extensão",
+       "Coleções: List/Set/Map; map/filter/fold/groupBy; sequences",
+       "Classes, data class, object, companion object",
+       "sealed class e enum: modelar estados com segurança",
+       "Herança, interfaces, delegação (by)",
+       "Lambdas, higher-order functions, scope functions (let/apply/run/also/with)",
+       "Android: SDK, Gradle (KTS), AndroidManifest, Activity e ciclo de vida",
+       "Compose: função composable, recomposição, modifiers",
+       "Compose: layouts (Column, Row, Box) e alinhamento",
+       "Compose: Text, Button, Image, TextField; LazyColumn/LazyRow",
+       "Estado no Compose: remember, mutableStateOf, state hoisting",
+       "Material 3: tema, cores, tipografia, dark mode",
+       "Navigation Compose: rotas, argumentos, back stack",
+       "Recursos (strings, drawables, dimens) e Logcat"],
+    i:["Coroutines: suspend, launch/async, Dispatchers, structured concurrency",
+       "Flow: cold × hot, StateFlow, SharedFlow, operadores, collectAsStateWithLifecycle",
+       "ViewModel, lifecycle-aware, SavedState, fluxo unidirecional (UDF)",
+       "Retrofit: interfaces, converters (Moshi/kotlinx), interceptors, tratamento de erro",
+       "Ktor Client como alternativa ao Retrofit",
+       "Autenticação: enviar JWT, interceptor de refresh token",
+       "Room: entities, DAO, relações, migrations, retornar Flow",
+       "DataStore (Preferences/Proto) em lugar de SharedPreferences",
+       "Hilt: módulos, escopos, injeção em ViewModel e Compose",
+       "Repository pattern; mapear DTO → modelo de domínio",
+       "Paging 3 para listas grandes; Coil para imagens",
+       "WorkManager: background, constraints, retry, sync periódico",
+       "Permissões em runtime no Compose (Activity Result / Accompanist)",
+       "Formulários, validação e estados de loading/erro/vazio",
+       "Testes: JUnit, MockK, Turbine (Flow), Compose UI test",
+       "Firebase: Auth, Firestore, FCM (push), Crashlytics",
+       "CameraX, Location, biometria (BiometricPrompt)"],
+    a:["Compose avançado: CompositionLocal, custom layout, Canvas, animações",
+       "Performance no Compose: recomposição desnecessária, keys, derivedStateOf, stability",
+       "Clean Architecture + MVI, use cases, módulos Gradle por feature",
+       "Multi-módulo, convention plugins, build otimizado, version catalog",
+       "Kotlin Multiplatform (KMP): compartilhar domínio e rede com iOS",
+       "Compose Multiplatform (desktop/web) — visão geral",
+       "Segurança: EncryptedSharedPreferences, Keystore, pinning, R8/ProGuard",
+       "Baseline profiles, startup time, App Bundle, dynamic feature modules",
+       "Testes instrumentados, screenshot testing, CI no GitHub Actions",
+       "Play Console: assinatura (Play App Signing), tracks, staged rollout",
+       "Play Integrity API, proteção contra abuso",
+       "Acessibilidade (TalkBack) e adaptação para tablet/foldable/Wear OS"]}},
+   {tag:"Dart & Flutter", s:"dart-flutter", n:"Dart & Flutter", note:"Frameworks: Flutter, Riverpod/Bloc, go_router, Dio, Drift/Isar/Hive, Freezed, get_it, flutter_secure_storage, Firebase.", l:{
+    b:["Dart: SDK, tipos, var/final/const, null safety",
+       "Dart: funções, parâmetros nomeados/opcionais, arrow, cascade (..)",
+       "Dart: coleções, spread, collection if/for",
+       "Dart: classes, construtores nomeados, factory, mixins, extensions",
+       "Dart: async/await, Future, Stream, tratamento de erro",
+       "Flutter: instalação, flutter doctor, criar projeto, hot reload",
+       "Árvore de widgets; StatelessWidget × StatefulWidget; build e BuildContext",
+       "Widgets base: Text, Container, Row/Column, Stack, Expanded, Padding",
+       "Listas: ListView.builder, GridView, separadores, slivers (intro)",
+       "Material × Cupertino; tema, cores, tipografia, dark mode",
+       "Formulários: TextField, Form, validators, controllers",
+       "setState e ciclo de vida do StatefulWidget",
+       "Navegação: Navigator, rotas nomeadas, passar e receber argumentos",
+       "Assets, imagens, fontes, ícones, splash screen",
+       "Layout responsivo: MediaQuery, LayoutBuilder, SafeArea, AspectRatio",
+       "Debug: DevTools, widget inspector, logs"],
+    i:["Estado: Provider, Riverpod, Bloc/Cubit — critério de escolha",
+       "Riverpod: providers, notifiers, AsyncValue, dependências, autoDispose",
+       "Bloc: eventos, estados, transições, bloc_test",
+       "go_router: rotas declarativas, deep links, redirect/guards",
+       "Dio: interceptors, headers, erros, retry, upload/download com progresso",
+       "Autenticação JWT: flutter_secure_storage, refresh automático",
+       "Persistência local: shared_preferences, Hive, Isar, Drift (SQLite)",
+       "Drift: tabelas, queries tipadas, migrations, streams reativas",
+       "Modelos: json_serializable e Freezed (imutabilidade, unions/sealed)",
+       "Injeção de dependência: get_it + injectable",
+       "Arquitetura: camadas, repository, use cases, separação de features",
+       "Estados de UI: loading/erro/vazio, skeleton, pull-to-refresh",
+       "Cache de imagens (cached_network_image), paginação, scroll infinito",
+       "Push (firebase_messaging) e notificações locais",
+       "Plugins nativos: câmera, GPS, biometria, permission_handler, share",
+       "i18n com intl/ARB; formatação de data e moeda",
+       "Testes: unit, widget test, golden test, integration_test",
+       "Flavors e ambientes com --dart-define"],
+    a:["Platform channels: escrever nativo (Kotlin/Swift) e chamar do Dart",
+       "FFI para bibliotecas C; isolates para paralelismo real; compute",
+       "Performance: rebuilds, const widgets, RepaintBoundary, DevTools timeline",
+       "Animações: implícitas/explícitas, AnimationController, Hero, Rive/Lottie",
+       "CustomPaint, slivers avançados, custom RenderObject",
+       "Offline-first: fila local (outbox) e resolução de conflito",
+       "Build multiplataforma: Android, iOS, web e desktop com adaptação de UI",
+       "Code push / OTA (Shorebird) — visão geral e limites das lojas",
+       "Segurança: obfuscação, pinning, proteção de segredos",
+       "CI/CD: Codemagic, Fastlane, GitHub Actions, assinatura automatizada",
+       "Publicar nas duas lojas a partir do mesmo código",
+       "Monitoramento: Crashlytics, Sentry, performance tracing",
+       "Monorepo com Melos, packages internos, design system em package",
+       "Acessibilidade (Semantics) e testes de a11y"]}},
+   {tag:"Swift & iOS", s:"swift-ios", n:"Swift & iOS (SwiftUI)", note:"Frameworks: SwiftUI, UIKit, SwiftData/Core Data, URLSession, Combine, Swift Concurrency, Keychain, WidgetKit, XCTest. Exige macOS + Xcode.", l:{
+    b:["Ambiente: macOS, Xcode, simulador, playgrounds, conta de desenvolvedor",
+       "Swift: let × var, tipos, inferência; opcionais (?, !, if let, guard let)",
+       "Swift: String, Array/Set/Dictionary, tuplas, ranges",
+       "Swift: controle de fluxo, switch com pattern matching, loops",
+       "Swift: funções, argument labels, closures, trailing closure",
+       "Swift: struct × class (valor × referência), enum com associated values",
+       "Swift: protocolos, extensions, protocol-oriented programming",
+       "Swift: generics, throws/try/catch, Result",
+       "SwiftUI: View e body, modifiers, VStack/HStack/ZStack",
+       "SwiftUI: Text, Button, Image, TextField, List, ForEach, ScrollView",
+       "Estado: @State, @Binding, @Observable/@Published; fluxo de dados",
+       "Navegação: NavigationStack, NavigationLink, TabView, sheet, alert",
+       "Layout: frame, padding, Spacer, GeometryReader, safe area",
+       "Assets, SF Symbols, cores, dark mode, Dynamic Type",
+       "Ciclo de vida (App, Scene), Info.plist, pedido de permissões",
+       "Preview do Xcode e depuração no simulador/device"],
+    i:["Swift Concurrency: async/await, Task, actors, @MainActor, cancelamento",
+       "Combine: publishers, operators, sink — e onde ainda faz sentido",
+       "MVVM em SwiftUI; @Observable/ObservableObject; separar camadas",
+       "URLSession: requests, Codable (JSON), erros, upload",
+       "Autenticação: JWT no header, refresh, token no Keychain",
+       "Persistência: SwiftData (moderno) × Core Data (legado e robusto)",
+       "SwiftData: @Model, @Query, ModelContext, relações, migração",
+       "UserDefaults, arquivos, App Group, compartilhar dados com widget",
+       "Listas performáticas, paginação, AsyncImage e cache",
+       "Formulários, validação, estados de loading/erro/vazio",
+       "UIKit essencial e interoperabilidade (UIViewRepresentable)",
+       "Push (APNs), notificações locais, categorias e ações",
+       "Background: BGTaskScheduler, limites reais do iOS",
+       "Device: câmera (AVFoundation), CoreLocation, biometria (LocalAuthentication)",
+       "Localização/i18n e acessibilidade (VoiceOver, Dynamic Type)",
+       "Testes: XCTest, XCUITest, snapshot testing"],
+    a:["SwiftUI avançado: ViewBuilder, PreferenceKey, Layout protocol, Canvas",
+       "Animações, transições, matchedGeometryEffect, gestos compostos",
+       "Performance: Instruments, leaks, hitches, tamanho do binário",
+       "Arquitetura: Clean e TCA (The Composable Architecture); modularizar com SPM",
+       "Swift Package Manager: pacotes internos e dependências",
+       "Segurança: Keychain, pinning, App Transport Security, obfuscação",
+       "Sign in with Apple; OAuth com ASWebAuthenticationSession + PKCE",
+       "Universal Links, App Clips, WidgetKit, Live Activities",
+       "CloudKit e sincronização; offline-first no iOS",
+       "Concorrência avançada: Sendable, data-race safety, isolation",
+       "CI/CD: Xcode Cloud, Fastlane, provisioning/assinatura, TestFlight",
+       "App Store: revisão, privacy manifest, App Tracking Transparency",
+       "iPadOS, macOS (Catalyst), watchOS — reaproveitar a base"]}},
+   {tag:"Integração com o web", s:"mobile-integracao", n:"Integração com o app web, dados e publicação", note:"Como o mobile conversa com a MESMA API do projeto web (Fases 2 e 4): contrato, auth, banco local, offline/sync, push e go-live.", l:{
+    b:["Um backend, três clientes: reaproveitar a API do projeto web",
+       "Contrato de API: OpenAPI/Swagger como fonte da verdade",
+       "Gerar cliente HTTP a partir do OpenAPI (Kotlin, Dart, Swift)",
+       "Versionamento de API e compatibilidade com apps antigos na loja",
+       "DTO da API × modelo de domínio do app: por que separar",
+       "Paginação, filtros e ordenação vindos da API",
+       "Status HTTP e mensagens de erro traduzidas para o usuário",
+       "Ambientes dev/staging/prod e troca de baseURL",
+       "Testar contra a API local: emulador, IP da máquina, túnel (ngrok)",
+       "Por que CORS não se aplica a app nativo (e o que muda vs. o front web)"],
+    i:["Autenticação: por que mobile usa Bearer/JWT em vez de cookie de sessão",
+       "Fluxo completo: login → access token curto + refresh token",
+       "Guardar token com segurança (Keystore/Keychain/secure storage)",
+       "Refresh automático e fila de requisições durante a renovação",
+       "OAuth2/OIDC com PKCE; login social; Sign in with Apple",
+       "Logout, revogação, expiração e sessão em múltiplos dispositivos",
+       "Banco local como cache do servidor: espelho, TTL, invalidação",
+       "Offline-first: gravar local primeiro e sincronizar depois",
+       "Fila de operações (outbox), idempotência, retry com backoff",
+       "Conflito: last-write-wins, versão/etag, merge, servidor decide",
+       "Tempo real: WebSocket ou SSE, reconexão, estado de presença",
+       "Push ponta a ponta: registrar token no backend, enviar, abrir a tela certa",
+       "Upload de imagem/arquivo: multipart × URL pré-assinada, progresso",
+       "BFF (Backend for Frontend): quando criar endpoint só para o mobile",
+       "Correlacionar log do app com o log do backend (request id)"],
+    a:["GraphQL no mobile (Apollo) como alternativa ao REST",
+       "gRPC/Protobuf em mobile: quando realmente vale",
+       "Cache HTTP (ETag, Cache-Control) combinado com cache local",
+       "Sync incremental: delta sync, cursores, timestamps, tombstones",
+       "CRDT e sync engines para colaboração offline — visão geral",
+       "Segurança: pinning, attestation (Play Integrity / App Attest), rate limit",
+       "Segredo nunca no app: proxy no backend, rotação de chaves",
+       "Feature flags, kill switch remoto e atualização forçada por versão",
+       "CI/CD coordenado: versionar web e mobile juntos, contrato testado",
+       "Testes de contrato (Pact) entre app e API",
+       "Publicação: assinatura, Play Console, App Store Connect, revisão",
+       "Rollout gradual, monitorar crash-free rate, rollback rápido",
+       "Analytics de produto, funil e A/B test no app",
+       "Compartilhar código entre web e mobile: KMP, Flutter web, monorepo",
+       "Design system compartilhado web + mobile via design tokens"]}}
+];
+
 // progresso salvo (com migração automática de versões anteriores)
 var NEW_KEY='trilha_conhecimento_v3';
 var OLD_KEY='trilha_conhecimento_v2';
@@ -2157,13 +2393,19 @@ PHASES.forEach(function(ph){
   });
   PHASE_TOT[ph.id]=ptot;
 });
-// PLUS entra em TOT (para a barra de cada matéria funcionar) mas NÃO em TOTAL:
-// é material extra e não deve diluir o progresso das 7 fases.
-var PLUS_TOTAL=0,PLUS_SLUGS={};
-PLUS.forEach(function(tech){
-  var c=0;LV.forEach(function(p){c+=(tech.l[p[0]]||[]).length;});
-  TOT[tech.s]=c;PLUS_TOTAL+=c;PLUS_SLUGS[tech.s]=1;
-});
+// PLUS e Mobile entram em TOT (para a barra de cada matéria funcionar) mas NÃO em TOTAL:
+// são trilhas paralelas e não devem diluir o progresso das 7 fases.
+var PLUS_TOTAL=0,MOBILE_TOTAL=0,PLUS_SLUGS={};
+function tallyExtra(arr){
+  var tot=0;
+  arr.forEach(function(tech){
+    var c=0;LV.forEach(function(p){c+=(tech.l[p[0]]||[]).length;});
+    TOT[tech.s]=c;tot+=c;PLUS_SLUGS[tech.s]=1;
+  });
+  return tot;
+}
+PLUS_TOTAL=tallyExtra(PLUS);
+MOBILE_TOTAL=tallyExtra(MOBILE);
 
 function esc(s){return s.replace(/[&<>]/g,function(c){return({'&':'&amp;','<':'&lt;','>':'&gt;'})[c];});}
 function hl(s,query){var e=esc(s);if(!query)return e;try{var rx=new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig');return e.replace(rx,'<mark>$1</mark>');}catch(_){return e;}}
@@ -2192,6 +2434,13 @@ PHASES.forEach(function(ph,pi){
     if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
   });
   pnav.appendChild(pb);
+  var ob=document.createElement('button');ob.className='pnavchip';ob.type='button';ob.textContent='📱 Mobile';
+  ob.style.borderColor='#38bdf8';ob.style.color='#38bdf8';
+  ob.addEventListener('click',function(){
+    var el=document.getElementById('mobile-anchor');
+    if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  pnav.appendChild(ob);
   var mb=document.createElement('button');mb.className='pnavchip';mb.type='button';mb.textContent='🏁 Marcos';
   mb.addEventListener('click',function(){
     var el=document.getElementById('milestones');
@@ -2311,41 +2560,65 @@ function buildTechCard(tech,pid){
   return d;
 }
 
-// bloco PLUS — matérias fora do cronograma; progresso próprio, não entra no total geral
-(function(){
-  var div=document.createElement('div');div.className='plusdivider';
-  div.innerHTML='<span>fim da trilha · material extra</span>';
-  var sec=document.createElement('section');sec.className='plus';sec.id='plusSection';
-  var head=document.createElement('div');head.className='plushead';head.id='plus-anchor';
-  var tags=PLUS.map(function(t){return '<span class="plustag">'+esc(t.tag)+'</span>';}).join('');
-  head.innerHTML='<p class="pkicker">Plus · fora do cronograma</p>'+
-    '<h2 class="plustitle">Matérias extras — IA aplicada, ponta a ponta</h2>'+
-    '<p class="plusdesc">Trilha paralela e opcional: de redes neurais a treinar a <b>sua própria LLM</b>, usar modelos '+
+// blocos paralelos (PLUS e Mobile) — fora do cronograma; progresso próprio, não entram no total geral
+var TRACKS=[
+ {id:"plus", data:PLUS, total:PLUS_TOTAL,
+  accent:"#b48cff", accent2:"#8b5cf6", soft:"#b48cff2e",
+  divider:"fim da trilha · material extra",
+  kicker:"Plus · fora do cronograma",
+  title:"Matérias extras — IA aplicada, ponta a ponta",
+  desc:'Trilha paralela e opcional: de redes neurais a treinar a <b>sua própria LLM</b>, usar modelos '+
     '<b>locais e agênticos</b> (Claude, Gemini, Codex) e montar <b>sistemas multi-agente</b> com orquestrador e revisor. '+
-    'Não tem semana marcada e <b>não conta no progresso das 7 fases</b> — tem contador próprio.</p>'+
+    'Não tem semana marcada e <b>não conta no progresso das 7 fases</b> — tem contador próprio.',
+  note:'Sugestão de ordem: Deep Learning → LLM própria → Usar LLMs & Prompt → Agentes & multi-agente. '+
+    'As duas primeiras se apoiam uma na outra; as duas últimas podem ser feitas a qualquer momento.'},
+ {id:"mobile", data:MOBILE, total:MOBILE_TOTAL,
+  accent:"#38bdf8", accent2:"#0284c7", soft:"#38bdf82e",
+  divider:"trilha paralela · mobile",
+  kicker:"Mobile · fora do cronograma",
+  title:"Trilha Mobile — Kotlin, Flutter e Swift de ponta a ponta",
+  desc:'Aplicações mobile completas nas três stacks: <b>Kotlin/Android (Compose)</b>, <b>Flutter</b> e <b>Swift/iOS (SwiftUI)</b>. '+
+    'Cada uma do básico ao avançado, com <b>banco de dados local</b>, consumo da <b>mesma API</b> do projeto web (Fases 2 e 4), '+
+    'offline/sync, push, testes e <b>publicação nas lojas</b>. Também fora do cronograma e do progresso das 7 fases.',
+  note:'Sugestão: comece por Fundamentos Mobile, escolha UMA stack para ir a fundo (Kotlin/Android se quer nativo Android; '+
+    'Flutter se quer as duas lojas com um só código; Swift exige Mac), faça a matéria de Integração e leve um app até a loja. '+
+    'Só então abra a segunda stack — aprender as três em paralelo dispersa.'}
+];
+TRACKS.forEach(function(cfg){
+  var div=document.createElement('div');div.className='plusdivider';
+  var sec=document.createElement('section');sec.className='plus';sec.id=cfg.id+'Section';
+  [div,sec].forEach(function(el){
+    el.style.setProperty('--plus',cfg.accent);
+    el.style.setProperty('--plus2',cfg.accent2);
+    el.style.setProperty('--plus-soft',cfg.soft);
+  });
+  div.innerHTML='<span>'+esc(cfg.divider)+'</span>';
+  var head=document.createElement('div');head.className='plushead';head.id=cfg.id+'-anchor';
+  var tags=cfg.data.map(function(t){return '<span class="plustag">'+esc(t.tag)+'</span>';}).join('');
+  head.innerHTML='<p class="pkicker">'+esc(cfg.kicker)+'</p>'+
+    '<h2 class="plustitle">'+esc(cfg.title)+'</h2>'+
+    '<p class="plusdesc">'+cfg.desc+'</p>'+
     '<div class="plustags">'+tags+'</div>'+
-    '<div class="plusfoot"><span class="plusbar"><i id="plusbar"></i></span>'+
-    '<span class="pluscount" id="pluscount"><b>0</b>/'+PLUS_TOTAL+'</span></div>';
+    '<div class="plusfoot"><span class="plusbar"><i id="'+cfg.id+'bar"></i></span>'+
+    '<span class="pluscount" id="'+cfg.id+'count"><b>0</b>/'+cfg.total+'</span></div>';
   sec.appendChild(head);
-  PLUS.forEach(function(tech){sec.appendChild(buildTechCard(tech,'plus'));});
-  var note=document.createElement('p');note.className='plusnote';
-  note.textContent='Sugestão de ordem: Deep Learning → LLM própria → Usar LLMs & Prompt → Agentes & multi-agente. '+
-    'Cada uma pressupõe a anterior, mas as duas últimas podem ser feitas a qualquer momento (só dependem de saber programar).';
-  sec.appendChild(note);
+  cfg.data.forEach(function(tech){sec.appendChild(buildTechCard(tech,cfg.id));});
+  if(cfg.note){var n=document.createElement('p');n.className='plusnote';n.textContent=cfg.note;sec.appendChild(n);}
   sec.addEventListener('change',function(e){
     var inp=e.target;if(inp.type!=='checkbox'||inp.dataset.id===undefined)return;
     if(inp.checked)checked.add(inp.dataset.id);else checked.delete(inp.dataset.id);
-    save();updateTech(inp.dataset.slug);updatePlus();
+    save();updateTech(inp.dataset.slug);updateTrack(cfg);
   });
   var ms=document.getElementById('milestones');
   ms.parentNode.insertBefore(div,ms);
   ms.parentNode.insertBefore(sec,ms);
-})();
-function updatePlus(){
-  var n=0;PLUS.forEach(function(t){n+=countSlug(t.s);});
-  var pct=PLUS_TOTAL?100*n/PLUS_TOTAL:0;
-  var bar=document.getElementById('plusbar');if(bar)bar.style.width=pct+'%';
-  var c=document.getElementById('pluscount');if(c)c.innerHTML='<b>'+n+'</b>/'+PLUS_TOTAL+' · '+Math.round(pct)+'%';
+});
+function updateTrack(cfg){
+  var n=0;cfg.data.forEach(function(t){n+=countSlug(t.s);});
+  var pct=cfg.total?100*n/cfg.total:0;
+  var bar=document.getElementById(cfg.id+'bar');if(bar)bar.style.width=pct+'%';
+  var c=document.getElementById(cfg.id+'count');
+  if(c)c.innerHTML='<b>'+n+'</b>/'+cfg.total+' · '+Math.round(pct)+'%';
 }
 
 // seção Extras (livros fora da trilha) — renderizada após as fases, antes dos marcos
@@ -2412,7 +2685,7 @@ function refreshAll(){
   Object.keys(TOT).forEach(updateTech);
   PHASES.forEach(function(ph){updatePhase(ph.id);updateWeekly(ph.id);updateLibrary(ph.id);});
   updateExtras();
-  updatePlus();
+  TRACKS.forEach(updateTrack);
   updateGlobal();
 }
 
@@ -2457,13 +2730,13 @@ function applyFilter(){
     sec.querySelectorAll('details.tech').forEach(function(card){if(card.style.display!=='none')any=true;});
     sec.style.display=any?'':'none';
   });
-  var plusSec=document.getElementById('plusSection'),plusDiv=document.querySelector('.plusdivider');
-  if(plusSec){
+  document.querySelectorAll('section.plus').forEach(function(sec){
     var anyPlus=false;
-    plusSec.querySelectorAll('details.tech').forEach(function(card){if(card.style.display!=='none')anyPlus=true;});
-    plusSec.style.display=anyPlus?'':'none';
-    if(plusDiv)plusDiv.style.display=anyPlus?'':'none';
-  }
+    sec.querySelectorAll('details.tech').forEach(function(card){if(card.style.display!=='none')anyPlus=true;});
+    sec.style.display=anyPlus?'':'none';
+    var prev=sec.previousElementSibling;
+    if(prev&&prev.classList.contains('plusdivider'))prev.style.display=anyPlus?'':'none';
+  });
   var emptyEl=document.getElementById('emptymsg');
   if(query&&anyTotal===0){if(!emptyEl){emptyEl=document.createElement('div');emptyEl.id='emptymsg';emptyEl.className='empty';list.appendChild(emptyEl);}emptyEl.textContent='Nada encontrado para "'+q.value.trim()+'".';emptyEl.style.display='';}
   else if(emptyEl){emptyEl.style.display='none';}
@@ -2489,7 +2762,7 @@ document.getElementById('reset').addEventListener('click',function(){
   list.querySelectorAll('input[type=checkbox]').forEach(function(i){i.checked=false;});
   mlist.querySelectorAll('input[type=checkbox]').forEach(function(i){i.checked=false;});
   var ex=document.getElementById('extrasBooks');if(ex)ex.querySelectorAll('input[type=checkbox]').forEach(function(i){i.checked=false;});
-  var pl=document.getElementById('plusSection');if(pl)pl.querySelectorAll('input[type=checkbox]').forEach(function(i){i.checked=false;});
+  document.querySelectorAll('section.plus input[type=checkbox]').forEach(function(i){i.checked=false;});
   refreshAll();updateMilestones();
 });
 })();
