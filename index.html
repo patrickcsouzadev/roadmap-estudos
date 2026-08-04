@@ -15,6 +15,7 @@
     --blaze:#ff7c45; --blaze2:#e2531c; --blaze-soft:#ff7c4533;
     --summit:#52caa0; --summit2:#2f9c79;
     --lvl-b:#5fb673; --lvl-i:#e7a23e; --lvl-a:#e0566e;
+    --plus:#b48cff; --plus2:#8b5cf6; --plus-soft:#b48cff2e;
     --font-display:"Oswald Var","Oswald",-apple-system,"Segoe UI",sans-serif;
     --font-body:"Public Sans Var","Public Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
     --font-mono:"JetBrains Mono Var","JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
@@ -344,6 +345,37 @@
   .mtext .md{font-size:.78rem;color:var(--text2);margin-top:2px}
   input:checked ~ .mtext .mt{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--summit2)}
 
+  /* ---------- PLUS: matérias fora do cronograma ---------- */
+  .plusdivider{position:relative;z-index:1;display:flex;align-items:center;gap:14px;margin:42px 0 0}
+  .plusdivider::before,.plusdivider::after{content:"";flex:1;height:1px;
+    background:linear-gradient(90deg,transparent,var(--line),transparent)}
+  .plusdivider span{font-family:var(--font-display);font-size:.68rem;font-weight:600;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--plus);white-space:nowrap}
+  section.plus{position:relative;z-index:1;margin:14px 0 0}
+  .plushead{scroll-margin-top:230px;border:1px solid var(--line);border-radius:16px;padding:18px 20px 17px;
+    background:
+      radial-gradient(420px 160px at 88% -30%, var(--plus-soft) 0%, transparent 70%),
+      linear-gradient(180deg,var(--surface),var(--surface2))}
+  .plushead .pkicker{color:var(--plus)}
+  .plustitle{font-family:var(--font-display);font-weight:600;font-size:1.42rem;letter-spacing:-.005em;margin:0;
+    text-wrap:balance}
+  .plusdesc{font-size:.85rem;color:var(--text2);margin:11px 0 0;line-height:1.6;max-width:74ch}
+  .plusdesc b{color:var(--text)}
+  .plustags{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px}
+  .plustag{font-family:var(--font-display);font-size:.66rem;font-weight:600;letter-spacing:.05em;
+    text-transform:uppercase;padding:4px 10px;border-radius:999px;border:1px solid var(--plus);
+    color:var(--plus);white-space:nowrap}
+  .plusfoot{display:flex;align-items:center;gap:12px;margin-top:15px;padding-top:14px;
+    border-top:1px dashed var(--line)}
+  .plusbar{flex:1 1 auto;height:9px;border-radius:999px;background:var(--line-soft);overflow:hidden}
+  .plusbar i{display:block;height:100%;width:0;border-radius:inherit;
+    background:linear-gradient(90deg,var(--plus2),var(--plus));
+    box-shadow:0 0 12px -2px var(--plus);transition:width .9s cubic-bezier(.34,1.05,.4,1)}
+  .pluscount{font-family:var(--font-mono);font-size:.76rem;color:var(--text2);white-space:nowrap}
+  .pluscount b{color:var(--plus)}
+  section.plus details.tech{margin-left:0}
+  .plusnote{font-size:.76rem;color:var(--muted);margin:10px 2px 0;line-height:1.55}
+
   /* ---------- library / books (per phase) ---------- */
   details.library{background:var(--ink2);border:1px solid var(--line);border-radius:12px;margin:14px 0;overflow:hidden}
   details.library>summary{list-style:none;cursor:pointer;padding:12px 16px;display:flex;align-items:center;gap:11px}
@@ -396,7 +428,7 @@
 <div class="skyfx" id="sky"></div>
 <div class="wrap">
   <header class="top">
-    <p class="eyebrow">Cronograma de estudos · 85 semanas · Jun/2026 → Fev/2028</p>
+    <p class="eyebrow">Cronograma de estudos · 78 semanas · Jun/2026 → Jan/2028</p>
     <div class="hero">
       <svg class="mark" viewBox="0 0 48 48" aria-hidden="true">
         <path class="peak" d="M3 38 L16 18 L23 28 L30 12 L45 38 Z"/>
@@ -438,11 +470,11 @@
       </summary>
       <div class="gbody">
         <div class="statgrid">
-          <div class="statcard"><b class="num">85</b><span>semanas no total</span></div>
-          <div class="statcard"><b class="num">~2.125h</b><span>de estudo estimadas</span></div>
+          <div class="statcard"><b class="num">78</b><span>semanas no total</span></div>
+          <div class="statcard"><b class="num">~1.950h</b><span>de estudo estimadas</span></div>
           <div class="statcard"><b class="num">25h</b><span>por semana (5h × 5 dias)</span></div>
           <div class="statcard"><b class="num">24 jun 2026</b><span>início da trilha</span></div>
-          <div class="statcard"><b class="num">fev/2028</b><span>término estimado</span></div>
+          <div class="statcard"><b class="num">dez/27–jan/28</b><span>término estimado</span></div>
         </div>
         <p class="gobjective">🎯 <b>Objetivo:</b> conhecimento robusto e profundo — sem pressa de mercado. <b>Disponibilidade:</b> quarta a domingo, 5h/dia. Atrasou? Empurre o cronograma — nunca comprima a revisão.</p>
 
@@ -485,7 +517,7 @@
           </table>
         </div>
         <p class="gnote"><b style="color:var(--text)">Por que esta ordem casa:</b> Java→Spring (dependência) · SQL com Spring Data · Docker aplicado ao Python · Mongo nas APIs web · BigQuery/GCP na trilha de dados · ferramentas/deploy com o Frontend · orquestração e nuvem por último, implantando tudo que foi construído.</p>
-        <p class="gnote"><b style="color:var(--text)">Dentro da Fase 5, a escada da IA:</b> numpy/pandas (dados) → sklearn (ML clássico) → <b style="color:var(--text)">Deep Learning</b> em PyTorch (redes neurais, attention) → IA Generativa (consumir LLM via API + RAG) → <b style="color:var(--text)">LLM própria</b> (transformer do zero, Hugging Face, fine-tuning com LoRA/QLoRA, quantização, serving). Cada degrau é pré-requisito do próximo: sem redes neurais não se entende transformer, e sem transformer não se treina modelo próprio.</p>
+        <p class="gnote"><b style="color:var(--text)">Trilha principal × PLUS:</b> as 7 fases acima são o escopo do cronograma — com semanas, projetos e prazo. Ao final da página fica o bloco <b style="color:var(--plus)">PLUS</b>: matérias avançadas de IA (Deep Learning, treinar a sua própria LLM, usar LLMs locais e agênticas, e sistemas multi-agente) que ficam <b>fora</b> do cronograma e não entram no progresso geral. Estude quando quiser, no seu ritmo.</p>
       </div>
     </details>
 
@@ -1210,9 +1242,9 @@ var PHASES=[
        "Change streams, capped collections, GridFS",
        "Backup (mongodump), Atlas, Atlas Search/Vector Search"]}}
   ]},
- {id:"f5", n:"Data & IA", weeks:"Semanas 42–62", period:"Abr–Ago/2027",
-  foco:"numpy → pandas → viz → scikit-learn → Deep Learning → LLM própria", paralelo:"BigQuery + GCP (dados, GPU, Vertex AI)",
-  proj:"Pipeline de dados + ML + LLM própria — análise exploratória (pandas), visualizações, modelo treinado (sklearn), rede neural em PyTorch e um LLM aberto fine-tunado com LoRA/QLoRA, servido com RAG via API dockerizada, dados no BigQuery.",
+ {id:"f5", n:"Data & IA", weeks:"Semanas 42–55", period:"Abr–Jul/2027",
+  foco:"numpy → pandas → visualização → scikit-learn → IA Generativa", paralelo:"BigQuery + GCP (dados)",
+  proj:"Pipeline de dados + ML — análise exploratória (pandas), visualizações (matplotlib/seaborn/plotly), modelo treinado (sklearn) + app de IA generativa (RAG com LangChain), com dados no BigQuery, servido como API e dockerizado.",
   books:[
    {subj:"Dados & Analytics", items:[
     ["SQL para Análise de Dados","Cathy Tanimura · Novatec (2022)","nucleo","SQL analítico (janelas, agregações) para dados — casa com BigQuery/analytics da fase."],
@@ -1257,22 +1289,8 @@ var PHASES=[
    [["IA Generativa","Fundamentos de LLMs (tokens, embeddings, context window, temperatura); prompting (zero/few-shot, chain-of-thought); OpenAI API (chat completions, function calling); embeddings e similaridade."],
     ["Integração","Ler/escrever BigQuery via Python (google-cloud-bigquery), pandas ↔ BigQuery."]],
    [["LangChain","Conceitos; models/prompts/chains; memory; document loaders; text splitters; vector stores (FAISS/Chroma); RAG; agents e tools; outras LLMs (Anthropic Claude, Gemini) e comparação."],
-    ["Integração","Conectar o pipeline de ML/RAG a dados no BigQuery."]],
-   [["Deep Learning","Fundamentos: neurônio, camadas, ativações (ReLU/softmax), função de perda, gradiente descendente e backpropagation (intuição). PyTorch: tensores, CPU × GPU (CUDA), autograd (requires_grad/backward)."],
-    ["GCP","GPUs na nuvem: Colab, Vertex AI Workbench, escolher máquina com GPU; custos."]],
-   [["Deep Learning","nn.Module, definir a rede, otimizadores (SGD/Adam), loop de treino (epochs/batches/zero_grad/step), Dataset e DataLoader, salvar/carregar (state_dict). Regularização: dropout, weight decay, early stopping, batch norm."],
-    ["GCP","Treinar na Vertex AI: custom training jobs, artefatos no Cloud Storage."]],
-   [["Deep Learning","CNNs (convolução, pooling, ResNet/skip connections), torchvision, data augmentation, transfer learning e fine-tuning. RNN/LSTM/GRU para sequências. Keras/TensorFlow: Sequential e Model API. TensorBoard."],
-    ["GCP","Vertex AI: registrar e servir modelos (endpoints), monitoramento."]],
-   [["LLM própria","Arquitetura Transformer: self-attention (Q/K/V), multi-head, positional encoding, residual + layer norm. Tokenização (BPE/SentencePiece), context window, logits, decodificação (greedy/top-k/top-p/temperatura). Hugging Face: hub, AutoTokenizer/AutoModel, pipeline(); rodar modelo aberto local (Llama/Mistral/Phi/Gemma)."],
-    ["GCP","Model Garden / Vertex AI: modelos abertos gerenciados; VRAM × tamanho de modelo."]],
-   [["LLM própria","Transformer do zero em PyTorch (estilo nanoGPT): implementar attention, blocos e loop de treino. datasets (HF): carregar, tokenizar, mapear. Pré-treino × fine-tuning × instruction tuning."],
-    ["GCP","Armazenar datasets e checkpoints (GCS); exportar dados do BigQuery para treino."]],
-   [["LLM própria","Fine-tuning na prática: PEFT com LoRA e QLoRA (rank/alpha), quantização 8/4-bit (bitsandbytes), TRL/SFTTrainer, TrainingArguments. Preparar dataset de instruções. Avaliação: perplexidade, benchmarks, LLM-as-judge."],
-    ["GCP","Treino com GPU na nuvem; controle de custo e cotas."]],
-   [["LLM própria","Alinhamento (DPO/ORPO); serving (vLLM, Ollama, llama.cpp/GGUF, TGI); otimização de inferência (KV cache, flash attention); RAG avançado (reranking); guardrails (prompt injection, PII); observabilidade e LLMOps."],
-    ["Integração","Publicar o LLM fine-tunado como API (FastAPI + vLLM) consumindo dados do BigQuery; revisão geral da fase."],
-    ["Projeto","Pipeline de dados + ML + LLM própria: análise exploratória (pandas), visualizações, modelo sklearn, rede neural em PyTorch e um LLM aberto fine-tunado com LoRA/QLoRA, servido com RAG via API dockerizada, dados no BigQuery."]]
+    ["Integração","Conectar o pipeline de ML/RAG a dados no BigQuery; revisão."],
+    ["Projeto","Pipeline de dados + ML: análise exploratória (pandas), visualizações (matplotlib/seaborn/plotly), modelo treinado (sklearn) + app de IA generativa (RAG com LangChain), com dados no BigQuery, servido como API e dockerizado."]]
   ],
   t:[
    {s:"numpy", n:"NumPy", l:{
@@ -1351,49 +1369,7 @@ var PHASES=[
        "Produção: serialização (joblib), data leakage",
        "Desbalanceamento (SMOTE, class_weight), calibração",
        "Intro a deep learning, MLOps básico"]}},
-   {s:"deep-learning", n:"Deep Learning (PyTorch / TensorFlow)", note:"Ponte entre o ML clássico (sklearn) e as LLMs — sem redes neurais, não dá para entender transformer.", l:{
-    b:["O que é deep learning; DL × ML clássico; quando cada um vence",
-       "Neurônio artificial, perceptron, camadas, pesos e bias",
-       "Funções de ativação: ReLU, sigmoid, tanh, softmax",
-       "Forward pass; funções de perda (MSE, cross-entropy)",
-       "Gradiente descendente e backpropagation (intuição + na mão)",
-       "PyTorch: instalação, tensores, operações, shapes",
-       "CPU × GPU (CUDA), .to(device), quando a GPU importa",
-       "Tensor × ndarray (numpy): conversão e memória compartilhada",
-       "autograd: requires_grad, backward(), .grad, detach()",
-       "nn.Module: definir a rede, __init__ e forward()",
-       "Otimizadores: SGD, Adam; learning rate",
-       "Loop de treino: epochs, batches, zero_grad → loss → step",
-       "Dataset e DataLoader; batch_size, shuffle",
-       "train() × eval(), torch.no_grad() na inferência",
-       "Salvar e carregar modelos (state_dict)"],
-    i:["Overfitting em redes: dropout, weight decay, early stopping",
-       "Batch normalization e layer normalization",
-       "Inicialização de pesos; vanishing/exploding gradients",
-       "Learning rate schedulers; gradient clipping",
-       "CNNs: convolução, kernels, stride, padding, pooling",
-       "Arquiteturas CNN: LeNet, VGG, ResNet (skip connections)",
-       "Visão: torchvision, transforms, data augmentation",
-       "Transfer learning e fine-tuning de modelos pré-treinados",
-       "RNN, LSTM, GRU; dados sequenciais e séries temporais",
-       "Embeddings: representação vetorial densa (word2vec, intuição)",
-       "Attention (introdução) — a ponte direta para transformers",
-       "TensorFlow/Keras: Sequential, Model API, compile/fit",
-       "Keras × PyTorch: diferenças e quando usar cada",
-       "Acompanhar treino: TensorBoard, Weights & Biases",
-       "Diagnóstico: curvas de aprendizado, matriz de confusão"],
-    a:["Mixed precision (AMP); múltiplas GPUs (DDP)",
-       "Performance: num_workers, pin_memory, profiling, bottlenecks",
-       "Autoencoders e VAE; GANs (intuição)",
-       "PyTorch Lightning; organização de projetos de treino",
-       "torch.compile, TorchScript, exportar para ONNX",
-       "Servir modelos: TorchServe, FastAPI + modelo, batching",
-       "MLOps: versionamento de modelos e dados (MLflow, DVC)",
-       "Reprodutibilidade: seeds, determinismo, ambientes",
-       "Hardware: VRAM × batch size, gradient accumulation, custo",
-       "Debug de treino: loss não desce, NaN, overfit intencional",
-       "Hyperparameter tuning (Optuna); experiment tracking"]}},
-   {s:"ia-gen", n:"IA Generativa / LLMs / LangChain", note:"Aqui você CONSOME LLMs (API + RAG). Construir e treinar a sua própria é a matéria seguinte.", l:{
+   {s:"ia-gen", n:"IA Generativa / LLMs / LangChain", note:"Aqui você CONSOME LLMs (API + RAG). Deep Learning, treinar a sua própria LLM e engenharia de agentes estão no PLUS, ao final da página.", l:{
     b:["LLMs, transformers (intuição), tokens/tokenização",
        "Embeddings, espaço vetorial, similaridade (cosseno)",
        "Context window, temperatura, top_p, max_tokens",
@@ -1413,55 +1389,6 @@ var PHASES=[
        "Fine-tuning × RAG × prompt; embeddings customizados",
        "Observabilidade (LangSmith), custo/cache, rate limits",
        "Produção: streaming, fallback, orquestração; MCP (intro)"]}},
-   {s:"llm-propria", n:"LLM própria (Transformers · Hugging Face · fine-tuning)", note:"Do transformer na mão ao seu modelo aberto treinado, quantizado e servido. Bibliotecas: transformers, datasets, tokenizers, PEFT, TRL, bitsandbytes, accelerate, vLLM, sentence-transformers.", l:{
-    b:["Por que treinar/adaptar o próprio modelo: custo, privacidade, domínio",
-       "Da RNN ao Transformer: por que attention substituiu recorrência",
-       "Arquitetura Transformer: encoder, decoder, encoder-decoder",
-       "Self-attention: query/key/value, produto escalar, escala √d",
-       "Multi-head attention; positional encoding (absoluto × RoPE)",
-       "Bloco do transformer: feed-forward, residual, layer norm",
-       "Tokenização: BPE, WordPiece, SentencePiece; vocabulário",
-       "Tokens, IDs, special tokens, padding, attention mask",
-       "Context window; embeddings de entrada; logits; softmax",
-       "Decodificação: greedy, beam search, top-k, top-p, temperatura",
-       "Famílias de modelos abertos: Llama, Mistral, Phi, Gemma, Qwen",
-       "Hugging Face Hub: model cards, licenças, gated models",
-       "transformers: AutoTokenizer, AutoModelForCausalLM, pipeline()",
-       "Rodar um modelo aberto localmente (CPU × GPU)",
-       "Parâmetros × precisão × VRAM: o que cabe na sua máquina",
-       "Chat templates e formato de conversa (system/user/assistant)"],
-    i:["Construir um transformer do zero em PyTorch (estilo nanoGPT)",
-       "Implementar attention, blocos, embeddings e o loop de treino",
-       "datasets (HF): load_dataset, map, filter, tokenização em lote",
-       "Preparar corpus: limpeza, deduplicação, split treino/validação",
-       "Pré-treino × fine-tuning × instruction tuning: o que fazer quando",
-       "Full fine-tuning: quando vale e quanto custa (memória/tempo)",
-       "PEFT: LoRA e QLoRA — adaptadores, rank, alpha, target_modules",
-       "Quantização: 8-bit e 4-bit (bitsandbytes); GGUF e llama.cpp",
-       "accelerate: distribuir treino, device_map, offload",
-       "TRL: SFTTrainer para treino supervisionado de instruções",
-       "Trainer e TrainingArguments: hiperparâmetros de fine-tune",
-       "Gradient accumulation, checkpointing, retomar treino",
-       "Dataset de instruções: formato, qualidade × quantidade",
-       "Avaliação: perplexidade, benchmarks, LLM-as-judge, held-out set",
-       "Embeddings próprios: sentence-transformers, fine-tune de embedding",
-       "Vector stores (FAISS/Chroma/pgvector) e RAG com o seu modelo",
-       "Servir local: Ollama, llama.cpp, LM Studio, TGI"],
-    a:["Alinhamento: RLHF (PPO), DPO, ORPO — o que muda em cada",
-       "Dataset de preferências; reward model; riscos do alinhamento",
-       "Serving em produção: vLLM, PagedAttention, continuous batching",
-       "Inferência otimizada: KV cache, flash attention, speculative decoding",
-       "Compressão: distillation, pruning, model merging",
-       "Contexto longo: RoPE scaling, sliding window, atenção esparsa",
-       "MoE (mixture of experts): intuição e trade-offs",
-       "Tool calling e agents no seu próprio modelo; structured output",
-       "MCP (Model Context Protocol): expor ferramentas ao modelo",
-       "Guardrails: prompt injection, jailbreak, moderação, PII, sandbox",
-       "Observabilidade: tracing, custo, latência, cache (Langfuse/LangSmith)",
-       "LLMOps: versionar prompts/modelos, CI de avaliação, regressão",
-       "Multimodal (visão + texto): CLIP, VLMs — introdução",
-       "Fine-tuning na nuvem: Vertex AI, GPUs, cotas e custo",
-       "Licenças de modelos e dados; viés, privacidade e uso responsável"]}},
    {s:"bigquery", n:"BigQuery", l:{
     b:["Arquitetura serverless (storage × compute)",
        "Datasets, tabelas, console, jobs",
@@ -1499,7 +1426,7 @@ var PHASES=[
        "IAM avançado, org policies, VPC Service Controls",
        "IaC (Terraform), custos/FinOps"]}}
   ]},
- {id:"f6", n:"Frontend", weeks:"Semanas 63–74", period:"Set–Nov/2027",
+ {id:"f6", n:"Frontend", weeks:"Semanas 56–67", period:"Jul–Out/2027",
   foco:"JavaScript → TypeScript → Angular", paralelo:"Ferramentas · Testes E2E · CI/CD · Deploy",
   proj:"SPA Angular + TypeScript consumindo a API — auth via cookies HttpOnly + interceptors, guards, reactive forms, RxJS; testes E2E (Cypress/Playwright); build dockerizado com pipeline CI/CD de deploy.",
   books:[
@@ -1543,7 +1470,7 @@ var PHASES=[
     ["Protractor: testes end-to-end automatizados","Walmyr Lima e Silva Filho","fora","E2E para Angular, mas o Protractor foi descontinuado (use Cypress/Playwright)."]
    ]}
   ],
-  ws:63,
+  ws:56,
   wk:[
    [["JavaScript","História, engines, tag de script, console; variáveis (var/let/const); tipos primitivos; coerção; operadores; template literals."],
     ["Tooling","Node.js/npm, package.json, scripts, semver, nvm, gerenciadores (npm/pnpm/yarn)."]],
@@ -1661,7 +1588,7 @@ var PHASES=[
        "Performance: tree-shaking, bundle, lazy",
        "Design Ops, métricas de adoção, deprecação"]}}
   ]},
- {id:"f7", n:"DevOps & Cloud", weeks:"Semanas 75–85", period:"Nov/2027–Fev/2028", kicker:"Cume",
+ {id:"f7", n:"DevOps & Cloud", weeks:"Semanas 68–78", period:"Out/2027–Jan/2028", kicker:"Cume",
   foco:"Docker/K8s avançado → GCP → AWS", paralelo:"Terraform (IaC) + Observabilidade",
   proj:"Deploy full-stack na nuvem — frontend Angular + API Spring/Django + Postgres + MongoDB, em Kubernetes (GKE ou EKS), provisionado com Terraform, CI/CD via GitHub Actions, monitorado com Prometheus/Grafana ou CloudWatch.",
   books:[
@@ -1679,7 +1606,7 @@ var PHASES=[
     ["Jenkins: automatize tudo sem complicações","Fernando Boaglio · Casa do Código","leitura","CI/CD com Jenkins."]
    ]}
   ],
-  ws:75,
+  ws:68,
   wk:[
    [["Docker (avançado)","Consolidação: segurança (scan, rootless, distroless), registries privados, BuildKit, otimização final."],
     ["IaC","Conceitos de Infraestrutura como Código; Terraform (HCL, providers, init/plan/apply), state."]],
@@ -1797,7 +1724,7 @@ var MILESTONES=[
  {id:"f2",t:"API Spring Boot segura",d:"Spring Data JPA + Spring Security (JWT/roles), Postgres, JAR executável"},
  {id:"f3",t:"App Python dockerizado",d:"POO + type hints + testes pytest, multi-stage build + compose"},
  {id:"f4",t:"API REST web completa",d:"Django/DRF ou Flask + Postgres + MongoDB, autenticação segura"},
- {id:"f5",t:"Pipeline de dados + ML + LLM própria",d:"análise (pandas), modelo sklearn, rede em PyTorch, LLM aberto fine-tunado (LoRA/QLoRA) servido com RAG"},
+ {id:"f5",t:"Pipeline de dados + ML + IA generativa",d:"análise (pandas), modelo (sklearn), RAG (LangChain), dados no BigQuery"},
  {id:"f6",t:"SPA Angular",t2:"+ TypeScript",d:"auth, guards, RxJS, testes E2E e pipeline CI/CD de deploy"},
  {id:"f7",t:"Deploy full-stack na nuvem",d:"Terraform + Kubernetes + CI/CD + observabilidade (Prometheus/Grafana ou CloudWatch)"}
 ];
@@ -1915,6 +1842,193 @@ var EXTRAS=[
   ["Economia do acesso e modelos de negócios","Rodrigo Dantas","fora","Negócios/economia — leitura de contexto."],
   ["Blockchain, Tokens e Criptomoedas: análise jurídica","Dayana de Carvalho Uhdre","fora","Aspecto jurídico de blockchain — fora do escopo técnico."]
  ]}
+];
+
+// PLUS — matérias avançadas de IA, fora do cronograma das 7 fases
+var PLUS=[
+   {tag:"Deep Learning", s:"deep-learning", n:"Deep Learning (PyTorch / TensorFlow)", note:"Ponte entre o ML clássico (sklearn) e as LLMs — sem redes neurais, não dá para entender transformer.", l:{
+    b:["O que é deep learning; DL × ML clássico; quando cada um vence",
+       "Neurônio artificial, perceptron, camadas, pesos e bias",
+       "Funções de ativação: ReLU, sigmoid, tanh, softmax",
+       "Forward pass; funções de perda (MSE, cross-entropy)",
+       "Gradiente descendente e backpropagation (intuição + na mão)",
+       "PyTorch: instalação, tensores, operações, shapes",
+       "CPU × GPU (CUDA), .to(device), quando a GPU importa",
+       "Tensor × ndarray (numpy): conversão e memória compartilhada",
+       "autograd: requires_grad, backward(), .grad, detach()",
+       "nn.Module: definir a rede, __init__ e forward()",
+       "Otimizadores: SGD, Adam; learning rate",
+       "Loop de treino: epochs, batches, zero_grad → loss → step",
+       "Dataset e DataLoader; batch_size, shuffle",
+       "train() × eval(), torch.no_grad() na inferência",
+       "Salvar e carregar modelos (state_dict)"],
+    i:["Overfitting em redes: dropout, weight decay, early stopping",
+       "Batch normalization e layer normalization",
+       "Inicialização de pesos; vanishing/exploding gradients",
+       "Learning rate schedulers; gradient clipping",
+       "CNNs: convolução, kernels, stride, padding, pooling",
+       "Arquiteturas CNN: LeNet, VGG, ResNet (skip connections)",
+       "Visão: torchvision, transforms, data augmentation",
+       "Transfer learning e fine-tuning de modelos pré-treinados",
+       "RNN, LSTM, GRU; dados sequenciais e séries temporais",
+       "Embeddings: representação vetorial densa (word2vec, intuição)",
+       "Attention (introdução) — a ponte direta para transformers",
+       "TensorFlow/Keras: Sequential, Model API, compile/fit",
+       "Keras × PyTorch: diferenças e quando usar cada",
+       "Acompanhar treino: TensorBoard, Weights & Biases",
+       "Diagnóstico: curvas de aprendizado, matriz de confusão"],
+    a:["Mixed precision (AMP); múltiplas GPUs (DDP)",
+       "Performance: num_workers, pin_memory, profiling, bottlenecks",
+       "Autoencoders e VAE; GANs (intuição)",
+       "PyTorch Lightning; organização de projetos de treino",
+       "torch.compile, TorchScript, exportar para ONNX",
+       "Servir modelos: TorchServe, FastAPI + modelo, batching",
+       "MLOps: versionamento de modelos e dados (MLflow, DVC)",
+       "Reprodutibilidade: seeds, determinismo, ambientes",
+       "Hardware: VRAM × batch size, gradient accumulation, custo",
+       "Debug de treino: loss não desce, NaN, overfit intencional",
+       "Hyperparameter tuning (Optuna); experiment tracking"]}},
+   {tag:"LLM própria", s:"llm-propria", n:"LLM própria (Transformers · Hugging Face · fine-tuning)", note:"Do transformer na mão ao seu modelo aberto treinado, quantizado e servido. Bibliotecas: transformers, datasets, tokenizers, PEFT, TRL, bitsandbytes, accelerate, vLLM, sentence-transformers.", l:{
+    b:["Por que treinar/adaptar o próprio modelo: custo, privacidade, domínio",
+       "Da RNN ao Transformer: por que attention substituiu recorrência",
+       "Arquitetura Transformer: encoder, decoder, encoder-decoder",
+       "Self-attention: query/key/value, produto escalar, escala √d",
+       "Multi-head attention; positional encoding (absoluto × RoPE)",
+       "Bloco do transformer: feed-forward, residual, layer norm",
+       "Tokenização: BPE, WordPiece, SentencePiece; vocabulário",
+       "Tokens, IDs, special tokens, padding, attention mask",
+       "Context window; embeddings de entrada; logits; softmax",
+       "Decodificação: greedy, beam search, top-k, top-p, temperatura",
+       "Famílias de modelos abertos: Llama, Mistral, Phi, Gemma, Qwen",
+       "Hugging Face Hub: model cards, licenças, gated models",
+       "transformers: AutoTokenizer, AutoModelForCausalLM, pipeline()",
+       "Rodar um modelo aberto localmente (CPU × GPU)",
+       "Parâmetros × precisão × VRAM: o que cabe na sua máquina",
+       "Chat templates e formato de conversa (system/user/assistant)"],
+    i:["Construir um transformer do zero em PyTorch (estilo nanoGPT)",
+       "Implementar attention, blocos, embeddings e o loop de treino",
+       "datasets (HF): load_dataset, map, filter, tokenização em lote",
+       "Preparar corpus: limpeza, deduplicação, split treino/validação",
+       "Pré-treino × fine-tuning × instruction tuning: o que fazer quando",
+       "Full fine-tuning: quando vale e quanto custa (memória/tempo)",
+       "PEFT: LoRA e QLoRA — adaptadores, rank, alpha, target_modules",
+       "Quantização: 8-bit e 4-bit (bitsandbytes); GGUF e llama.cpp",
+       "accelerate: distribuir treino, device_map, offload",
+       "TRL: SFTTrainer para treino supervisionado de instruções",
+       "Trainer e TrainingArguments: hiperparâmetros de fine-tune",
+       "Gradient accumulation, checkpointing, retomar treino",
+       "Dataset de instruções: formato, qualidade × quantidade",
+       "Avaliação: perplexidade, benchmarks, LLM-as-judge, held-out set",
+       "Embeddings próprios: sentence-transformers, fine-tune de embedding",
+       "Vector stores (FAISS/Chroma/pgvector) e RAG com o seu modelo",
+       "Servir local: Ollama, llama.cpp, LM Studio, TGI"],
+    a:["Alinhamento: RLHF (PPO), DPO, ORPO — o que muda em cada",
+       "Dataset de preferências; reward model; riscos do alinhamento",
+       "Serving em produção: vLLM, PagedAttention, continuous batching",
+       "Inferência otimizada: KV cache, flash attention, speculative decoding",
+       "Compressão: distillation, pruning, model merging",
+       "Contexto longo: RoPE scaling, sliding window, atenção esparsa",
+       "MoE (mixture of experts): intuição e trade-offs",
+       "Tool calling e agents no seu próprio modelo; structured output",
+       "MCP (Model Context Protocol): expor ferramentas ao modelo",
+       "Guardrails: prompt injection, jailbreak, moderação, PII, sandbox",
+       "Observabilidade: tracing, custo, latência, cache (Langfuse/LangSmith)",
+       "LLMOps: versionar prompts/modelos, CI de avaliação, regressão",
+       "Multimodal (visão + texto): CLIP, VLMs — introdução",
+       "Fine-tuning na nuvem: Vertex AI, GPUs, cotas e custo",
+       "Licenças de modelos e dados; viés, privacidade e uso responsável"]}},
+   {tag:"Usar LLMs & Prompt", s:"usar-llm", n:"Usar LLMs: locais e agênticas (Claude · Gemini · Codex)", note:"Do prompt à produção — modelos abertos rodando na sua máquina e os agênticos por API/CLI. Ferramentas: Ollama, llama.cpp, LM Studio, vLLM, SDKs Anthropic/Google/OpenAI, Claude Code, Gemini CLI, Codex.", l:{
+    b:["Panorama: modelos fechados (API) × abertos (self-hosted); trade-offs reais",
+       "Provedores agênticos: Anthropic Claude, Google Gemini, OpenAI (GPT/Codex)",
+       "Escolher o modelo por tarefa: raciocínio, código, custo, latência, contexto",
+       "Tokens e context window; como o custo é cobrado (entrada × saída)",
+       "Parâmetros de geração: temperatura, top_p, max_tokens, stop sequences",
+       "Rodar LLM local com Ollama: pull, run, Modelfile, API local",
+       "Alternativas locais: llama.cpp, LM Studio, GPT4All — quando usar cada",
+       "Quantização para rodar local: GGUF, 4-bit/8-bit, VRAM × RAM × velocidade",
+       "Modelos abertos úteis: Llama, Mistral, Qwen, Gemma, DeepSeek, Phi",
+       "Papéis da conversa: system, user, assistant; chat template",
+       "Primeira chamada de API: SDK Anthropic/Google/OpenAI; streaming",
+       "API compatível OpenAI (Ollama/vLLM): trocar de provedor sem trocar código",
+       "CLIs agênticas: Claude Code, Gemini CLI, Codex — o que fazem por você",
+       "Limitações reais: alucinação, corte de conhecimento, não-determinismo",
+       "Anatomia de um bom prompt: papel, tarefa, contexto, formato, restrições",
+       "Zero-shot × few-shot: escolher, ordenar e formatar exemplos"],
+    i:["Chain-of-thought e raciocínio explícito; decompor o pensamento",
+       "Onde colocar regras: system prompt × prompt do usuário × ferramenta",
+       "Saída estruturada: JSON schema, tags XML, parsing confiável, validação",
+       "Delimitadores: separar dados de instruções (base da defesa contra injection)",
+       "Prompt chaining: dividir em etapas × um prompt gigante",
+       "Self-critique e rubricas: pedir ao modelo que avalie a própria resposta",
+       "Refinamento iterativo; few-shot dinâmico (exemplos por similaridade)",
+       "Contexto longo: o que incluir, em que ordem, needle in a haystack",
+       "Prompt caching: reaproveitar contexto para cortar custo e latência",
+       "Extended thinking / modelos de raciocínio: quando compensa o custo",
+       "Versionar prompts; suíte de casos e teste de regressão de prompt",
+       "Prompt × few-shot × RAG × fine-tuning: critério de escolha",
+       "Multimodal: enviar imagem/PDF, extrair dados de documento",
+       "Batch e assíncrono: processar volume com custo menor",
+       "Avaliar de verdade: dataset de casos, LLM-as-judge, comparar modelos",
+       "Integrar no seu código: FastAPI/Flask + LLM, streaming para o front"],
+    a:["Roteamento de modelos: barato para o simples, caro para o difícil",
+       "Fallback entre provedores; timeout, retry com backoff, idempotência",
+       "Orçamento e cotas: rate limits, limite por usuário, degradação graciosa",
+       "Observabilidade: tracing de chamadas, tokens, custo, latência (Langfuse)",
+       "Cache semântico de respostas; deduplicação de chamadas",
+       "Segurança: prompt injection, jailbreak, exfiltração de dados, PII",
+       "Sanitização de entrada e saída; moderação e políticas de uso",
+       "Self-host em produção: vLLM + GPU, autoscaling; custo × API gerenciada",
+       "Privacidade e compliance: dados sensíveis, on-premise, LGPD, retenção",
+       "Avaliação contínua: golden set, drift de modelo, fixar versão (pinning)",
+       "Testar código que usa LLM: temperatura 0, snapshots, mocks, gravação",
+       "Engenharia de contexto: o que entra na janela é o verdadeiro produto"]}},
+   {tag:"Agentes & multi-agente", s:"agentes", n:"Agentes & Orquestração multi-agente", note:"Do laço agêntico simples a um sistema com orquestrador, executores em paralelo e agente revisor de tarefas. Frameworks: Claude Agent SDK, LangGraph, CrewAI, AutoGen, OpenAI Agents SDK, MCP.", l:{
+    b:["O que é um agente: LLM + ferramentas + laço de decisão autônomo",
+       "Agente × chatbot × pipeline fixo: quando você precisa mesmo de agente",
+       "Tool calling: definir o schema da ferramenta, executar, devolver resultado",
+       "O laço agêntico: pensar → agir → observar → repetir (padrão ReAct)",
+       "Ferramentas essenciais: ler/escrever arquivo, buscar, HTTP, rodar código",
+       "Descrever ferramentas bem: nome, descrição, parâmetros, exemplos de uso",
+       "Estado e memória: histórico da sessão, memória curta × longa",
+       "Critérios de parada: sucesso, limite de passos, limite de custo",
+       "MCP (Model Context Protocol): servidores, tools, resources, prompts",
+       "Conectar um MCP server ao Claude/Gemini/Codex; escrever o seu próprio",
+       "Sandbox e permissões: o que o agente pode ler, escrever e executar",
+       "Tratamento de erro: ferramenta falhou, saída inválida, retry com contexto",
+       "Observar o agente: log de passos, tool calls, tokens gastos",
+       "Primeiro agente na prática: 2–3 ferramentas resolvendo uma tarefa real"],
+    i:["Por que múltiplos agentes: especialização, contexto isolado, paralelismo",
+       "Papéis clássicos: orquestrador (planner), executores (workers), revisor (critic)",
+       "Orquestrador-executor: decompor a tarefa, distribuir, agregar resultados",
+       "Agente revisor de tarefas: checar a saída, aprovar ou devolver com feedback",
+       "Laço gerador → revisor (reflexão) e critérios objetivos de aceite",
+       "Roteador: classificar a tarefa e escolher o agente/ferramenta certa",
+       "Fan-out / fan-in: paralelizar subtarefas e juntar; quando usar barreira",
+       "Pipeline sequencial × paralelo: latência × dependência entre etapas",
+       "Handoff entre agentes: passar só o necessário, sem estourar a janela",
+       "Contratos entre agentes: saída estruturada (JSON schema) validada",
+       "Prompt de sistema por papel; ferramentas por papel (menor privilégio)",
+       "Human-in-the-loop: aprovação obrigatória em ações irreversíveis",
+       "Frameworks: Claude Agent SDK, LangGraph, CrewAI, AutoGen, OpenAI Agents SDK",
+       "Subagentes, skills e hooks (Claude Code); agentes no Gemini/Codex",
+       "Convergência: quando parar de iterar (limite, votação, loop-until-dry)",
+       "Montar um sistema mínimo: orquestrador + 2 executores + 1 revisor"],
+    a:["Arquiteturas: hierárquica, blackboard, mercado (bidding), swarm",
+       "Planejamento: decompor em DAG, dependências, replanejamento dinâmico",
+       "Verificação adversarial: N revisores independentes + votação majoritária",
+       "Painel de juízes com lentes distintas (correção, segurança, custo, UX)",
+       "Memória compartilhada e persistente: vector store, banco, arquivos, cache",
+       "Determinismo e reprodutibilidade: seeds, journal de execução, replay",
+       "Custo e latência: orçamento por agente, modelo barato para tarefa simples",
+       "Resiliência: timeout, circuit breaker, bulkhead, isolamento de falha",
+       "Segurança multi-agente: injeção via ferramenta, confused deputy, agente comprometido",
+       "Isolamento de execução: container/worktree por agente, sandbox de código",
+       "Avaliação do sistema: taxa de sucesso, nº de passos, custo por tarefa",
+       "Regressão: suíte de tarefas, comparar versões, benchmark próprio",
+       "Observabilidade: tracing distribuído de agentes (LangSmith, Langfuse, OTel)",
+       "Deploy: agentes como serviço, filas, workers, retomada e idempotência",
+       "Padrões de produção: dry-run, checkpoint, auditoria, aprovação humana",
+       "Falhas típicas: loop infinito, drift de objetivo, over-engineering do sistema"]}}
 ];
 
 // progresso salvo (com migração automática de versões anteriores)
@@ -2043,6 +2157,13 @@ PHASES.forEach(function(ph){
   });
   PHASE_TOT[ph.id]=ptot;
 });
+// PLUS entra em TOT (para a barra de cada matéria funcionar) mas NÃO em TOTAL:
+// é material extra e não deve diluir o progresso das 7 fases.
+var PLUS_TOTAL=0,PLUS_SLUGS={};
+PLUS.forEach(function(tech){
+  var c=0;LV.forEach(function(p){c+=(tech.l[p[0]]||[]).length;});
+  TOT[tech.s]=c;PLUS_TOTAL+=c;PLUS_SLUGS[tech.s]=1;
+});
 
 function esc(s){return s.replace(/[&<>]/g,function(c){return({'&':'&amp;','<':'&lt;','>':'&gt;'})[c];});}
 function hl(s,query){var e=esc(s);if(!query)return e;try{var rx=new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig');return e.replace(rx,'<mark>$1</mark>');}catch(_){return e;}}
@@ -2064,6 +2185,13 @@ PHASES.forEach(function(ph,pi){
   pnav.appendChild(b);
 });
 (function(){
+  var pb=document.createElement('button');pb.className='pnavchip';pb.type='button';pb.textContent='✦ PLUS · IA';
+  pb.style.borderColor='var(--plus)';pb.style.color='var(--plus)';
+  pb.addEventListener('click',function(){
+    var el=document.getElementById('plus-anchor');
+    if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  pnav.appendChild(pb);
   var mb=document.createElement('button');mb.className='pnavchip';mb.type='button';mb.textContent='🏁 Marcos';
   mb.addEventListener('click',function(){
     var el=document.getElementById('milestones');
@@ -2153,29 +2281,72 @@ PHASES.forEach(function(ph,pi){
   }
 
   ph.t.forEach(function(tech){
-    var col=ACCENTS[tci++%ACCENTS.length];
-    var d=document.createElement('details');d.className='tech';d.style.setProperty('--c',col);d.dataset.slug=tech.s;d.dataset.pid=ph.id;
-    var levelsHTML='';
-    LV.forEach(function(p){
-      var items=tech.l[p[0]]||[];if(!items.length)return;
-      var lis=items.map(function(t,ii){
-        var id=tech.s+'|'+p[0]+'|'+ii;var on=checked.has(id)?' checked':'';
-        return '<li><label class="item" data-text="'+esc(t.toLowerCase())+'" style="--ic:'+col+'">'+
-          '<input type="checkbox" data-id="'+id+'" data-slug="'+tech.s+'"'+on+'>'+
-          '<span class="box"></span><span class="txt">'+esc(t)+'</span></label></li>';
-      }).join('');
-      levelsHTML+='<div class="lvl '+p[0]+'" data-lvl="'+p[0]+'"><span class="badge">'+LVICON[p[0]]+p[1]+'</span><ul class="items">'+lis+'</ul></div>';
-    });
-    var noteHTML=tech.note?'<span class="tnote">'+esc(tech.note)+'</span>':'';
-    d.innerHTML='<summary><span class="chev">▶</span><span class="tname">'+esc(tech.n)+noteHTML+'</span>'+
-      '<span class="summbar"><span class="barmini"><i id="bar-'+tech.s+'"></i></span></span>'+
-      '<span class="tcount num" id="tcount-'+tech.s+'">0/'+TOT[tech.s]+'</span></summary>'+
-      '<div class="levels">'+levelsHTML+'</div>';
-    psec.appendChild(d);
+    psec.appendChild(buildTechCard(tech,ph.id));
   });
 
   list.appendChild(psec);
 });
+
+// monta o card de uma matéria (usado pelas fases e pelo bloco PLUS)
+function buildTechCard(tech,pid){
+  var col=ACCENTS[tci++%ACCENTS.length];
+  var d=document.createElement('details');d.className='tech';d.style.setProperty('--c',col);
+  d.dataset.slug=tech.s;d.dataset.pid=pid;
+  var levelsHTML='';
+  LV.forEach(function(p){
+    var items=tech.l[p[0]]||[];if(!items.length)return;
+    var lis=items.map(function(t,ii){
+      var id=tech.s+'|'+p[0]+'|'+ii;var on=checked.has(id)?' checked':'';
+      return '<li><label class="item" data-text="'+esc(t.toLowerCase())+'" style="--ic:'+col+'">'+
+        '<input type="checkbox" data-id="'+id+'" data-slug="'+tech.s+'"'+on+'>'+
+        '<span class="box"></span><span class="txt">'+esc(t)+'</span></label></li>';
+    }).join('');
+    levelsHTML+='<div class="lvl '+p[0]+'" data-lvl="'+p[0]+'"><span class="badge">'+LVICON[p[0]]+p[1]+'</span><ul class="items">'+lis+'</ul></div>';
+  });
+  var noteHTML=tech.note?'<span class="tnote">'+esc(tech.note)+'</span>':'';
+  d.innerHTML='<summary><span class="chev">▶</span><span class="tname">'+esc(tech.n)+noteHTML+'</span>'+
+    '<span class="summbar"><span class="barmini"><i id="bar-'+tech.s+'"></i></span></span>'+
+    '<span class="tcount num" id="tcount-'+tech.s+'">0/'+TOT[tech.s]+'</span></summary>'+
+    '<div class="levels">'+levelsHTML+'</div>';
+  return d;
+}
+
+// bloco PLUS — matérias fora do cronograma; progresso próprio, não entra no total geral
+(function(){
+  var div=document.createElement('div');div.className='plusdivider';
+  div.innerHTML='<span>fim da trilha · material extra</span>';
+  var sec=document.createElement('section');sec.className='plus';sec.id='plusSection';
+  var head=document.createElement('div');head.className='plushead';head.id='plus-anchor';
+  var tags=PLUS.map(function(t){return '<span class="plustag">'+esc(t.tag)+'</span>';}).join('');
+  head.innerHTML='<p class="pkicker">Plus · fora do cronograma</p>'+
+    '<h2 class="plustitle">Matérias extras — IA aplicada, ponta a ponta</h2>'+
+    '<p class="plusdesc">Trilha paralela e opcional: de redes neurais a treinar a <b>sua própria LLM</b>, usar modelos '+
+    '<b>locais e agênticos</b> (Claude, Gemini, Codex) e montar <b>sistemas multi-agente</b> com orquestrador e revisor. '+
+    'Não tem semana marcada e <b>não conta no progresso das 7 fases</b> — tem contador próprio.</p>'+
+    '<div class="plustags">'+tags+'</div>'+
+    '<div class="plusfoot"><span class="plusbar"><i id="plusbar"></i></span>'+
+    '<span class="pluscount" id="pluscount"><b>0</b>/'+PLUS_TOTAL+'</span></div>';
+  sec.appendChild(head);
+  PLUS.forEach(function(tech){sec.appendChild(buildTechCard(tech,'plus'));});
+  var note=document.createElement('p');note.className='plusnote';
+  note.textContent='Sugestão de ordem: Deep Learning → LLM própria → Usar LLMs & Prompt → Agentes & multi-agente. '+
+    'Cada uma pressupõe a anterior, mas as duas últimas podem ser feitas a qualquer momento (só dependem de saber programar).';
+  sec.appendChild(note);
+  sec.addEventListener('change',function(e){
+    var inp=e.target;if(inp.type!=='checkbox'||inp.dataset.id===undefined)return;
+    if(inp.checked)checked.add(inp.dataset.id);else checked.delete(inp.dataset.id);
+    save();updateTech(inp.dataset.slug);updatePlus();
+  });
+  var ms=document.getElementById('milestones');
+  ms.parentNode.insertBefore(div,ms);
+  ms.parentNode.insertBefore(sec,ms);
+})();
+function updatePlus(){
+  var n=0;PLUS.forEach(function(t){n+=countSlug(t.s);});
+  var pct=PLUS_TOTAL?100*n/PLUS_TOTAL:0;
+  var bar=document.getElementById('plusbar');if(bar)bar.style.width=pct+'%';
+  var c=document.getElementById('pluscount');if(c)c.innerHTML='<b>'+n+'</b>/'+PLUS_TOTAL+' · '+Math.round(pct)+'%';
+}
 
 // seção Extras (livros fora da trilha) — renderizada após as fases, antes dos marcos
 (function(){
@@ -2228,7 +2399,10 @@ function updatePhase(pid){var n=0;PHASE_TECHS[pid].forEach(function(s){n+=countS
 var gnum=document.getElementById('gnum'),gpct=document.getElementById('gpct'),hiker=document.getElementById('hiker'),progRect=document.getElementById('progRect');
 document.getElementById('gtot').textContent=TOTAL;
 function updateGlobal(){
-  var n=checked.size,pct=100*n/TOTAL;
+  // conta só o que pertence às 7 fases — itens do PLUS ficam fora do progresso da trilha
+  var n=0;
+  checked.forEach(function(id){if(!PLUS_SLUGS[id.slice(0,id.indexOf('|'))])n++;});
+  var pct=100*n/TOTAL;
   gnum.textContent=n;gpct.textContent=Math.round(pct)+'%';
   progRect.setAttribute('width',(pct/100*600).toFixed(1));
   hiker.style.left=pct+'%';
@@ -2238,6 +2412,7 @@ function refreshAll(){
   Object.keys(TOT).forEach(updateTech);
   PHASES.forEach(function(ph){updatePhase(ph.id);updateWeekly(ph.id);updateLibrary(ph.id);});
   updateExtras();
+  updatePlus();
   updateGlobal();
 }
 
@@ -2259,7 +2434,7 @@ list.addEventListener('change',function(e){
 function applyFilter(){
   var query=q.value.trim().toLowerCase();
   var anyTotal=0;
-  list.querySelectorAll('details.tech').forEach(function(card){
+  document.querySelectorAll('details.tech').forEach(function(card){
     var nameMatch=card.querySelector('.tname').textContent.toLowerCase().indexOf(query)>=0;
     var visibleInCard=0;
     card.querySelectorAll('.lvl').forEach(function(lvl){
@@ -2282,10 +2457,17 @@ function applyFilter(){
     sec.querySelectorAll('details.tech').forEach(function(card){if(card.style.display!=='none')any=true;});
     sec.style.display=any?'':'none';
   });
+  var plusSec=document.getElementById('plusSection'),plusDiv=document.querySelector('.plusdivider');
+  if(plusSec){
+    var anyPlus=false;
+    plusSec.querySelectorAll('details.tech').forEach(function(card){if(card.style.display!=='none')anyPlus=true;});
+    plusSec.style.display=anyPlus?'':'none';
+    if(plusDiv)plusDiv.style.display=anyPlus?'':'none';
+  }
   var emptyEl=document.getElementById('emptymsg');
   if(query&&anyTotal===0){if(!emptyEl){emptyEl=document.createElement('div');emptyEl.id='emptymsg';emptyEl.className='empty';list.appendChild(emptyEl);}emptyEl.textContent='Nada encontrado para "'+q.value.trim()+'".';emptyEl.style.display='';}
   else if(emptyEl){emptyEl.style.display='none';}
-  list.querySelectorAll('li').forEach(function(li){
+  document.querySelectorAll('details.tech li').forEach(function(li){
     if(li.style.display==='none')return;
     var tx=li.querySelector('.txt');if(!tx)return;
     if(tx.dataset.o===undefined)tx.dataset.o=tx.textContent;
@@ -2296,8 +2478,8 @@ function applyFilter(){
 q.addEventListener('input',applyFilter);
 document.getElementById('clr').addEventListener('click',function(){q.value='';applyFilter();q.focus();});
 document.querySelectorAll('.chip').forEach(function(ch){ch.addEventListener('click',function(){var k=ch.getAttribute('data-lvl');active[k]=!active[k];ch.setAttribute('aria-pressed',active[k]?'true':'false');applyFilter();});});
-document.getElementById('exp').addEventListener('click',function(){list.querySelectorAll('details.tech, details.weekly, details.library').forEach(function(d){if(d.style.display!=='none')d.open=true;});});
-document.getElementById('col').addEventListener('click',function(){list.querySelectorAll('details.tech, details.weekly, details.library').forEach(function(d){d.open=false;});});
+document.getElementById('exp').addEventListener('click',function(){document.querySelectorAll('details.tech, details.weekly, details.library').forEach(function(d){if(d.style.display!=='none')d.open=true;});});
+document.getElementById('col').addEventListener('click',function(){document.querySelectorAll('details.tech, details.weekly, details.library').forEach(function(d){d.open=false;});});
 document.getElementById('reset').addEventListener('click',function(){
   if(!confirm('Zerar TODO o progresso marcado (conceitos, semanas, livros e marcos)? Não dá pra desfazer.'))return;
   checked.clear();save();
@@ -2307,6 +2489,7 @@ document.getElementById('reset').addEventListener('click',function(){
   list.querySelectorAll('input[type=checkbox]').forEach(function(i){i.checked=false;});
   mlist.querySelectorAll('input[type=checkbox]').forEach(function(i){i.checked=false;});
   var ex=document.getElementById('extrasBooks');if(ex)ex.querySelectorAll('input[type=checkbox]').forEach(function(i){i.checked=false;});
+  var pl=document.getElementById('plusSection');if(pl)pl.querySelectorAll('input[type=checkbox]').forEach(function(i){i.checked=false;});
   refreshAll();updateMilestones();
 });
 })();
