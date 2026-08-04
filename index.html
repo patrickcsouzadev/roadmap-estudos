@@ -396,7 +396,7 @@
 <div class="skyfx" id="sky"></div>
 <div class="wrap">
   <header class="top">
-    <p class="eyebrow">Cronograma de estudos · 78 semanas · Jun/2026 → Jan/2028</p>
+    <p class="eyebrow">Cronograma de estudos · 85 semanas · Jun/2026 → Fev/2028</p>
     <div class="hero">
       <svg class="mark" viewBox="0 0 48 48" aria-hidden="true">
         <path class="peak" d="M3 38 L16 18 L23 28 L30 12 L45 38 Z"/>
@@ -438,11 +438,11 @@
       </summary>
       <div class="gbody">
         <div class="statgrid">
-          <div class="statcard"><b class="num">78</b><span>semanas no total</span></div>
-          <div class="statcard"><b class="num">~1.950h</b><span>de estudo estimadas</span></div>
+          <div class="statcard"><b class="num">85</b><span>semanas no total</span></div>
+          <div class="statcard"><b class="num">~2.125h</b><span>de estudo estimadas</span></div>
           <div class="statcard"><b class="num">25h</b><span>por semana (5h × 5 dias)</span></div>
           <div class="statcard"><b class="num">24 jun 2026</b><span>início da trilha</span></div>
-          <div class="statcard"><b class="num">dez/27–jan/28</b><span>término estimado</span></div>
+          <div class="statcard"><b class="num">fev/2028</b><span>término estimado</span></div>
         </div>
         <p class="gobjective">🎯 <b>Objetivo:</b> conhecimento robusto e profundo — sem pressa de mercado. <b>Disponibilidade:</b> quarta a domingo, 5h/dia. Atrasou? Empurre o cronograma — nunca comprima a revisão.</p>
 
@@ -485,6 +485,7 @@
           </table>
         </div>
         <p class="gnote"><b style="color:var(--text)">Por que esta ordem casa:</b> Java→Spring (dependência) · SQL com Spring Data · Docker aplicado ao Python · Mongo nas APIs web · BigQuery/GCP na trilha de dados · ferramentas/deploy com o Frontend · orquestração e nuvem por último, implantando tudo que foi construído.</p>
+        <p class="gnote"><b style="color:var(--text)">Dentro da Fase 5, a escada da IA:</b> numpy/pandas (dados) → sklearn (ML clássico) → <b style="color:var(--text)">Deep Learning</b> em PyTorch (redes neurais, attention) → IA Generativa (consumir LLM via API + RAG) → <b style="color:var(--text)">LLM própria</b> (transformer do zero, Hugging Face, fine-tuning com LoRA/QLoRA, quantização, serving). Cada degrau é pré-requisito do próximo: sem redes neurais não se entende transformer, e sem transformer não se treina modelo próprio.</p>
       </div>
     </details>
 
@@ -1209,20 +1210,22 @@ var PHASES=[
        "Change streams, capped collections, GridFS",
        "Backup (mongodump), Atlas, Atlas Search/Vector Search"]}}
   ]},
- {id:"f5", n:"Data & IA", weeks:"Semanas 42–55", period:"Abr–Jul/2027",
-  foco:"numpy → pandas → visualização → scikit-learn → IA Generativa", paralelo:"BigQuery + GCP (dados)",
-  proj:"Pipeline de dados + ML — análise exploratória (pandas), visualizações (matplotlib/seaborn/plotly), modelo treinado (sklearn) + app de IA generativa (RAG com LangChain), com dados no BigQuery, servido como API e dockerizado.",
+ {id:"f5", n:"Data & IA", weeks:"Semanas 42–62", period:"Abr–Ago/2027",
+  foco:"numpy → pandas → viz → scikit-learn → Deep Learning → LLM própria", paralelo:"BigQuery + GCP (dados, GPU, Vertex AI)",
+  proj:"Pipeline de dados + ML + LLM própria — análise exploratória (pandas), visualizações, modelo treinado (sklearn), rede neural em PyTorch e um LLM aberto fine-tunado com LoRA/QLoRA, servido com RAG via API dockerizada, dados no BigQuery.",
   books:[
    {subj:"Dados & Analytics", items:[
     ["SQL para Análise de Dados","Cathy Tanimura · Novatec (2022)","nucleo","SQL analítico (janelas, agregações) para dados — casa com BigQuery/analytics da fase."],
-    ["Big Data: técnicas e tecnologias para extração de valor dos dados","Rosangela Marquesone","leitura","Panorama de Big Data; dá contexto à trilha de dados/engenharia."],
     ["Pandas Python: Data Wrangling para Ciência de Dados","Eduardo Corrêa Gonçalves · Casa do Código","nucleo","pandas na prática para ciência de dados — casa direto com a fase."],
     ["Tratamento de Dados com Python + Pandas","Fernando Feltrin","leitura","Limpeza e transformação de dados com pandas."],
     ["Python Data Analysis","Ivan Idris · Packt (2014)","leitura","Análise de dados com o ecossistema Python."],
-    ["Álgebra Linear com Python","Rafael F. V. C. Santos (2018)","leitura","Base matemática (álgebra linear) para ML, com Python."],
-    ["Python Deep Learning (2ª ed.)","Ivan Vasilev e outros · Packt (2019)","leitura","Deep learning em Python — além do sklearn da fase."],
-    ["Redes Neurais Artificiais: uma abordagem para sala de aula","Maria Inês V. Furtado (2019)","leitura","Fundamentos de redes neurais."],
-    ["Web Scraping with Python (2ª ed.)","Ryan Mitchell · O'Reilly (2018)","leitura","Coleta de dados na web com Python."]
+    ["Web Scraping with Python (2ª ed.)","Ryan Mitchell · O'Reilly (2018)","leitura","Coleta de dados na web com Python."],
+    ["Big Data: técnicas e tecnologias para extração de valor dos dados","Rosangela Marquesone","leitura","Panorama de Big Data; dá contexto à trilha de dados/engenharia."]
+   ]},
+   {subj:"Deep Learning & IA", items:[
+    ["Álgebra Linear com Python","Rafael F. V. C. Santos (2018)","nucleo","Base matemática (vetores, matrizes) que sustenta redes neurais. Leia antes/junto do DL."],
+    ["Python Deep Learning (2ª ed.)","Ivan Vasilev e outros · Packt (2019)","nucleo","Deep learning em Python (inclui capítulos de attention/seq2seq). Melhor material que você já tem para a matéria."],
+    ["Redes Neurais Artificiais: uma abordagem para sala de aula","Maria Inês V. Furtado (2019)","leitura","Fundamentos teóricos de redes neurais."]
    ]}
   ],
   ws:42,
@@ -1254,8 +1257,22 @@ var PHASES=[
    [["IA Generativa","Fundamentos de LLMs (tokens, embeddings, context window, temperatura); prompting (zero/few-shot, chain-of-thought); OpenAI API (chat completions, function calling); embeddings e similaridade."],
     ["Integração","Ler/escrever BigQuery via Python (google-cloud-bigquery), pandas ↔ BigQuery."]],
    [["LangChain","Conceitos; models/prompts/chains; memory; document loaders; text splitters; vector stores (FAISS/Chroma); RAG; agents e tools; outras LLMs (Anthropic Claude, Gemini) e comparação."],
-    ["Integração","Conectar o pipeline de ML/RAG a dados no BigQuery; revisão."],
-    ["Projeto","Pipeline de dados + ML: análise exploratória (pandas), visualizações (matplotlib/seaborn/plotly), modelo treinado (sklearn) + app de IA generativa (RAG com LangChain), com dados no BigQuery, servido como API e dockerizado."]]
+    ["Integração","Conectar o pipeline de ML/RAG a dados no BigQuery."]],
+   [["Deep Learning","Fundamentos: neurônio, camadas, ativações (ReLU/softmax), função de perda, gradiente descendente e backpropagation (intuição). PyTorch: tensores, CPU × GPU (CUDA), autograd (requires_grad/backward)."],
+    ["GCP","GPUs na nuvem: Colab, Vertex AI Workbench, escolher máquina com GPU; custos."]],
+   [["Deep Learning","nn.Module, definir a rede, otimizadores (SGD/Adam), loop de treino (epochs/batches/zero_grad/step), Dataset e DataLoader, salvar/carregar (state_dict). Regularização: dropout, weight decay, early stopping, batch norm."],
+    ["GCP","Treinar na Vertex AI: custom training jobs, artefatos no Cloud Storage."]],
+   [["Deep Learning","CNNs (convolução, pooling, ResNet/skip connections), torchvision, data augmentation, transfer learning e fine-tuning. RNN/LSTM/GRU para sequências. Keras/TensorFlow: Sequential e Model API. TensorBoard."],
+    ["GCP","Vertex AI: registrar e servir modelos (endpoints), monitoramento."]],
+   [["LLM própria","Arquitetura Transformer: self-attention (Q/K/V), multi-head, positional encoding, residual + layer norm. Tokenização (BPE/SentencePiece), context window, logits, decodificação (greedy/top-k/top-p/temperatura). Hugging Face: hub, AutoTokenizer/AutoModel, pipeline(); rodar modelo aberto local (Llama/Mistral/Phi/Gemma)."],
+    ["GCP","Model Garden / Vertex AI: modelos abertos gerenciados; VRAM × tamanho de modelo."]],
+   [["LLM própria","Transformer do zero em PyTorch (estilo nanoGPT): implementar attention, blocos e loop de treino. datasets (HF): carregar, tokenizar, mapear. Pré-treino × fine-tuning × instruction tuning."],
+    ["GCP","Armazenar datasets e checkpoints (GCS); exportar dados do BigQuery para treino."]],
+   [["LLM própria","Fine-tuning na prática: PEFT com LoRA e QLoRA (rank/alpha), quantização 8/4-bit (bitsandbytes), TRL/SFTTrainer, TrainingArguments. Preparar dataset de instruções. Avaliação: perplexidade, benchmarks, LLM-as-judge."],
+    ["GCP","Treino com GPU na nuvem; controle de custo e cotas."]],
+   [["LLM própria","Alinhamento (DPO/ORPO); serving (vLLM, Ollama, llama.cpp/GGUF, TGI); otimização de inferência (KV cache, flash attention); RAG avançado (reranking); guardrails (prompt injection, PII); observabilidade e LLMOps."],
+    ["Integração","Publicar o LLM fine-tunado como API (FastAPI + vLLM) consumindo dados do BigQuery; revisão geral da fase."],
+    ["Projeto","Pipeline de dados + ML + LLM própria: análise exploratória (pandas), visualizações, modelo sklearn, rede neural em PyTorch e um LLM aberto fine-tunado com LoRA/QLoRA, servido com RAG via API dockerizada, dados no BigQuery."]]
   ],
   t:[
    {s:"numpy", n:"NumPy", l:{
@@ -1334,7 +1351,49 @@ var PHASES=[
        "Produção: serialização (joblib), data leakage",
        "Desbalanceamento (SMOTE, class_weight), calibração",
        "Intro a deep learning, MLOps básico"]}},
-   {s:"ia-gen", n:"IA Generativa / LLMs / LangChain", l:{
+   {s:"deep-learning", n:"Deep Learning (PyTorch / TensorFlow)", note:"Ponte entre o ML clássico (sklearn) e as LLMs — sem redes neurais, não dá para entender transformer.", l:{
+    b:["O que é deep learning; DL × ML clássico; quando cada um vence",
+       "Neurônio artificial, perceptron, camadas, pesos e bias",
+       "Funções de ativação: ReLU, sigmoid, tanh, softmax",
+       "Forward pass; funções de perda (MSE, cross-entropy)",
+       "Gradiente descendente e backpropagation (intuição + na mão)",
+       "PyTorch: instalação, tensores, operações, shapes",
+       "CPU × GPU (CUDA), .to(device), quando a GPU importa",
+       "Tensor × ndarray (numpy): conversão e memória compartilhada",
+       "autograd: requires_grad, backward(), .grad, detach()",
+       "nn.Module: definir a rede, __init__ e forward()",
+       "Otimizadores: SGD, Adam; learning rate",
+       "Loop de treino: epochs, batches, zero_grad → loss → step",
+       "Dataset e DataLoader; batch_size, shuffle",
+       "train() × eval(), torch.no_grad() na inferência",
+       "Salvar e carregar modelos (state_dict)"],
+    i:["Overfitting em redes: dropout, weight decay, early stopping",
+       "Batch normalization e layer normalization",
+       "Inicialização de pesos; vanishing/exploding gradients",
+       "Learning rate schedulers; gradient clipping",
+       "CNNs: convolução, kernels, stride, padding, pooling",
+       "Arquiteturas CNN: LeNet, VGG, ResNet (skip connections)",
+       "Visão: torchvision, transforms, data augmentation",
+       "Transfer learning e fine-tuning de modelos pré-treinados",
+       "RNN, LSTM, GRU; dados sequenciais e séries temporais",
+       "Embeddings: representação vetorial densa (word2vec, intuição)",
+       "Attention (introdução) — a ponte direta para transformers",
+       "TensorFlow/Keras: Sequential, Model API, compile/fit",
+       "Keras × PyTorch: diferenças e quando usar cada",
+       "Acompanhar treino: TensorBoard, Weights & Biases",
+       "Diagnóstico: curvas de aprendizado, matriz de confusão"],
+    a:["Mixed precision (AMP); múltiplas GPUs (DDP)",
+       "Performance: num_workers, pin_memory, profiling, bottlenecks",
+       "Autoencoders e VAE; GANs (intuição)",
+       "PyTorch Lightning; organização de projetos de treino",
+       "torch.compile, TorchScript, exportar para ONNX",
+       "Servir modelos: TorchServe, FastAPI + modelo, batching",
+       "MLOps: versionamento de modelos e dados (MLflow, DVC)",
+       "Reprodutibilidade: seeds, determinismo, ambientes",
+       "Hardware: VRAM × batch size, gradient accumulation, custo",
+       "Debug de treino: loss não desce, NaN, overfit intencional",
+       "Hyperparameter tuning (Optuna); experiment tracking"]}},
+   {s:"ia-gen", n:"IA Generativa / LLMs / LangChain", note:"Aqui você CONSOME LLMs (API + RAG). Construir e treinar a sua própria é a matéria seguinte.", l:{
     b:["LLMs, transformers (intuição), tokens/tokenização",
        "Embeddings, espaço vetorial, similaridade (cosseno)",
        "Context window, temperatura, top_p, max_tokens",
@@ -1354,6 +1413,55 @@ var PHASES=[
        "Fine-tuning × RAG × prompt; embeddings customizados",
        "Observabilidade (LangSmith), custo/cache, rate limits",
        "Produção: streaming, fallback, orquestração; MCP (intro)"]}},
+   {s:"llm-propria", n:"LLM própria (Transformers · Hugging Face · fine-tuning)", note:"Do transformer na mão ao seu modelo aberto treinado, quantizado e servido. Bibliotecas: transformers, datasets, tokenizers, PEFT, TRL, bitsandbytes, accelerate, vLLM, sentence-transformers.", l:{
+    b:["Por que treinar/adaptar o próprio modelo: custo, privacidade, domínio",
+       "Da RNN ao Transformer: por que attention substituiu recorrência",
+       "Arquitetura Transformer: encoder, decoder, encoder-decoder",
+       "Self-attention: query/key/value, produto escalar, escala √d",
+       "Multi-head attention; positional encoding (absoluto × RoPE)",
+       "Bloco do transformer: feed-forward, residual, layer norm",
+       "Tokenização: BPE, WordPiece, SentencePiece; vocabulário",
+       "Tokens, IDs, special tokens, padding, attention mask",
+       "Context window; embeddings de entrada; logits; softmax",
+       "Decodificação: greedy, beam search, top-k, top-p, temperatura",
+       "Famílias de modelos abertos: Llama, Mistral, Phi, Gemma, Qwen",
+       "Hugging Face Hub: model cards, licenças, gated models",
+       "transformers: AutoTokenizer, AutoModelForCausalLM, pipeline()",
+       "Rodar um modelo aberto localmente (CPU × GPU)",
+       "Parâmetros × precisão × VRAM: o que cabe na sua máquina",
+       "Chat templates e formato de conversa (system/user/assistant)"],
+    i:["Construir um transformer do zero em PyTorch (estilo nanoGPT)",
+       "Implementar attention, blocos, embeddings e o loop de treino",
+       "datasets (HF): load_dataset, map, filter, tokenização em lote",
+       "Preparar corpus: limpeza, deduplicação, split treino/validação",
+       "Pré-treino × fine-tuning × instruction tuning: o que fazer quando",
+       "Full fine-tuning: quando vale e quanto custa (memória/tempo)",
+       "PEFT: LoRA e QLoRA — adaptadores, rank, alpha, target_modules",
+       "Quantização: 8-bit e 4-bit (bitsandbytes); GGUF e llama.cpp",
+       "accelerate: distribuir treino, device_map, offload",
+       "TRL: SFTTrainer para treino supervisionado de instruções",
+       "Trainer e TrainingArguments: hiperparâmetros de fine-tune",
+       "Gradient accumulation, checkpointing, retomar treino",
+       "Dataset de instruções: formato, qualidade × quantidade",
+       "Avaliação: perplexidade, benchmarks, LLM-as-judge, held-out set",
+       "Embeddings próprios: sentence-transformers, fine-tune de embedding",
+       "Vector stores (FAISS/Chroma/pgvector) e RAG com o seu modelo",
+       "Servir local: Ollama, llama.cpp, LM Studio, TGI"],
+    a:["Alinhamento: RLHF (PPO), DPO, ORPO — o que muda em cada",
+       "Dataset de preferências; reward model; riscos do alinhamento",
+       "Serving em produção: vLLM, PagedAttention, continuous batching",
+       "Inferência otimizada: KV cache, flash attention, speculative decoding",
+       "Compressão: distillation, pruning, model merging",
+       "Contexto longo: RoPE scaling, sliding window, atenção esparsa",
+       "MoE (mixture of experts): intuição e trade-offs",
+       "Tool calling e agents no seu próprio modelo; structured output",
+       "MCP (Model Context Protocol): expor ferramentas ao modelo",
+       "Guardrails: prompt injection, jailbreak, moderação, PII, sandbox",
+       "Observabilidade: tracing, custo, latência, cache (Langfuse/LangSmith)",
+       "LLMOps: versionar prompts/modelos, CI de avaliação, regressão",
+       "Multimodal (visão + texto): CLIP, VLMs — introdução",
+       "Fine-tuning na nuvem: Vertex AI, GPUs, cotas e custo",
+       "Licenças de modelos e dados; viés, privacidade e uso responsável"]}},
    {s:"bigquery", n:"BigQuery", l:{
     b:["Arquitetura serverless (storage × compute)",
        "Datasets, tabelas, console, jobs",
@@ -1391,7 +1499,7 @@ var PHASES=[
        "IAM avançado, org policies, VPC Service Controls",
        "IaC (Terraform), custos/FinOps"]}}
   ]},
- {id:"f6", n:"Frontend", weeks:"Semanas 56–67", period:"Jul–Out/2027",
+ {id:"f6", n:"Frontend", weeks:"Semanas 63–74", period:"Set–Nov/2027",
   foco:"JavaScript → TypeScript → Angular", paralelo:"Ferramentas · Testes E2E · CI/CD · Deploy",
   proj:"SPA Angular + TypeScript consumindo a API — auth via cookies HttpOnly + interceptors, guards, reactive forms, RxJS; testes E2E (Cypress/Playwright); build dockerizado com pipeline CI/CD de deploy.",
   books:[
@@ -1435,7 +1543,7 @@ var PHASES=[
     ["Protractor: testes end-to-end automatizados","Walmyr Lima e Silva Filho","fora","E2E para Angular, mas o Protractor foi descontinuado (use Cypress/Playwright)."]
    ]}
   ],
-  ws:56,
+  ws:63,
   wk:[
    [["JavaScript","História, engines, tag de script, console; variáveis (var/let/const); tipos primitivos; coerção; operadores; template literals."],
     ["Tooling","Node.js/npm, package.json, scripts, semver, nvm, gerenciadores (npm/pnpm/yarn)."]],
@@ -1553,7 +1661,7 @@ var PHASES=[
        "Performance: tree-shaking, bundle, lazy",
        "Design Ops, métricas de adoção, deprecação"]}}
   ]},
- {id:"f7", n:"DevOps & Cloud", weeks:"Semanas 68–78", period:"Out/2027–Jan/2028", kicker:"Cume",
+ {id:"f7", n:"DevOps & Cloud", weeks:"Semanas 75–85", period:"Nov/2027–Fev/2028", kicker:"Cume",
   foco:"Docker/K8s avançado → GCP → AWS", paralelo:"Terraform (IaC) + Observabilidade",
   proj:"Deploy full-stack na nuvem — frontend Angular + API Spring/Django + Postgres + MongoDB, em Kubernetes (GKE ou EKS), provisionado com Terraform, CI/CD via GitHub Actions, monitorado com Prometheus/Grafana ou CloudWatch.",
   books:[
@@ -1571,7 +1679,7 @@ var PHASES=[
     ["Jenkins: automatize tudo sem complicações","Fernando Boaglio · Casa do Código","leitura","CI/CD com Jenkins."]
    ]}
   ],
-  ws:68,
+  ws:75,
   wk:[
    [["Docker (avançado)","Consolidação: segurança (scan, rootless, distroless), registries privados, BuildKit, otimização final."],
     ["IaC","Conceitos de Infraestrutura como Código; Terraform (HCL, providers, init/plan/apply), state."]],
@@ -1689,7 +1797,7 @@ var MILESTONES=[
  {id:"f2",t:"API Spring Boot segura",d:"Spring Data JPA + Spring Security (JWT/roles), Postgres, JAR executável"},
  {id:"f3",t:"App Python dockerizado",d:"POO + type hints + testes pytest, multi-stage build + compose"},
  {id:"f4",t:"API REST web completa",d:"Django/DRF ou Flask + Postgres + MongoDB, autenticação segura"},
- {id:"f5",t:"Pipeline de dados + ML + IA generativa",d:"análise (pandas), modelo (sklearn), RAG (LangChain), dados no BigQuery"},
+ {id:"f5",t:"Pipeline de dados + ML + LLM própria",d:"análise (pandas), modelo sklearn, rede em PyTorch, LLM aberto fine-tunado (LoRA/QLoRA) servido com RAG"},
  {id:"f6",t:"SPA Angular",t2:"+ TypeScript",d:"auth, guards, RxJS, testes E2E e pipeline CI/CD de deploy"},
  {id:"f7",t:"Deploy full-stack na nuvem",d:"Terraform + Kubernetes + CI/CD + observabilidade (Prometheus/Grafana ou CloudWatch)"}
 ];
