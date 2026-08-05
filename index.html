@@ -376,6 +376,22 @@
   section.plus details.tech{margin-left:0}
   .plusnote{font-size:.76rem;color:var(--muted);margin:10px 2px 0;line-height:1.55}
 
+  /* ---------- links cruzados entre matérias ---------- */
+  .xlinks{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:11px 16px 3px 19px}
+  .xlbl{font-family:var(--font-display);font-size:.64rem;font-weight:600;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--muted);margin-right:2px}
+  .xlink{border:1px solid var(--line);background:var(--ink2);color:var(--text2);border-radius:999px;
+    padding:4px 11px;font:.72rem/1.35 var(--font-body);cursor:pointer;text-align:left;transition:.15s}
+  .xlink::before{content:"↗ ";color:var(--c);font-weight:700}
+  .xlink:hover{border-color:var(--c);color:var(--text);background:var(--line-soft)}
+  .xlink:focus-visible{outline:2px solid var(--c);outline-offset:2px}
+  details.tech.flash{border-color:var(--c);box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 30%,transparent)}
+  @media (prefers-reduced-motion:no-preference){
+    details.tech.flash{animation:flashcard 1.5s ease-out}
+  }
+  @keyframes flashcard{0%,20%{box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 45%,transparent)}
+    100%{box-shadow:0 0 0 0 transparent}}
+
   /* ---------- library / books (per phase) ---------- */
   details.library{background:var(--ink2);border:1px solid var(--line);border-radius:12px;margin:14px 0;overflow:hidden}
   details.library>summary{list-style:none;cursor:pointer;padding:12px 16px;display:flex;align-items:center;gap:11px}
@@ -517,7 +533,7 @@
           </table>
         </div>
         <p class="gnote"><b style="color:var(--text)">Por que esta ordem casa:</b> Java→Spring (dependência) · SQL com Spring Data · Docker aplicado ao Python · Mongo nas APIs web · BigQuery/GCP na trilha de dados · ferramentas/deploy com o Frontend · orquestração e nuvem por último, implantando tudo que foi construído.</p>
-        <p class="gnote"><b style="color:var(--text)">Trilha principal × trilhas paralelas:</b> as 7 fases acima são o escopo do cronograma — com semanas, projetos e prazo. Ao final da página ficam dois blocos fora dele, cada um com progresso próprio: <b style="color:#b48cff">PLUS</b> (Deep Learning, treinar a sua própria LLM, usar LLMs locais e agênticas, sistemas multi-agente) e <b style="color:#38bdf8">Mobile</b> (Kotlin/Android, Flutter e Swift/iOS de ponta a ponta, consumindo a mesma API do projeto web). Nenhum dos dois entra no progresso das 7 fases — estude quando quiser.</p>
+        <p class="gnote"><b style="color:var(--text)">Trilha principal × trilhas paralelas:</b> as 7 fases acima são o escopo do cronograma — com semanas, projetos e prazo. Ao final da página ficam três blocos fora dele, cada um com progresso próprio: <b style="color:#b48cff">PLUS</b> (Deep Learning, LLM própria, usar LLMs locais e agênticas, sistemas multi-agente), <b style="color:#38bdf8">Mobile</b> (Kotlin/Android, Flutter e Swift/iOS consumindo a mesma API do projeto web) e <b style="color:#ef4444">Cibersegurança</b> (fundamentos → web → API → mobile → cloud → ofensivo → defensivo → DevSecOps). Nenhum entra no progresso das 7 fases. Nas matérias de segurança, os botões <b>Base já vista em</b> saltam direto para o card onde o assunto aparece na trilha principal.</p>
       </div>
     </details>
 
@@ -2267,6 +2283,332 @@ var MOBILE=[
        "Design system compartilhado web + mobile via design tokens"]}}
 ];
 
+// CIBERSEGURANÇA — área própria, do básico ao avançado; links cruzados com as outras trilhas
+var SECURITY=[
+   {tag:"Fundamentos", s:"seg-fundamentos", n:"Fundamentos de Segurança & Criptografia", note:"A base de tudo: princípios, modelagem de ameaças e criptografia aplicada. Comece por aqui.",
+    links:[["redes","Redes · TLS, PKI, criptografia, ataques de rede"],["linux","Linux · permissões, sudoers, hardening, SELinux"],["git","Git · segredos no histórico, commits assinados"]], l:{
+    b:["Tríade CIA: confidencialidade, integridade, disponibilidade",
+       "Autenticidade, não-repúdio e rastreabilidade",
+       "Ameaça × vulnerabilidade × risco × exploit × impacto",
+       "Superfície de ataque e vetor de ataque",
+       "Princípio do menor privilégio e separação de deveres",
+       "Defesa em profundidade; fail-safe defaults; secure by default",
+       "Autenticação × autorização × identificação × auditoria",
+       "Fatores de autenticação; MFA; TOTP; WebAuthn/passkeys",
+       "Senhas: hashing com bcrypt/argon2, salt, pepper (nunca cifra reversível)",
+       "Modelagem de ameaças: STRIDE, DFD, abuse cases",
+       "CVE, CWE, CVSS, CAPEC, KEV — como ler e priorizar",
+       "Divulgação responsável, bug bounty, security.txt",
+       "Panorama de ataques: injeção, MITM, phishing, DoS, engenharia social",
+       "Malware: vírus, worm, trojan, ransomware, rootkit, keylogger, botnet",
+       "Segurança física, humana e cultura de segurança (awareness)",
+       "Ética e legalidade: autorização por escrito, escopo, lei brasileira",
+       "Laboratórios legais: TryHackMe, HackTheBox, PortSwigger Academy, DVWA, Juice Shop"],
+    i:["Criptografia simétrica: AES, modos (CBC × GCM), IV/nonce, padding",
+       "Criptografia assimétrica: RSA, curvas elípticas (ECC)",
+       "Troca de chaves: Diffie-Hellman, ECDH, forward secrecy",
+       "Hash: SHA-2/SHA-3, colisão, HMAC, integridade de mensagem",
+       "Assinatura digital, certificados X.509, PKI, cadeia de confiança, CA",
+       "TLS 1.2 × 1.3: handshake, cipher suites, mTLS, ALPN",
+       "Gerência de chaves: rotação, KMS/HSM, envelope encryption",
+       "Criptografia em trânsito × em repouso × em uso",
+       "Erros clássicos: modo ECB, IV reutilizado, comparação não constante",
+       "Aleatoriedade segura (CSPRNG) × geradores previsíveis",
+       "JWT: algoritmos (HS/RS/ES), claims, expiração, o que nunca colocar",
+       "Tokens opacos × auto-contidos; estratégias de revogação",
+       "Sessão: cookie HttpOnly/Secure/SameSite, fixação, timeout, rotação",
+       "Modelos de controle de acesso: RBAC, ABAC, ACL, ReBAC",
+       "Gestão de segredos: variáveis de ambiente, vault, rotação",
+       "Zero Trust: nunca confiar na rede, verificar sempre"],
+    a:["Criptografia pós-quântica (PQC): risco, migração, modo híbrido",
+       "Provas de conhecimento zero e assinaturas cegas (conceito)",
+       "Confidential computing: enclaves, TEE, atestação remota",
+       "Criptografia homomórfica e computação multipartes (visão geral)",
+       "Canais laterais: timing, cache, consumo — e mitigação",
+       "Ataques a implementações: padding oracle, Bleichenbacher, downgrade",
+       "Certificate Transparency; pinning moderno × HPKP (obsoleto)",
+       "Criptografia em dispositivos limitados (mobile, IoT)",
+       "Padrões e normas: FIPS 140, NIST SP 800, RFCs relevantes",
+       "Auditoria criptográfica de um sistema real ponta a ponta"]}},
+   {tag:"AppSec Web", s:"seg-web", n:"Segurança de Aplicações Web (OWASP)", note:"O coração da trilha: atacar e defender exatamente o tipo de app que você constrói nas Fases 2, 4 e 6.",
+    links:[["redes","Redes · HTTP/HTTPS, cookies, sessões, CORS"],["javascript","JavaScript · DOM, eventos, storage (base do XSS)"],["spring","Spring · Security, CSRF, headers, filter chain"],["django","Django · CSRF, auth, DEBUG=False, headers"],["flask","Flask · sessões seguras, Flask-WTF, hashing"],["sql","SQL · prepared statements, permissões, RLS"]], l:{
+    b:["Como um ataque web acontece: onde o atacante entra no request/response",
+       "Ferramentas: DevTools, Burp Suite (proxy), OWASP ZAP, curl, httpie",
+       "Interceptar, modificar e repetir requisições",
+       "OWASP Top 10: panorama das dez categorias",
+       "Injeção de SQL: clássica, UNION, blind, time-based",
+       "Prevenir SQLi: prepared statements/bind, ORM, allowlist, menor privilégio",
+       "XSS: refletido, armazenado e DOM-based",
+       "Prevenir XSS: escaping por contexto, CSP, sanitização (DOMPurify)",
+       "CSRF: mecanismo, token synchronizer × double-submit, SameSite",
+       "Autenticação quebrada: enumeração de usuário, brute force, credential stuffing",
+       "Sessão: roubo de cookie, fixação, logout que não invalida",
+       "Controle de acesso quebrado: IDOR, escalada horizontal e vertical",
+       "Path traversal e leitura arbitrária de arquivo",
+       "Upload de arquivo: validação real de tipo, execução, armazenamento",
+       "Open redirect e suas consequências em fluxos de login",
+       "Exposição de dados sensíveis; mensagem de erro verbosa; stack trace",
+       "Security headers: CSP, HSTS, nosniff, X-Frame-Options, Referrer-Policy",
+       "HTTPS obrigatório, redirect, cookies com flags corretas"],
+    i:["SSRF: interno, cloud metadata (169.254.169.254), prevenção por allowlist",
+       "XXE: entidades externas, prevenção desabilitando DTD",
+       "Deserialização insegura e cadeias de gadgets (conceito)",
+       "Injeção de comando no SO; SSTI (template injection)",
+       "Injeção em NoSQL, LDAP, XPath e cabeçalhos",
+       "Race condition em web (TOCTOU): duplo resgate, saldo negativo",
+       "Falhas de lógica de negócio: pular etapa, preço negativo, cupom infinito",
+       "CORS: configurar sem abrir brecha; erros comuns com credentials",
+       "Clickjacking, tabnabbing e UI redressing",
+       "WebSocket: autenticação, validação de origem, injeção",
+       "Rate limiting, CAPTCHA e defesa contra automação",
+       "Cache poisoning e cache deception",
+       "HTTP request smuggling (conceito e impacto)",
+       "Prototype pollution e dependency confusion no front-end",
+       "Subdomain takeover e higiene de DNS",
+       "Cookies: prefixos __Host-/__Secure-, escopo, particionamento",
+       "Autenticação sem senha: passkeys/WebAuthn na prática",
+       "OWASP WSTG: usar o guia de testes como checklist"],
+    a:["WAF: como funciona, técnicas de bypass, por que não substitui código seguro",
+       "Encadear vulnerabilidades: XSS + CSRF + IDOR até takeover",
+       "Bypass de CSP mal configurada e de sanitizadores",
+       "Falhas em OAuth2/OIDC: redirect_uri, state, mix-up, implicit flow",
+       "SAML e SSO: assinatura, XML signature wrapping",
+       "Multi-tenant: isolamento de dados e vazamento entre inquilinos",
+       "GraphQL: introspection, batching abuse, complexidade e DoS",
+       "SSRF escalando para RCE e para credencial de nuvem",
+       "Supply chain no front: CDN comprometido, integridade (SRI)",
+       "Bug bounty: metodologia de recon, escopo, prova de conceito, relatório",
+       "Automação própria: nuclei, templates, scripts de regressão",
+       "Threat modeling da sua aplicação real e correção priorizada",
+       "Hardening ponta a ponta do seu projeto web (Fases 2/4/6)"]}},
+   {tag:"APIs & Identidade", s:"seg-api", n:"Segurança de APIs & Identidade", note:"API tem superfície diferente de site: autorização por objeto, tokens e identidade federada.",
+    links:[["spring","Spring · Security, JWT, OAuth2, @PreAuthorize"],["django","Django · DRF auth, permissions, throttling"],["flask","Flask · JWT, RBAC, rate limiting"],["seg-web","AppSec Web · injeções e controle de acesso"],["kubernetes","Kubernetes · RBAC, secrets, NetworkPolicy"]], l:{
+    b:["Por que a superfície de uma API difere de um site tradicional",
+       "OWASP API Security Top 10: panorama",
+       "BOLA/IDOR em API: autorização no nível do objeto",
+       "Autenticação quebrada em API; chave de API × token de usuário",
+       "Exposição excessiva de dados na resposta (over-fetching)",
+       "Ausência de rate limit e cotas; abuso de recurso e custo",
+       "BFLA: autorização no nível da função/endpoint",
+       "Mass assignment: aceitar campos que não deveria",
+       "Configuração incorreta: verbos abertos, CORS permissivo, debug ligado",
+       "Inventário: shadow APIs, zombie APIs, versões antigas expostas",
+       "Documentação (OpenAPI): útil para o time, mapa para o atacante",
+       "Validação de entrada em toda borda: tipo, tamanho, formato, limite"],
+    i:["OAuth2 na prática: authorization code + PKCE, client credentials, refresh",
+       "OIDC: id_token, claims, discovery, scopes × permissões reais",
+       "JWT em produção: alg confusion, kid injection, expiração, revogação",
+       "Sessão stateless × stateful em API; lista de bloqueio de token",
+       "mTLS e autenticação entre serviços (service-to-service)",
+       "API Gateway: authn, rate limit, quotas, WAF na borda",
+       "Assinatura de requisição (HMAC), anti-replay com nonce e timestamp",
+       "Idempotência e proteção contra reenvio de operação",
+       "Webhooks: verificar assinatura, evitar replay e SSRF de saída",
+       "Injeção via parâmetro de ordenação, filtro e paginação",
+       "Logs de API sem PII; trilha de auditoria de acesso",
+       "Testar API: Burp, Postman, fuzzing, schemathesis, contract testing"],
+    a:["Zero Trust entre microsserviços; identidade de workload (SPIFFE/SPIRE)",
+       "Service mesh com mTLS automático e política de tráfego",
+       "Autorização centralizada: OPA/Rego, Cedar — policy as code",
+       "Multi-tenant em API: chave de tenant, isolamento, testes de vazamento",
+       "Rate limit distribuído, detecção de bot e de abuso",
+       "GraphQL e gRPC: autorização por campo, profundidade, custo de query",
+       "Credenciais de curta duração, rotação e federação de identidade",
+       "Ataques a fluxos OAuth em SPA e mobile; app-to-app e deep link",
+       "Threat modeling da sua API e plano de correção",
+       "Testes de segurança automatizados como regressão no CI"]}},
+   {tag:"Mobile", s:"seg-mobile", n:"Segurança Mobile (OWASP MASVS)", note:"No mobile o app roda no device do atacante — muda tudo. Depende da Trilha Mobile.",
+    links:[["mobile-fundamentos","Fundamentos Mobile · MASVS, Keystore/Keychain, pinning"],["kotlin-android","Kotlin & Android · EncryptedPrefs, R8, Play Integrity"],["swift-ios","Swift & iOS · Keychain, ATS, App Attest"],["dart-flutter","Flutter · obfuscação, secure storage"],["mobile-integracao","Integração · JWT, PKCE, attestation"]], l:{
+    b:["Por que mobile é diferente: o binário está nas mãos do atacante",
+       "OWASP MASVS e MASTG: níveis de verificação e guia de testes",
+       "Modelo de permissões e sandbox do app (Android e iOS)",
+       "Armazenamento inseguro: SharedPreferences/UserDefaults em texto claro",
+       "Armazenamento seguro: Keystore (Android) e Keychain (iOS)",
+       "Segredo embutido no app é segredo vazado — sempre",
+       "Comunicação: HTTPS obrigatório, ATS (iOS), Network Security Config (Android)",
+       "Certificate pinning: quando usar, como, e o risco operacional",
+       "Vazamento por log, screenshot, clipboard e backup do dispositivo",
+       "Biometria feita direito (não como simples porta de entrada)",
+       "Deep link malicioso; validar App Links e Universal Links",
+       "WebView: bridge JS, conteúdo remoto, execução arbitrária",
+       "Root/jailbreak: detectar ajuda, mas não é barreira"],
+    i:["Reverse engineering Android: APK, apktool, jadx, smali",
+       "Reverse engineering iOS: IPA, class-dump, Ghidra/Hopper (visão geral)",
+       "Instrumentação dinâmica com Frida e Objection: hooking em runtime",
+       "Bypass de pinning e de detecção de root na prática",
+       "Interceptar tráfego do app: proxy, instalar CA, contornar proteções",
+       "Obfuscação: R8/ProGuard, Flutter e Swift — o que realmente protege",
+       "Anti-tamper, checagem de assinatura e integridade do app",
+       "Attestation: Play Integrity API e App Attest (iOS)",
+       "IPC no Android: intents, broadcast receivers, content providers expostos",
+       "Componentes exportados, deep link hijacking, task hijacking",
+       "Criptografia local correta; chave derivada de credencial do usuário",
+       "Análise estática automatizada com MobSF",
+       "Rodar o checklist do MASTG no seu próprio app"],
+    a:["Exploração de bibliotecas nativas (NDK/C): memória e fuzzing",
+       "Keystore com respaldo em hardware: TEE, StrongBox, Secure Enclave",
+       "Man-in-the-app, instrumentação avançada e RASP",
+       "Canais laterais no device: clipboard, acessibilidade abusada, notificação",
+       "Malware mobile: vetores, sideload, distribuição fora da loja",
+       "Supply chain mobile: SDK de terceiros, trackers, dependência maliciosa",
+       "Privacidade: ATT (iOS), privacy manifest, coleta mínima, LGPD",
+       "Especificidades de Flutter: onde ficam strings e snapshot do Dart",
+       "Segurança em código compartilhado (KMP) entre plataformas",
+       "Hardening do seu app ponta a ponta e relatório de segurança"]}},
+   {tag:"Infra & Cloud", s:"seg-infra", n:"Infra, Containers & Cloud Security", note:"Proteger o que roda a aplicação: SO, container, cluster e nuvem. Depende de Linux, Docker, K8s e da Fase 7.",
+    links:[["linux","Linux · permissões, sudoers, SSH, firewall, SELinux"],["redes","Redes · firewall, VPN, segmentação, TLS"],["docker","Docker · non-root, scan, distroless, capabilities"],["kubernetes","Kubernetes · RBAC, NetworkPolicy, secrets, PSA"],["terraform","Terraform · state com segredo, políticas, drift"],["gcp","GCP · IAM, org policies, VPC Service Controls"],["aws","AWS · IAM, security groups, KMS, GuardDuty"],["observabilidade","Observabilidade · logs, métricas, alertas"]], l:{
+    b:["Hardening de Linux: contas, sudoers, SSH por chave, fail2ban",
+       "Reduzir superfície: portas abertas, serviços desnecessários, banners",
+       "Firewall na prática: nftables/ufw e security groups na nuvem",
+       "Patching e gestão de vulnerabilidade do sistema",
+       "Segmentação: VLAN, VPC, sub-redes, DMZ, host bastião",
+       "IAM com menor privilégio: usuário, grupo, role, policy",
+       "MFA nas contas de nuvem; proteger a conta root/owner",
+       "Segredos: variável de ambiente × vault; nunca no repositório",
+       "Backup, retenção e — o mais importante — teste de restauração",
+       "Logs centralizados, integridade e tempo de retenção",
+       "Docker: rodar como não-root, imagem mínima, .dockerignore",
+       "Docker: capabilities, filesystem read-only, nunca --privileged",
+       "Scan de imagem (Trivy/Grype) e escolha de imagem base confiável",
+       "Hardening de banco de dados: usuário mínimo, TLS, backup cifrado"],
+    i:["Kubernetes: RBAC, ServiceAccount, namespaces como fronteira",
+       "NetworkPolicy: negar por padrão e liberar o necessário",
+       "Pod Security Standards/Admission; securityContext correto",
+       "Secrets no K8s: limite do base64, External Secrets, sealed-secrets",
+       "Admission controllers: OPA Gatekeeper, Kyverno (policy as code)",
+       "Supply chain de imagem: assinatura (cosign/sigstore), SBOM, provenance",
+       "IaC security: segredo no state, tfsec/checkov, módulo confiável",
+       "IAM avançado: role assumida, permissão excessiva, escalada de privilégio",
+       "Serviço de metadados: IMDSv2 e roubo de credencial via SSRF",
+       "Storage exposto: bucket público, ACL, URL pré-assinada",
+       "Criptografia gerenciada: KMS, chave gerenciada pelo cliente (CMEK)",
+       "Borda: WAF, proteção DDoS, CDN como camada de segurança",
+       "Serviços de detecção na nuvem: GuardDuty, Security Command Center"],
+    a:["Container escape: docker.sock, capabilities, cgroups, kernel",
+       "Runtime security com eBPF: Falco, detecção comportamental",
+       "Service mesh com mTLS obrigatório; zero trust de rede",
+       "Multi-conta/organização: SCP, landing zone, guardrails",
+       "Rotação automática de segredo e workload identity federation",
+       "CSPM: detecção de drift e enforcement contínuo de postura",
+       "Threat modeling de infraestrutura e cálculo de blast radius",
+       "Resposta a incidente na nuvem: isolar, snapshot, forense",
+       "Compliance como código e evidência automatizada",
+       "Hardening completo do deploy do seu projeto (Fase 7)"]}},
+   {tag:"Ofensivo", s:"seg-ofensivo", n:"Ofensivo — Pentest & Red Team", note:"Sempre com autorização por escrito e escopo definido. Exige Linux, Redes e Python.",
+    links:[["linux","Linux · shell, permissões, processos, scripting"],["redes","Redes · nmap, portas, protocolos, ferramentas"],["python","Python · automatizar, scripts, requests/httpx"],["seg-web","AppSec Web · vulnerabilidades para explorar"],["seg-infra","Infra & Cloud · alvos de escalada e pivot"]], l:{
+    b:["Ética e legalidade: contrato, escopo, autorização, NDA — sem exceção",
+       "Tipos de avaliação: black/grey/white box; pentest × red team × bug bounty",
+       "Metodologias: PTES, OSSTMM, OWASP WSTG, MITRE ATT&CK",
+       "Fases: recon → enumeração → exploração → post-exploitation → relatório",
+       "Laboratório isolado: Kali/Parrot, VM, snapshot, rede host-only",
+       "Recon passivo: OSINT, dorking, whois, DNS, certificados, vazamentos",
+       "Recon ativo: nmap (descoberta, portas, versão, scripts NSE)",
+       "Enumeração de serviços: HTTP, SMB, SSH, FTP, SNMP, bancos",
+       "Enumeração web: diretórios (ffuf/gobuster), subdomínios, fingerprint",
+       "Scanners (Nessus/OpenVAS/nuclei) e seus limites reais",
+       "Metasploit: módulos, payloads, meterpreter — uso básico",
+       "Ataque a senhas: hashcat/John, wordlists, spraying × brute force",
+       "Netcat, reverse shell × bind shell, estabilizar e melhorar o shell"],
+    i:["Explorar web na prática: SQLi, XSS, SSRF e upload até obter shell",
+       "sqlmap com responsabilidade; automatizar sem derrubar o alvo",
+       "Escalada no Linux: SUID, sudo, cron, capabilities, GTFOBins, kernel",
+       "Escalada no Windows: serviços, tokens, UAC, credenciais salvas",
+       "Active Directory: enumeração (BloodHound), Kerberoasting, pass-the-hash",
+       "Pivoting e tunelamento: SSH, chisel, proxychains, port forward",
+       "Post-exploitation: persistência, coleta de credencial, movimento lateral",
+       "Wireless em laboratório próprio: WPA2 handshake, evil twin",
+       "Engenharia social: phishing controlado, pretexto, métricas de awareness",
+       "Payloads e noções de evasão de AV/EDR em contexto autorizado",
+       "Escrever exploit simples em Python; adaptar PoC público com segurança",
+       "Relatório: risco, impacto, evidência, correção, sumário executivo",
+       "Retest: validar a correção e fechar o ciclo"],
+    a:["Desenvolvimento de exploit: buffer overflow, shellcode, ROP (introdução)",
+       "Fuzzing: AFL++, boofuzz; caminho para descobrir falha inédita",
+       "Engenharia reversa e análise binária: Ghidra, gdb/pwndbg",
+       "Evasão avançada de EDR; living-off-the-land binaries",
+       "Infraestrutura de C2 em engajamento autorizado; opsec do operador",
+       "Red team: emulação de adversário por TTPs (ATT&CK); purple team",
+       "Pentest de nuvem: IAM, metadata, container, serverless",
+       "Pentest de API e de mobile integrados ao engajamento",
+       "Assumed breach: objetivos de negócio e detecção como métrica",
+       "CTF avançado e certificações (OSCP, PNPT, CRTP): o que cada uma cobre"]}},
+   {tag:"Defensivo", s:"seg-defensivo", n:"Defensivo — Detecção, SOC & Resposta", note:"O outro lado: instrumentar, detectar, caçar e responder. Casa direto com Observabilidade da Fase 7.",
+    links:[["observabilidade","Observabilidade · logs, métricas, traces, alertas"],["linux","Linux · journald, /var/log, auditoria, processos"],["redes","Redes · tcpdump, Wireshark, IDS/IPS, tráfego"],["kubernetes","Kubernetes · logs do cluster, RBAC, auditoria"],["seg-ofensivo","Ofensivo · o que você precisa detectar"]], l:{
+    b:["Blue team: papéis, SOC, níveis N1/N2/N3, fluxo de trabalho",
+       "O que logar: autenticação, autorização, mudança, erro, acesso a dado",
+       "Log seguro: sem PII/segredo, íntegro, centralizado, com retenção",
+       "Fontes de telemetria: SO, rede, aplicação, nuvem, endpoint",
+       "SIEM: ingestão, normalização, correlação, alerta",
+       "IDS/IPS: assinatura × anomalia; Suricata, Snort, Zeek",
+       "EDR/XDR: telemetria de endpoint e o que realmente detecta",
+       "Baseline de normalidade e detecção de anomalia",
+       "Alerta útil × ruído; falso positivo e fadiga de alerta",
+       "MITRE ATT&CK como mapa de cobertura de detecção",
+       "Prevenção por configuração: CIS Benchmarks, hardening",
+       "Antivírus, allowlisting de aplicação, controle de dispositivo"],
+    i:["Escrever regras de detecção: Sigma, YARA, KQL/SPL",
+       "Threat hunting: hipótese → dados → pivot → validação",
+       "Analisar log real: brute force, enumeração, exfiltração",
+       "Detectar ataque web/API no log: payload, taxa, user-agent, status",
+       "Análise de tráfego: Wireshark, beaconing de C2, DNS tunneling",
+       "Resposta a incidente (NIST 800-61): preparação → lições aprendidas",
+       "Contenção, erradicação, recuperação; comunicação com stakeholders",
+       "Forense básica: cadeia de custódia, imagem de disco, memória (Volatility)",
+       "Artefatos e timeline: persistência, execução, IOC",
+       "Threat intelligence: IOC, TTP, feeds; cuidado com atribuição",
+       "Deception: honeypot, canary token, dado falso como armadilha",
+       "Gestão de vulnerabilidade: scan, priorização por contexto, SLA",
+       "Tabletop exercise; playbooks e runbooks de resposta"],
+    a:["Detection engineering como produto: cobertura, teste, versionamento",
+       "Detection-as-code: CI de regras e validação contínua",
+       "Simular ataque para validar detecção: Atomic Red Team, Caldera",
+       "SOAR: automação e orquestração de resposta",
+       "Forense avançada: memória, anti-forense, cloud e container forensics",
+       "DFIR em escala: coleta remota e triagem massiva",
+       "Ransomware: prevenção, detecção precoce, recuperação, decisão",
+       "Ameaça interna (insider), UEBA e DLP",
+       "Métricas que importam: MTTD, MTTR, dwell time, cobertura ATT&CK",
+       "Postmortem sem culpa e ciclo de melhoria contínua"]}},
+   {tag:"DevSecOps & GRC", s:"seg-devsecops", n:"DevSecOps, Supply Chain & Governança", note:"Fechamento: colocar segurança no processo, na cadeia de dependências e na governança.",
+    links:[["git","Git & Actions · CI/CD, secrets, branch protection, commits assinados"],["docker","Docker · scan de imagem, assinatura, imagem mínima"],["terraform","Terraform · IaC scanning, políticas"],["kubernetes","Kubernetes · admission, policy as code"],["design-patterns","Design Patterns · SOLID e design defensivo"]], l:{
+    b:["Secure SDLC: segurança em cada etapa, não como etapa final",
+       "Shift left: custo de corrigir cresce por fase",
+       "Requisitos de segurança e critérios de aceite por história",
+       "Code review com olhar de segurança; checklist prático",
+       "Segredo no Git: por que é grave, histórico, rotação obrigatória",
+       "Secrets scanning: gitleaks, trufflehog, GitHub secret scanning",
+       "SAST: como funciona, onde falha, lidar com falso positivo",
+       "SCA: dependência vulnerável, CVE, política de atualização",
+       "DAST: varrer a aplicação em execução",
+       "Dependabot/Renovate e disciplina de atualização",
+       "Pipeline seguro: permissão mínima do runner, segredos do CI",
+       "Branch protection, required checks, CODEOWNERS, commits assinados",
+       "Ambiente de teste com dado sintético — nunca dado de produção"],
+    i:["Integrar SAST/SCA/DAST no CI com gate e exceção controlada",
+       "IaC scanning e container scanning dentro do pipeline",
+       "SBOM: gerar (CycloneDX/SPDX), consumir e monitorar continuamente",
+       "Supply chain: SLSA, provenance, assinatura (cosign), build reproduzível",
+       "Dependency confusion, typosquatting, pacote malicioso",
+       "Ataque via CI/CD: pull_request_target, injeção em workflow, cache",
+       "Gestão de vulnerabilidade do produto: triagem, priorização, SLA",
+       "Security champions e treinamento contínuo do time de dev",
+       "Threat modeling recorrente por feature, não só no início",
+       "Testes automatizados de segurança como regressão",
+       "Política de divulgação, security.txt e canal de report",
+       "Privacidade por design e minimização de dados"],
+    a:["Frameworks de governança: ISO 27001, SOC 2, NIST CSF, CIS Controls",
+       "LGPD/GDPR na prática: base legal, DPIA, direitos, notificação de incidente",
+       "PCI-DSS (cartão) e panorama de HIPAA",
+       "Gestão de risco: apetite, registro, tratamento, aceite formal",
+       "Política, norma e procedimento; programa de awareness",
+       "Terceiros: due diligence, cláusula contratual, questionário de segurança",
+       "Continuidade: BIA, RTO/RPO, plano de DR e teste real",
+       "Arquitetura de segurança e revisão formal de design",
+       "Métricas e comunicação com liderança; orçamento de segurança",
+       "Certificações e carreira: Security+, CISSP, CCSP, OSCP, CEH",
+       "Construir um programa de AppSec do zero em uma empresa"]}}
+];
+
 // progresso salvo (com migração automática de versões anteriores)
 var NEW_KEY='trilha_conhecimento_v3';
 var OLD_KEY='trilha_conhecimento_v2';
@@ -2395,7 +2737,7 @@ PHASES.forEach(function(ph){
 });
 // PLUS e Mobile entram em TOT (para a barra de cada matéria funcionar) mas NÃO em TOTAL:
 // são trilhas paralelas e não devem diluir o progresso das 7 fases.
-var PLUS_TOTAL=0,MOBILE_TOTAL=0,PLUS_SLUGS={};
+var PLUS_TOTAL=0,MOBILE_TOTAL=0,SEC_TOTAL=0,PLUS_SLUGS={};
 function tallyExtra(arr){
   var tot=0;
   arr.forEach(function(tech){
@@ -2406,6 +2748,7 @@ function tallyExtra(arr){
 }
 PLUS_TOTAL=tallyExtra(PLUS);
 MOBILE_TOTAL=tallyExtra(MOBILE);
+SEC_TOTAL=tallyExtra(SECURITY);
 
 function esc(s){return s.replace(/[&<>]/g,function(c){return({'&':'&amp;','<':'&lt;','>':'&gt;'})[c];});}
 function hl(s,query){var e=esc(s);if(!query)return e;try{var rx=new RegExp('('+query.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig');return e.replace(rx,'<mark>$1</mark>');}catch(_){return e;}}
@@ -2441,6 +2784,13 @@ PHASES.forEach(function(ph,pi){
     if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
   });
   pnav.appendChild(ob);
+  var sb=document.createElement('button');sb.className='pnavchip';sb.type='button';sb.textContent='🛡 Segurança';
+  sb.style.borderColor='#ef4444';sb.style.color='#ef4444';
+  sb.addEventListener('click',function(){
+    var el=document.getElementById('sec-anchor');
+    if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  pnav.appendChild(sb);
   var mb=document.createElement('button');mb.className='pnavchip';mb.type='button';mb.textContent='🏁 Marcos';
   mb.addEventListener('click',function(){
     var el=document.getElementById('milestones');
@@ -2553,12 +2903,35 @@ function buildTechCard(tech,pid){
     levelsHTML+='<div class="lvl '+p[0]+'" data-lvl="'+p[0]+'"><span class="badge">'+LVICON[p[0]]+p[1]+'</span><ul class="items">'+lis+'</ul></div>';
   });
   var noteHTML=tech.note?'<span class="tnote">'+esc(tech.note)+'</span>':'';
+  var xlinksHTML='';
+  if(tech.links&&tech.links.length){
+    xlinksHTML='<div class="xlinks"><span class="xlbl">Base já vista em</span>'+
+      tech.links.map(function(lk){
+        return '<button type="button" class="xlink" data-target="'+esc(lk[0])+'">'+esc(lk[1])+'</button>';
+      }).join('')+'</div>';
+  }
   d.innerHTML='<summary><span class="chev">▶</span><span class="tname">'+esc(tech.n)+noteHTML+'</span>'+
     '<span class="summbar"><span class="barmini"><i id="bar-'+tech.s+'"></i></span></span>'+
     '<span class="tcount num" id="tcount-'+tech.s+'">0/'+TOT[tech.s]+'</span></summary>'+
-    '<div class="levels">'+levelsHTML+'</div>';
+    xlinksHTML+'<div class="levels">'+levelsHTML+'</div>';
   return d;
 }
+
+// clique num link cruzado: abre a matéria de destino, rola até ela e destaca
+document.addEventListener('click',function(e){
+  var btn=e.target&&e.target.closest?e.target.closest('.xlink'):null;
+  if(!btn)return;
+  var tgt=document.querySelector('details.tech[data-slug="'+btn.dataset.target+'"]');
+  if(!tgt)return;
+  // se a busca estiver escondendo o destino, limpa o filtro antes de navegar
+  if(tgt.style.display==='none'||tgt.offsetParent===null){q.value='';applyFilter();}
+  tgt.open=true;
+  tgt.scrollIntoView({behavior:'smooth',block:'center'});
+  tgt.classList.remove('flash');
+  void tgt.offsetWidth;
+  tgt.classList.add('flash');
+  setTimeout(function(){tgt.classList.remove('flash');},1600);
+});
 
 // blocos paralelos (PLUS e Mobile) — fora do cronograma; progresso próprio, não entram no total geral
 var TRACKS=[
@@ -2582,7 +2955,21 @@ var TRACKS=[
     'offline/sync, push, testes e <b>publicação nas lojas</b>. Também fora do cronograma e do progresso das 7 fases.',
   note:'Sugestão: comece por Fundamentos Mobile, escolha UMA stack para ir a fundo (Kotlin/Android se quer nativo Android; '+
     'Flutter se quer as duas lojas com um só código; Swift exige Mac), faça a matéria de Integração e leve um app até a loja. '+
-    'Só então abra a segunda stack — aprender as três em paralelo dispersa.'}
+    'Só então abra a segunda stack — aprender as três em paralelo dispersa.'},
+ {id:"sec", data:SECURITY, total:SEC_TOTAL,
+  accent:"#ef4444", accent2:"#b91c1c", soft:"#ef44442e",
+  divider:"área própria · cibersegurança",
+  kicker:"Cibersegurança · fora do cronograma",
+  title:"Cibersegurança — do zero ao avançado, ofensivo e defensivo",
+  desc:'Área completa em oito matérias, na ordem que rende mais aprendizado: <b>fundamentos e criptografia</b> → '+
+    '<b>aplicações web (OWASP)</b> → <b>APIs e identidade</b> → <b>mobile (MASVS)</b> → <b>infra, containers e cloud</b> → '+
+    '<b>ofensivo (pentest)</b> → <b>defensivo (SOC e resposta a incidentes)</b> → <b>DevSecOps e governança</b>. '+
+    'Onde a base já aparece em outra trilha (Linux, Redes, Spring, Docker, K8s, Mobile…), cada matéria traz o link direto — '+
+    'clique em <b>Base já vista em</b> para saltar até o card.',
+  note:'Por que nesta ordem: fundamentos sustentam tudo; web e API vêm antes porque é onde você já programa e o retorno é '+
+    'imediato nos seus projetos; mobile depende da Trilha Mobile; infra/cloud pede Linux, Docker e K8s; ofensivo e defensivo '+
+    'exigem entender o que foi construído; DevSecOps e governança fecham, levando segurança para o processo. '+
+    'Regra inviolável no ofensivo: só teste o que você tem autorização por escrito para testar.'}
 ];
 TRACKS.forEach(function(cfg){
   var div=document.createElement('div');div.className='plusdivider';
